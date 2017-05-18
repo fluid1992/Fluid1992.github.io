@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="css/mui.css"/>
+    <link rel="stylesheet" type="text/css" href="css/iconfont.css"/>
+    <style type="text/css">
+    	.mui-segmented-control .mui-control-item,
+    	.mui-segmented-control{
+    		border: none;
+    	}
+    	.mui-segmented-control,
+    	.mui-segmented-control .mui-control-item.mui-active{
+    		background: #E1741F;
+    	}
+    	.mui-segmented-control .mui-control-item{
+    		padding-top:10px ;
+    	}
+    	.mui-control-item .iconfont{
+    		
+    		color: white;
+    		font-size: 26px;
+    	}
+    	.mui-control-item p{
+    		margin: 0;
+    		margin-top: -20px;
+    		padding-bottom:5px ;
+    		color: white;
+    	}
+    	.mui-segmented-control .mui-control-item.mui-active {
+    		border-bottom:4px solid white;
+    	}
+    	/*.mui-table-view .mui-table-view-cell{
+    		height: 70px;
+    	}*/
+    	
+    	
+    	.mui-media-body .bigNum{
+    		
+    		font-size:50px ;
+    		color: #E1741F;
+    	}
+    	.mui-table-view{
+    		padding-top:10px ;
+    	}
+    	.mui-table-view .mui-media .mui-media-body  ul{
+    		
+    		list-style: none;
+    		padding: 0;
+    	}
+    	.mui-table-view .mui-media .mui-media-body  ul li{
+    		display: inline-block;
+    		font-size: 12px;
+    		padding: 5px 2px;
+    	}
+    	.mui-switch{
+    		position: absolute;
+    		right: 15px;
+    		top: 50%;
+    		margin-top: -30px;
+    	}
+    	
+    	.mui-switch-mini{
+    		width: 80px;
+    	}
+    	.mui-switch .mui-switch-handle{
+    		width: 24px;
+    		height: 24px;
+    		background-color: #CCCCCC;
+    		top: 2px;
+    	}
+    	.mui-switch-mini.mui-active .mui-switch-handle{
+    		/*box-shadow: 1px 1px 2px 2px #E1741F;*/
+    		
+    		background-color: #E1741F;
+    	}
+    	.mui-switch.mui-active{
+    		border: none;
+    		background: none;
+    		box-shadow: 1px 1px 2px 2px #E1741F;
+    	}
+    	.mui-table-view-cell p{
+    		margin-top:20px ;
+    	}
+    	.mui-table-view-cell p .minNum{
+    		color: black;
+    		padding-left:10px ;
+    		font-size: 16px;
+    	}
+    	.bottom{
+    		width: 100px;
+    		height: 100px;
+    		border-radius: 50px;
+    		background: #E1741F;
+    		position: fixed;
+    		bottom: 0px;
+    		left: 50%;
+    		margin-left:-50px ;
+    	}
+    	.bottom i{
+    		position: absolute;
+    		left: 35px;
+    		top: 42px;
+    		font-size: 30px;
+    		color: white;
+    	}
+    </style>
+</head>
+<body>
+    <div class="mui-segmented-control">
+        <a class="mui-control-item mui-active" href="#item1"> 
+        	<i class="iconfont icon-naozhong"></i>
+        	<p>alarm clock</p> </a>
+        <a class="mui-control-item" href="#item2">
+        	<i class="iconfont icon-timer-sand-empty"></i>
+        	<p>timer</p>	</a>
+        <a class="mui-control-item" href="#item3">
+        	<i class="iconfont icon-world"></i>
+        	<p>world time</p>	</a>
+        <a class="mui-control-item" href="#item4">
+        	<i class="iconfont icon-stopwatch"></i>
+       		 <p>stopwatch</p>	</a>
+    </div>
+    <ul class="mui-table-view">
+        <li class="mui-table-view-cell mui-media">
+            <a href="javascript:;">
+                 <div class="mui-media-body">
+                 	<div class="mui-switch mui-switch-mini mui-active">
+                 	<div class="mui-switch-handle"></div>
+                 </div>
+             	<p> 
+             		<span class="bigNum">06:15</span>
+        			<span class="minNum">get up</span>
+             	</p>
+        			
+                	<ul>
+                		<li>Mon</li>
+                		<li>Tue</li>
+                		<li>Wed</li>
+                		<li>Thu</li>
+                		<li>Fri</li>
+                		<li class="mui-pull-right">5 hours 10minutes bell</li>
+                	</ul>
+                </div>
+            </a>
+        </li>
+        <li class="mui-table-view-cell mui-media">
+            <a href="javascript:;">
+                 <div class="mui-media-body">
+                 	<div class="mui-switch mui-switch-mini mui-active">
+                 	<div class="mui-switch-handle"></div>
+                 </div>
+             	<p> 
+             		<span class="bigNum">06:30</span>
+        			<span class="minNum">breakfast</span>
+             	</p>
+        			
+                	<ul>
+                		<li>Mon</li>
+                		<li>Tue</li>
+                		<li>Wed</li>
+                		<li>Thu</li>
+                		<li>Fri</li>
+                		<li class="mui-pull-right">5 hours 10minutes bell</li>
+                	</ul>
+                </div>
+            </a>
+        </li>
+         <li class="mui-table-view-cell mui-media">
+            <a href="javascript:;">
+                 <div class="mui-media-body">
+                 	<div class="mui-switch mui-switch-mini mui-active">
+                 	<div class="mui-switch-handle"></div>
+                 </div>
+             	<p> 
+             		<span class="bigNum">06:15</span>
+        			<span class="minNum">get up</span>
+             	</p>
+        			
+                	<ul>
+                		<li>Mon</li>
+                		<li>Tue</li>
+                		<li>Wed</li>
+                		<li>Thu</li>
+                		<li>Fri</li>
+                		<li class="mui-pull-right">5 hours 10minutes bell</li>
+                	</ul>
+                </div>
+            </a>
+        </li>
+         <li class="mui-table-view-cell mui-media">
+            <a href="javascript:;">
+                 <div class="mui-media-body">
+                 	<div class="mui-switch mui-switch-mini mui-active">
+                 	<div class="mui-switch-handle"></div>
+                 </div>
+             	<p> 
+             		<span class="bigNum">06:30</span>
+        			<span class="minNum">breakfast</span>
+             	</p>
+        			
+                	<ul>
+                		<li>Mon</li>
+                		<li>Tue</li>
+                		<li>Wed</li>
+                		<li>Thu</li>
+                		<li>Fri</li>
+                		<li class="mui-pull-right">5 hours 10minutes bell</li>
+                	</ul>
+                </div>
+            </a>
+        </li>
+    </ul>
+    <div class="bottom">
+    	<i class="iconfont icon-5"></i>
+    </div>
+</body>
+    <script src="js/mui.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+    mui.init()
+    </script>
+</html>

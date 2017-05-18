@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="css/mui.css"/>
+    <link rel="stylesheet" type="text/css" href="css/iconfont.css"/>
+    <style type="text/css">
+    	.mui-bar.mui-bar-nav{
+    		background: #FF5100;
+    	}
+    	.mui-col-xs-6{
+    		width: 100%;
+    	}
+    	.mui-icon-back:before, .mui-icon-left-nav:before{
+    		color: white;
+    	}
+    	.mui-title{
+    		color: white;
+    	}
+    	.mui-table-view.mui-grid-view,
+    	.mui-bar-nav ~ .mui-content{
+    		padding: 0px;
+    	}
+    	.mui-table-view.mui-grid-view .mui-table-view-cell > a:not(.mui-btn),
+    	.mui-table-view.mui-grid-view .mui-table-view-cell{
+    		padding: 0;
+    		margin: 0px;
+    	}
+    	.mui-table-view-cell .RmbList{
+    		float: left;
+    		color: #AF6633;
+    	}
+    	.mui-table-view-cell .numList{
+    		float: right;
+    	}
+    	.mui-btn-blue{
+    		background: #F26D5E;
+    		border: none;
+    		/*padding: 5px;*/
+    	}
+    	.mui-btn-blue.Butmove{
+    		right:120px;
+    	}
+    	.mui-table-view-cell.jiakuan{
+    		padding: 15px 0px;
+    	}
+    	input[type='button'], input[type='submit'], input[type='reset'], button, .mui-btn {
+    		padding: 5px 10px;
+    		border-radius:5px ;
+    	}
+    	
+    	.mui-table-view-cell.dizhi{
+    		
+    	}
+    	.mui-table-view-cell .dianjiaEnd{
+    		float: right;
+    		color: #E48045;
+    	}
+    	.m-top{
+    		margin-top:10px ;
+    	}
+    	
+    	.mui-media-body{
+    		font-size: 16px;
+    		font-weight: 700;
+    		padding-left:20px ;
+    		color: #EAB663;
+    	}
+    	.mui-ellipsis{
+    		font-weight:normal;
+    		padding-top:10px ;
+    		padding-left:30px ;
+    	}
+    	.ThisUl{
+    		font-weight:normal ;
+    		color: #7A7A7A;
+    		font-size: 14px;
+    	}
+    	.ThisUl li{
+    		padding: 5px 0px;
+    	}
+    	.mui-table-view.none-way:before,
+    	.mui-table-view.none-way:after,
+    	.mui-table-view-cell.none-way:after,
+    	.mui-table-view-cell.none-way:after{
+    		height: 0px;
+    	}
+    	.mui-numbox{
+    		width: 90px;
+    		height: 30px;
+    		padding: 0px 30px;
+    	}
+    	.mui-numbox [class*=btn-numbox]{
+    		width: 30px;
+    	}
+    </style>
+</head>
+<body>
+    <header class="mui-bar mui-bar-nav">
+        <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+        <h1 class="mui-title">商品详情</h1>
+    </header>
+    <div class="mui-content">
+        <ul class="mui-table-view mui-grid-view none-way">
+            <li class="mui-table-view-cell mui-media mui-col-xs-6">
+                <a href="#">
+                    <img class="mui-media-object" src="img/tx4.jpg">
+                </a>
+            </li>
+        </ul>
+        <ul class="mui-table-view none-way">
+                <li class="mui-table-view-cell">
+                    <span class="RmbList">60元 </span>
+                    
+                    <span class="numList">数量：
+                    	<div class="mui-numbox" data-numbox-step='1' data-numbox-min='0' data-numbox-max='10'>
+	                        <button class="mui-btn mui-btn-numbox-minus" type="button">-</button>
+	                        <input class="mui-input-numbox" type="number" />
+	                        <button class="mui-btn mui-btn-numbox-plus" type="button">+</button>
+                   		 </div>	
+                    </span>
+                </li>
+        </ul>
+        <ul class="mui-table-view none-way">
+                <li class="mui-table-view-cell jiakuan">
+                	&nbsp;
+                    <button type="button" class="mui-btn mui-btn-blue">加入购物车</button>
+                    <button type="button" class="mui-btn mui-btn-blue Butmove">立即抢购</button>                
+                </li>
+        </ul>
+        <ul class="mui-table-view">
+                <li class="mui-table-view-cell shangjia">
+                   		商家信息
+                </li>
+                <li class="mui-table-view-cell dizhi">
+                    <a class="mui-navigate-right">
+                    	<i class="iconfont icon-kebiao"></i>
+                        渝北区新南路160好晶郦馆1楼
+                    </a>
+                </li>
+                <li class="mui-table-view-cell dizhi">
+                    <a class="mui-navigate-right">
+                    	<i class="iconfont icon-kebiao"></i>
+                         商家客服：4001022566
+                    </a>
+                </li>
+                 <li class="mui-table-view-cell">
+                  <span class="dianjiaEnd">
+                  		店家详情>>
+                  </span>
+                </li>
+                 
+            </ul> 
+            <ul class="mui-table-view m-top">
+                     <li class="mui-table-view-cell ">
+                    	<i class="iconfont icon-kebiao"></i>
+                         查看评论
+                </li>
+                    
+                </ul>
+            <ul class="mui-table-view m-top">
+                <li class="mui-table-view-cell mui-media none-way">
+                    <a href="javascript:;">
+                      
+                        <div class="mui-media-body">
+                          适用范围：
+                            <p class="mui-ellipsis">全场通用</p>
+                        </div>
+                    </a>
+                </li>
+                <li class="mui-table-view-cell mui-media none-way">
+                    <a href="javascript:;">
+                      
+                        <div class="mui-media-body">
+                          有效期：
+                            <p class="mui-ellipsis">2015.1.27至2015.9.12</p>
+                        </div>
+                    </a>
+                </li>
+                <li class="mui-table-view-cell mui-media none-way">
+                    <a href="javascript:;">
+                      
+                        <div class="mui-media-body">
+                          有用时间：
+                            <p class="mui-ellipsis">10：00-24：00</p>
+                        </div>
+                    </a>
+                </li>
+                <li class="mui-table-view-cell mui-media none-way">
+                    <a href="javascript:;">
+                      
+                        <div class="mui-media-body">
+                          使用规则：
+                           <ul class="ThisUl">
+                           		<li>无需预约，消费高峰时需要等位</li>
+                           		<li>可叠加使用</li>
+                           		<li>不兑现、不找零、不可使用包间</li>
+                           		<li>仅限食堂，不提供餐前外带，餐毕未吃完可打包</li>
+                           </ul>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+    </div>
+</body>
+    <script src="js/mui.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+    mui.init()
+    </script>
+</html>

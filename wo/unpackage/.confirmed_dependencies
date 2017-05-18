@@ -1,0 +1,29 @@
+{
+	"xuanzhekuang.html": {
+		"resources": [
+			"fonts/mui.ttf",
+			"img/dangao.png",
+			"js/mui.js",
+			"css/mui.css"
+		],
+		"refer": []
+	},
+	"xuanzhekuang2.html": {
+		"resources": [
+			"img/tx4.jpg",
+			"fonts/mui.ttf",
+			"js/mui.js",
+			"css/mui.css",
+			"css/iconfont.css",
+			"fonts/iconfont.woff"
+		]
+	},
+	"ClockInterface.html": {
+		"resources": [
+			"css/iconfont.css",
+			"js/mui.js",
+			"css/mui.css",
+			"fonts/iconfont.woff"
+		]
+	}
+}

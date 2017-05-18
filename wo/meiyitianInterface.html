@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="css/mui.css"/>
+    <link rel="stylesheet" type="text/css" href="css/iconfont.css"/>
+    <style type="text/css">
+    	.mui-table-view-cell.firstLi{
+    		background: #F47596;
+    		color: white;
+    	}
+    	.mui-table-view-cell.content{
+    		background: #84787B;
+    		color: white;
+    		text-align: center;
+    	}
+    	.mui-media-body .mui-pull-right .icon-5{
+    		color: #F795AD;
+    	}
+    	 .mui-bar-nav .mui-title{
+    	 	font-size: 24px;
+    	 	color:#B4ADAF ;
+    	 }
+    	 .mui-bar-tab .mui-tab-item.mui-active{
+    	 	color: white;
+    	 	background:#F37394 ;
+    	 }
+    	 .mui-bar-tab .mui-tab-item{
+    	 	background: #7C7275;
+    	 }
+    	 .bottomImg{
+    	 	width: 100%;
+    	 	position: absolute;
+    	 	bottom: 0px;
+    	 	opacity: 0.3;
+    	 }
+    	 
+    </style>
+</head>
+<body>
+    <!-- 主界面移动、菜单不动 -->
+    <div class="mui-off-canvas-wrap mui-draggable">
+      <!-- 菜单容器 -->
+      <aside class="mui-off-canvas-left" id="offCanvasSide">
+        <div class="mui-scroll-wrapper">
+          <div class="mui-scroll">
+            <!-- 菜单具体展示内容 -->
+            	<ul class="mui-table-view">
+            	        <li class="mui-table-view-cell firstLi">
+            	               	选择风格     
+            	        </li>
+            	         <li class="mui-table-view-cell content">
+            	            	 时尚达人  
+            	        </li>
+            	         <li class="mui-table-view-cell content">
+            	               	文艺青年    
+            	        </li>
+            	         <li class="mui-table-view-cell content">
+            	    	 		运动达人    
+            	        </li>
+            	         <li class="mui-table-view-cell content">
+            	    	 		热情咖啡    
+            	        </li>
+            	         <li class="mui-table-view-cell content">
+            	    	 		浪漫满屋    
+            	        </li>
+            	        
+            	    </ul>
+          </div>
+            	    <img class="bottomImg" src="img/tx2.jpg"/>
+        </div>
+      </aside>
+      <!-- 主页面容器 -->
+      <div class="mui-inner-wrap">
+        <!-- 主页面标题 -->
+        <header class="mui-bar mui-bar-nav">
+          <a class="mui-icon mui-action-menu mui-icon-bars mui-pull-left"  href="#offCanvasSide" ></a>
+          <h1 class="mui-title">M E I Y I T I</h1>
+          
+        </header>
+        <nav class="mui-bar mui-bar-tab">
+    	    <a class="mui-tab-item mui-active">
+    	        <span class="mui-icon iconfont icon-naozhong ">
+    	        	
+    	        </span>
+    	        
+    	    </a>
+    	    <a class="mui-tab-item">
+    	        <span class="mui-icon iconfont icon-timer-sand-empty"></span>
+    	       
+    	    </a>
+    	    <a class="mui-tab-item">
+    	        <span class="mui-icon iconfont icon-world"></span>
+    	       
+    	    </a>
+    	    <a class="mui-tab-item">
+    	        <span class="mui-icon iconfont icon-stopwatch"></span>
+    	       
+    	    </a>
+    	    <a class="mui-tab-item">
+    	        <span class="mui-icon iconfont icon-5"></span>
+    	     
+    	    </a>
+    	</nav>
+        <div class="mui-content mui-scroll-wrapper">
+          <div class="mui-scroll">
+            <!-- 主界面具体展示内容 -->
+             	<ul class="mui-table-view mui-grid-view">
+             	    <li class="mui-table-view-cell mui-media mui-col-xs-6">
+             	        <a href="#">
+             	            <img class="mui-media-object" src="img/tx2.jpg">
+             	            <div class="mui-media-body">
+             	            	
+             	            	<span class="mui-pull-left">
+             	            		￥288.00
+             	            	</span>
+             	            	<span class="mui-pull-right">
+             	            		<i class="iconfont icon-5"></i>
+             	            	</span>
+             	            	
+             	            	
+             	            </div>
+             	        </a>
+             	    </li>
+             	    <li class="mui-table-view-cell mui-media mui-col-xs-6">
+             	        <a href="#">
+             	            <img class="mui-media-object" src="img/tx3.jpg">
+             	            <div class="mui-media-body">
+             	            	<span class="mui-pull-left">
+             	            		￥188.00
+             	            	</span>
+             	            	<span class="mui-pull-right">
+             	            		<i class="iconfont icon-5"></i>
+             	            	</span>
+             	            </div>
+             	        </a>
+             	    </li>
+             	</ul>
+             	<ul class="mui-table-view mui-grid-view">
+             	    <li class="mui-table-view-cell mui-media mui-col-xs-6">
+             	        <a href="#">
+             	            <img class="mui-media-object" src="img/tx2.jpg">
+             	            <div class="mui-media-body">
+             	            	
+             	            	<span class="mui-pull-left">
+             	            		￥288.00
+             	            	</span>
+             	            	<span class="mui-pull-right">
+             	            		<i class="iconfont icon-5"></i>
+             	            	</span>
+             	            	
+             	            	
+             	            </div>
+             	        </a>
+             	    </li>
+             	    <li class="mui-table-view-cell mui-media mui-col-xs-6">
+             	        <a href="#">
+             	            <img class="mui-media-object" src="img/tx3.jpg">
+             	            <div class="mui-media-body">
+             	            	<span class="mui-pull-left">
+             	            		￥188.00
+             	            	</span>
+             	            	<span class="mui-pull-right">
+             	            		<i class="iconfont icon-5"></i>
+             	            	</span>
+             	            </div>
+             	        </a>
+             	    </li>
+             	</ul>
+          </div>
+        </div> 
+        <div class="mui-off-canvas-backdrop"></div>
+      </div> 
+    </div>
+</body>
+    <script src="js/mui.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+    mui.init()
+    </script>
+</html>
