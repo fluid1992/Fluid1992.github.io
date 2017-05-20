@@ -939,7 +939,7 @@ li{
 	border-bottom: none;
 }
 
-.text-img .text{
+ .text{               /* 在图片上加入文字*/
 	position: absolute;
 	width: 120px;
 	/*left: 9px;*/
@@ -957,11 +957,16 @@ li{
 	text-align: center;
 	margin-bottom:10px ;
 }
-.fashion{
+
+.fashion{					/*ifashion*/
+	float: left;
 	width: 221px;
 	height: 258px;
 	margin-bottom:10px ;
 	border-right: 2px solid #EAEAEA;
+}
+.fashion.fashion-end{
+	border: none;
 }
 .fashion-head{
 	width: 221px;
@@ -977,4 +982,222 @@ li{
 .fashion-head h3 img{
 	width: 100%;
 	height: 100%;
+}
+.tao-eat-content,
+.fashion-content{
+	position: relative;
+	width:221px ;
+	height: 222px;
+	padding-left:1px;
+	background: greenyellow;
+}
+
+.position-left{
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	padding: 10px;
+}
+.position-left,
+.position-left img{
+	width: 90px;
+	height: 198px;
+}
+
+.position-right{
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	padding: 10px;
+}
+
+.position-bottom{
+	position: absolute;
+	right: 0px;
+	bottom: 0px;
+	padding: 10px;
+}
+.text.ifashion{
+	width: 90px;
+	height: 40px;
+	color: white;
+	background: #FF0055;
+}
+.text.ifashion.background-violet{
+	background:#940CE2;
+}
+
+.text.ifashion-min{
+	width: 90px;
+	height: 20px;
+}
+.globle-purchase{
+	position: absolute;
+	padding: 10px;
+}
+
+.tao-eat-img,
+.tao-eat-img img,
+.position-right,
+.position-bottom,
+.position-bottom img,
+.position-right img,
+.globle-purchase,
+.globle-purchase img{
+	width: 90px;
+	height: 90px;
+}
+.left-top{
+	top: 0px;
+	left: 0px;
+}
+.right-top{
+	top: 0px;
+	right: 0px;
+}
+.left-bottom{
+	bottom: 0px;
+	left: 0px;
+}
+.right-bottom{
+	bottom: 0px;
+	right: 0px;
+}
+.text.globle_shopping{
+	width: 90px;
+	height: 20px;
+}
+.tao-eat{     /* 图文+文字布局*/
+	float: left;
+	width: 100px;
+	height: 150px;
+	padding: 10px 12px 0px 8px;
+	margin:-1px -12px 0 0;
+}
+.tao-eat-img{
+	margin: auto;
+}
+.tao-eat strong{
+	margin-top:5px ;
+	display: block;
+	width: 100px;
+	overflow: hidden;
+	text-align: center;
+}
+.tao-eat em{
+	display: block;
+	width: 100px;
+	text-align: center;
+	font-size: 12px;
+	margin-top: 5px;
+}
+.tao-eat-text{
+	float: left;
+	width: 229px;
+	height: 55px;
+}
+.tao-eat-text ul{
+	margin-top:5px ;
+	padding:0 0 0 10px;
+}
+.tao-eat-text ul li{
+	font-size: 13px;
+	padding:0 2px;
+}
+.tao-eat-text ul li a:hover{
+	color: #FF4400;
+}
+.affordable-content{  /*  实惠专业户*/
+	 float: left;
+	 width: 890px;
+	 height: 274px;
+	 border: 1px solid #EAEAEA;
+	 background: red;
+}
+.taoqian-shopping{
+	position: relative;
+	float: left;
+	width: 253px;
+	height: 117px;
+	margin:0 1px 1px 0 ;
+	padding: 10px;
+	background: green;
+}
+
+.taoqian-shopping-top{
+	float: left;
+	width: 235px;
+	height: 33px;
+}
+.special-offer-top img,
+.taoqian-shopping-top img{
+	width: 64;
+	height: 18px;
+}
+
+.taoqian-shopping-top .right{
+	font-size: 15px;
+	color: red;
+}
+.taoqian-shopping-bottom{
+	float: left;
+	width: 235px;
+	height: 90px;
+	background: goldenrod;
+}
+
+.taoqian-shopping-bottom h4{
+	font-size: 13px;
+}
+.red{
+	margin-top:20px ;
+	color: red;
+}
+.font-size12{
+	font-size: 12px;
+}
+.img-90x90{
+	position: absolute;
+	right: 10px;
+	bottom: 4px;
+	
+}
+.img-90x90,
+.img-90x90 img{
+	width: 90px;
+	height: 90px;
+}
+.special-offer{
+	position: relative;
+	float: left;
+	width: 183px;
+	height:117px ;
+	margin:0 1px 1px 0 ;
+	padding: 10px;
+	background: yellow;
+}
+.special-good{
+	margin-top:10px ;
+	font-weight: 700;
+}
+.special-good,
+.special-area{
+	font-size: 16px;
+}
+.special-move{
+	margin-top:12px ;
+}
+.special-baoyou{
+	
+	font-size: 13px;
+	padding: 2px 5px;
+	border: 1px solid red;
+	border-radius: 10px;
+}
+.bottom-car{
+	float: left;
+	
+	width: 890px;
+	height: 70px;
+	margin:15px 0px 0px 4px;
 }
