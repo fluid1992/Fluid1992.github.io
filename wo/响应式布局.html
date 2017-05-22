@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"><!--匹配最新的IE浏览器，做兼容-->
+	    <meta name="viewport" content="width=device-width, initial-scale=1"><!--视口-->
+		<title></title>
+		<style type="text/css">
+			.header,
+			.nav,
+			.main,
+			.footer,
+			.content,
+			.warp{
+				text-align: center;
+			}
+			.nav,
+			.header,
+			.footer{
+				height: 40px;
+				font-size:20px;
+				padding: 25px 0;
+				margin: 20px 10px;
+			}
+			.content{
+				width: 60%;
+			/*	height: 500px;*/
+				/*background: yellow;*/
+				overflow: hidden;
+				margin: auto;
+			}
+			.aside,
+			.main{
+				height: 200px;
+				margin:20px 0 0 0;
+				
+			}
+			.main{
+				background: #DDEFCB;
+			}
+			.aside{
+				background: #FFCBDD;
+			}
+			@media(min-width:414px ) {
+				.aside,
+				.main{
+					float: left;
+				}
+				.main{
+					width: 60%;
+					margin-right:10% ;
+				}
+				.aside{
+					width: 30%;
+				}
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div class="warp">
+			<div class="header">页头</div>
+			<div class="nav">导航</div>
+			<div class="content">
+				<div class="main">
+					<strong>主体</strong>
+					<p>lsldsld sldsldskdls sdlsdlldasd ldsldlsdl alsldsl dsldlsdls ldlsl dlsl ldldsd l  ldlsdl </p>
+				</div>
+				<div class="aside">
+					<strong>边栏</strong>
+					<p>sdd sdslds sdsljlff slsdskldlsldsldlsd dllfldf</p>
+				</div>
+			</div>
+			<div class="footer">页脚</div>
+		</div>
+		
+	</body>
+</html>
