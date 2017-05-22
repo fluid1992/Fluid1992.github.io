@@ -680,8 +680,45 @@ li{
 	height: 2420px;
 	background: blueviolet;
 }
+.taobao-headlines{
+	widows: 270px;
+	height: 90px;
+	margin-top: 10px;
+	padding: 10px;
+}
+.taobao-headlines h3 em{
+	font-size: 16px;
+	color: red;
+}
+.taobao-headlines a{
+	font-size: 14px;
+}
+.taobao-headlines a:hover{
+	color:#FF4400;
+}
+.good-goods{      /* 有好货里的内容*/
+	width: 270px;
+	height: 1225px;
+	padding: 0px 10px;
+	margin-top:9px ;
+}
+.good-goods h3{
+	color: #2FAFF9;
+}
+.good-goods h3 span{
+	color:#C6C6C6 ;
+	font-size: 12px;
+}
+.taobao-headlines-content p{
+	fl
+	font-size: 14px;
+	font-weight: 700;
+	
+}
 
-.frequent-look{
+
+
+.frequent-look{   /* 内容区左边经常逛的---开始*/
 	float: left;
 	width: 440px;
 	height: 362px;
