@@ -199,7 +199,7 @@ li{
 	padding-left: 10px;
 	line-height: 33px;					
 }								/*	第一个元素及第一行--结束*/					
-.leftsidebar .children{
+.leftsidebar .children{		 
 	float: left;
 	padding: 0px 10px;
 	width: 170px;
@@ -642,16 +642,22 @@ li{
 	width: 1190px;
 	height: 2717px;
 	margin: auto;
-	background: yellow;
+	/*background: yellow;*/
 }           
 .content-left{			/*内容区的左边部分--开始*/
 	float: left;
 	width: 890px;
 	height: 2717px;
-	background: gray;
+	/*background: gray;*/
 }
 
+.title{
+	float: left;
+	width: 100%;
+	text-align: center;
+}
 .title h2{					/*标题开始*/
+	
 	text-align: center;
 	margin-left: 60px;
 	font-family:"宋体" ;
@@ -678,9 +684,9 @@ li{
 	float: right;
 	width: 290px;
 	height: 2420px;
-	background: blueviolet;
+	/*background: blueviolet;*/
 }
-.taobao-headlines{
+.taobao-headlines{    /* 淘宝头条*/
 	widows: 270px;
 	height: 90px;
 	margin-top: 10px;
@@ -696,6 +702,24 @@ li{
 .taobao-headlines a:hover{
 	color:#FF4400;
 }
+.taobao-headlines-content p{
+	font-size: 15px;
+	font-weight: 700;
+	margin-left:5px ;
+}
+.headlines-img{
+	float: left;
+	width: 60px;
+	height: 82px;
+	margin-right:10px ;
+}
+.good-goods-content .min-size,
+.taobao-headlines-content .min-size{
+	font-size: 12px;
+	font-weight: normal;
+	color: #666666;
+}
+
 .good-goods{      /* 有好货里的内容*/
 	width: 270px;
 	height: 1225px;
@@ -705,25 +729,126 @@ li{
 .good-goods h3{
 	color: #2FAFF9;
 }
+.good-shop h3 span,
 .good-goods h3 span{
 	color:#C6C6C6 ;
 	font-size: 12px;
 }
-.taobao-headlines-content p{
-	fl
-	font-size: 14px;
+.good-goods-content{
+	width: 270px;
+	height: 100px;
+	margin-bottom:15px ;
+}
+.good-goods-img{
+	float: left;
+	margin-right:10px ;
+}
+.good-goods-img,
+.good-goods-img img{
+	width: 100px;
+	height: 100px;
+}
+.good-goods-content p{
+	font-size: 15px;
 	font-weight: 700;
-	
+	margin:0px 5px 4px 0 ;
+}
+.good-goods-content span{
+	margin-top:5px ;
+	font-size: 13px;
+	color: #68ACF5;
+}
+.good-goods-content a:hover{
+	color: red;
 }
 
+.good-update{
+	width: 270px;
+	height: 27px;
+	text-align: center;
+	margin-top:5px ;
+}
+.good-update a:hover{
+	color:red;
+}
+			/* 今日特卖*/
+.hot-today{
+	width: 290px;
+	height: 273px;
+	margin-top: 14px;
+}			
+.hot-today-text{
+	font-size: 16px;
+}
+.hot-today-img{
+	margin-top:5px ;
+}
+.hot-today-img img,
+.hot-today-img{
+	width: 290px;
+	height: 242px;
+	
+}
+		/*每日好店*/
+.good-shop{
+	width: 290px;
+	height: 1066px;
+	margin-top:10px ;
+	/*background: cyan;*/
+}
 
+.good-shop-content{
+	width:272px;
+	height: 220px;
+	padding: 14px 8px 14px 10px;
+	border-bottom: 2px solid #EAEAEA;
+}
+.good-shop-content a strong:hover{
+	color: red;
+}
+.good-shop-content p{
+	font-size: 14px;
+	margin-bottom:5px ;
+	color: #666666;
+}
+.good-shop h3{
+	color:#FFC800 ;
+}
+
+.shop-img{
+	margin-top:8px;
+	width: 272px;
+	height: 184px;
+}
+.shop-img-left{
+	float: left;
+	width: 90px;
+	height: 182px;
+}
+.shop-min-img{
+	float: left;
+	margin-bottom: 2px;
+}
+.shop-min-img,
+.shop-min-img img{
+	width: 89px;
+	height: 89px;
+}
+.shop-img-right{
+	float: left;
+	
+}
+.shop-img-right,
+.shop-img-right img{
+	width: 180px;
+	height: 180px;
+}
 
 .frequent-look{   /* 内容区左边经常逛的---开始*/
 	float: left;
 	width: 440px;
 	height: 362px;
 	margin-bottom:10px ;
-	
 }
 .frequent-look.bblue{
 	border: 1px solid #C6D3ED;
@@ -997,14 +1122,19 @@ li{
 
 .fashion{					/*ifashion*/
 	float: left;
-	width: 221px;
+	width: 220px;
 	height: 258px;
 	margin-bottom:10px ;
-	border-right: 2px solid #EAEAEA;
+	/*border-right: 2px solid #EAEAEA;*/
+	border: 1px solid white;
 }
-.fashion.fashion-end{
+
+.fashion:hover{
+	border: 1px solid orangered;
+}
+/*.fashion.fashion-end{
 	border: none;
-}
+}*/
 .fashion-head{
 	width: 221px;
 	height: 28px;
@@ -1026,7 +1156,7 @@ li{
 	width:221px ;
 	height: 222px;
 	padding-left:1px;
-	background: greenyellow;
+	/*background: greenyellow;*/
 }
 
 .position-left{
@@ -1149,16 +1279,15 @@ li{
 	 width: 890px;
 	 height: 274px;
 	 border: 1px solid #EAEAEA;
-	 background: red;
 }
 .taoqian-shopping{
 	position: relative;
 	float: left;
-	width: 253px;
-	height: 117px;
-	margin:0 1px 1px 0 ;
+	width: 252px;
+	height: 111px;
+	/*margin:0 1px 1px 0 ;*/
+	border: 1px solid white;
 	padding: 10px;
-	background: green;
 }
 
 .taoqian-shopping-top{
@@ -1180,7 +1309,6 @@ li{
 	float: left;
 	width: 235px;
 	height: 90px;
-	background: goldenrod;
 }
 
 .taoqian-shopping-bottom h4{
@@ -1207,11 +1335,15 @@ li{
 .special-offer{
 	position: relative;
 	float: left;
-	width: 183px;
-	height:117px ;
-	margin:0 1px 1px 0 ;
+	width: 181px;
+	height:116px ;
+	border:1px solid white ;
 	padding: 10px;
-	background: yellow;
+
+}
+.taoqian-shopping:hover,
+.special-offer:hover{
+	border:1px solid orangered ;
 }
 .special-good{
 	margin-top:10px ;
@@ -1233,8 +1365,56 @@ li{
 }
 .bottom-car{
 	float: left;
-	
 	width: 890px;
 	height: 70px;
-	margin:15px 0px 0px 4px;
+	margin:2px 0px 0px 4px;
+}
+
+/*热卖单品*/
+
+.hot-item{
+	width: 1180px;
+	height: 625px;
+	margin: 20px 0px 15px 0px;
+	padding-top:10px ;
+	background: yellow;
+	margin: auto;
+	text-align: center;
+}
+.hot-item h3{
+	font-size: 20px;
+}
+.hot-item ul{
+	font-size: 14px;
+	margin: 2px 0;
+}
+.hot-item ul li{
+	
+	padding:0px 4px;
+	position: relative;
+	/*border-right:1px solid red;*/
+}
+.hot-item ul li:after{
+	content: '';
+	position: absolute;
+	top:20%;
+	right: 0;
+	width: 1px;
+	height: 60%;
+	background: #EAEAEA;
+}
+
+.hot-item ul .last-childern:after{
+	width: 0px;
+}
+.item-content{
+	
+	float: left;
+	width: 214px;
+	height: 387px;
+	border: 1px solid white;
+	
+}
+.item-content-img{
+	
 }
