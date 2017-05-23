@@ -1104,7 +1104,7 @@ li{
  .text{               /* 在图片上加入文字*/
 	position: absolute;
 	width: 120px;
-	/*left: 9px;*/
+	left: 9px;
 	bottom:7px;
 	font-size:14px ;
 	text-align: center;
