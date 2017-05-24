@@ -996,6 +996,7 @@ li{
 	height: 100%;
 }
 .goods-img-text{
+	position: relative;
 	width: 119;
 	height: 81px;
 	padding: 9px 9px 10px 10px;
@@ -1004,6 +1005,9 @@ li{
 }
 .goods-img-text p{
 	font-size: 15px;
+}
+.goods-img-text .red{
+	margin: 0px;
 }
 .goods-img-text span{
 	font-size: 14px;
@@ -1494,4 +1498,13 @@ li{
 .item-content-bottom-img img{
 	width: 368px;
 	height: 130px;
+}
+.content-bottom{
+	width: 1180px;
+	margin: auto;
+}
+.content-bottom-end{
+	width: 1180px;
+	height: 140px;
+	margin-top: 40px;
 }
