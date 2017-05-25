@@ -7,7 +7,6 @@
 #search{
 	width:75%;
 	border-radius:10px ;
-
 }
 .mui-pull-left,
 .mui-pull-right{
@@ -119,4 +118,6 @@
 .mui-table-view-cell:after{
 	height: 0;
 }
-
+.mui-media-body.control-conter{
+	line-height: 44px;
+}
