@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	<style type="text/css">
+		div{
+			position: relative;
+			border: 1px solid burlywood;
+		}
+		div,
+		img{
+			width:400px;
+			height: 300px;
+		}
+		ul{
+			list-style: none;
+		}
+		ul li{
+			display: inline-block;
+			width: 30px;
+			height: 30px;
+			background: red;
+			border-radius:15px;
+			overflow: hidden;
+		}
+		
+		#dot{
+			position: absolute;
+			bottom:0;
+			left:25%
+		}
+		a{
+			width: 50px;
+			height: 50px;
+			position: absolute;
+			top: 50%;
+			margin-top: -25px;
+			background: yellow;
+			border-radius: 50%;
+			line-height: 50px;
+			text-align: center;
+		}
+		#right{
+			right: 0px;
+		}
+		.active{
+			background: blue;
+		}
+	</style>
+	</head>
+	<body>
+		<div id="pic-box">
+			<img id="pic" src="img/playPic-img/image-20131231-213151.jpg"/>
+			<ul id="dot">
+				<li class="active"></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+			<a id='left'>《</a>
+			<a id="right">》</a>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var aDot=document.getElementsByTagName('li');
+		var aPic=document.getElementById('pic');
+		var oLeft=document.getElementById('left')
+		var oRight=document.getElementById('right')
+		var control=0;
+		var arrPic=['img/playPic-img/image-20131231-213151.jpg','img/playPic-img/image-20131231-213206.jpg','img/playPic-img/image-20131231-213213.jpg','img/playPic-img/image-20131231-213400.jpg']
+			oRight.onclick=function(){
+//				control++;
+				if(control<arrPic.length-1){
+					control++;
+				}else{
+					control=0;
+				}
+				aPic.src=arrPic[control];
+				for(var i=0;i<aDot.length;i++){
+					aDot[i].style.background='red';
+				}
+				aDot[control].style.background="blue";
+			}
+//			
+			left.onclick=function(){
+//				control++;
+				if(control>0){
+					control--;
+				}else{
+					control=arrPic.length-1;
+				}
+				aPic.src=arrPic[control];
+				for(var i=0;i<aDot.length;i++){
+					aDot[i].style.background='red';
+				}
+				aDot[control].style.background="blue";
+			}
+		
+		for(var i=0;i<aDot.length;i++){
+			aDot[i].num=i;
+			aDot[i].onclick=function(){
+				aPic.src=arrPic[this.num];
+				for(var i=0;i<aDot.length;i++){
+					aDot[i].style.background='red';
+				}
+				this.style.background="blue";
+				
+			}
+		}
+	</script>
+	
+</html>
