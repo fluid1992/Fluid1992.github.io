@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			input{
+				width: 20px;
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<ul id="list">
+			<li>
+				<button>-</button>
+				<input type="" name="" id="" value="" />
+				<button>+</button>
+				<span>单价</span>
+				<span>12.5元</span>
+				<span>小计</span>
+				<span></span>
+			</li>
+			<li>
+				<button>-</button>
+				<input type="" name="" id="" value="" />
+				<button>+</button>
+				<span>单价</span>
+				<span>8.5元</span>
+				<span>小计</span>
+				<span></span>
+			</li>
+			<li>
+				<button>-</button>
+				<input type="" name="" id="" value="" />
+				<button>+</button>
+				<span>单价</span>
+				<span>6.15元</span>
+				<span>小计</span>
+				<span></span>
+			</li>
+			<li>
+				<button>-</button>
+				<input type="" name="" id="" value="" />
+				<button>+</button>
+				<span>单价</span>
+				<span>8元</span>
+				<span>小计</span>
+				<span></span>
+			</li>
+		</ul>
+		<p id="p">
+			<span>商品合计共：</span>
+			<span></span>
+			<span>共花费了：</span>
+			<span></span>
+		</p>
+	</body>
+	<script type="text/javascript">
+		var oList=document.getElementById('list');
+		var aLi=oList.getElementsByTagName('li');
+		var oP=document.getElementById('p');
+		var aTotelnum=oP.getElementsByTagName('span')[1];
+		var aTotelUnit=oP.getElementsByTagName('span')[3];
+		var Totelnum=0;
+		var TotelUnit=0;
+		
+		
+		for(var i=0;i<aLi.length;i++){
+			goods(aLi[i]);
+		}
+		function goods(LiObj){
+			var aMinu=LiObj.getElementsByTagName('button')[0];
+			var aInput=LiObj.getElementsByTagName('input')[0];
+			var aAdd=LiObj.getElementsByTagName('button')[1];
+			var aUnitprice=LiObj.getElementsByTagName('span')[1];
+			var aSubtotal=LiObj.getElementsByTagName('span')[3];
+			var num=0;
+			aInput.value=num;
+			aSubtotal.innerHTML=parseFloat(aUnitprice.innerHTML)*aInput.value+'元';
+			aTotelnum.innerHTML=Totelnum+'件';
+			aTotelUnit.innerHTML=TotelUnit+'元';
+			aMinu.onclick=function(){
+				if((--num)<0){
+					num=0;
+				}
+				if((Totelnum--)<0){
+					Totelnum=0;
+				}
+				aInput.value=num;
+				aSubtotal.innerHTML=parseFloat(aUnitprice.innerHTML)*aInput.value+'元';
+				aTotelnum.innerHTML=Totelnum+'件';
+				TotelUnit+=parseFloat(aSubtotal.innerHTML);
+				aTotelUnit.innerHTML=TotelUnit+'元';
+			}
+			aAdd.onclick=function(){
+				Totelnum++
+				num++;
+				aInput.value=num;
+				aSubtotal.innerHTML=parseFloat(aUnitprice.innerHTML)*aInput.value+'元';
+				aTotelnum.innerHTML=Totelnum+'件';
+				TotelUnit+=parseFloat(aSubtotal.innerHTML);
+				aTotelUnit.innerHTML=TotelUnit+'元';
+			}
+		}
+	</script>
+</html>

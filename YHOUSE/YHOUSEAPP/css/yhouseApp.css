@@ -26,6 +26,26 @@
 	float: left;
 	width: 20%;
 }
+.mui-col-xs-3.fix-box,
+.mui-slider-indicator.mui-segmented-control.fix-box{
+	position:fixed;
+	z-index: 10;
+	background: white;
+}
+/*.mui-media-body{
+	text-align: center;
+}*/
+
+.mui-col-xs-3.fix-box{
+	top: 80px;
+}
+.mui-slider.mui-slier-top{
+	margin-top: 38px;
+}
+.mui-ellipsis{
+	font-size: 10px;
+}
+
 .life-header-text p{
 	margin: 12%;
 	font-size: 22px;
@@ -120,4 +140,9 @@
 }
 .mui-media-body.control-conter{
 	line-height: 44px;
+}
+
+.mui-table-view .mui-media-object{
+	
+	border-radius: 50%;
 }

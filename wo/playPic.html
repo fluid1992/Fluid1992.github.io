@@ -4,71 +4,127 @@
 		<meta charset="UTF-8">
 		<title></title>
 	<style type="text/css">
-		div{
+		#pic-box{
 			position: relative;
 			border: 1px solid burlywood;
 		}
-		div,
+		#pic-box,
 		img{
 			width:400px;
 			height: 300px;
 		}
-		ul{
+		/*ul{
 			list-style: none;
-		}
-		ul li{
+			padding: 0px;
+			margin: 0px;
+		}*/
+		#dot span{
 			display: inline-block;
-			width: 30px;
-			height: 30px;
+			width: 10px;
+			height: 10px;
 			background: red;
-			border-radius:15px;
+			border-radius:50%;
+			padding: 0px;
+			margin: 0px;
+			margin-left:10px ;
 			overflow: hidden;
 		}
 		
 		#dot{
 			position: absolute;
-			bottom:0;
-			left:25%
+			bottom:10px;
+			left:50%;
+			margin-left:-35px ;
+			
 		}
 		a{
-			width: 50px;
+			display: inline-block;
+			width: 25px;
 			height: 50px;
 			position: absolute;
 			top: 50%;
 			margin-top: -25px;
-			background: yellow;
-			border-radius: 50%;
+			background: darkgray;
+			/*border-radius: 50%;*/
 			line-height: 50px;
 			text-align: center;
+			/*display: none;*/
+			opacity: 0.1;
 		}
 		#right{
 			right: 0px;
 		}
-		.active{
+		#dot .active{
 			background: blue;
+		}
+		#img{
+			/*display: inline-block;*/
+			width: 50px;
+			height: 50px;
+			position: absolute;
+			border: 5px solid white;
+			left:-15px;
+			top: -60px;
+			display: none;
+		}
+		#dot em{
+			/*display: inline-block;*/
+			padding: 0px;
+			margin: 0px;
+			width: 5px;
+			height: 5px;
+			position: absolute;
+			left: 13px;
+			top: -3px;
+			background: white;
+			transform: rotate(45deg);
+			-webkit-transform: rotate(45deg);
+			display: none;
 		}
 	</style>
 	</head>
 	<body>
 		<div id="pic-box">
 			<img id="pic" src="img/playPic-img/image-20131231-213151.jpg"/>
-			<ul id="dot">
-				<li class="active"></li>
-				<li></li>
-				<li></li>
-				<li></li>
-			</ul>
+			<div id="dot">
+				<span class="active">
+				</span><span>
+				</span><span>
+				</span><span>
+				</span>
+				<img id="img" src="img/playPic-img/image-20131231-213151.jpg"/>
+				<em id="em"></em>
+			</div>
 			<a id='left'>《</a>
 			<a id="right">》</a>
 		</div>
 	</body>
 	<script type="text/javascript">
-		var aDot=document.getElementsByTagName('li');
+		var aDot=document.getElementsByTagName('span');
 		var aPic=document.getElementById('pic');
 		var oLeft=document.getElementById('left')
-		var oRight=document.getElementById('right')
+		var oRight=document.getElementById('right');
+		var oImg=document.getElementById('img');
+		var oEm=document.getElementById('em')
 		var control=0;
 		var arrPic=['img/playPic-img/image-20131231-213151.jpg','img/playPic-img/image-20131231-213206.jpg','img/playPic-img/image-20131231-213213.jpg','img/playPic-img/image-20131231-213400.jpg']
+			oRight.onmouseover=function(){
+				oRight.style.opacity='0.8';
+				oLeft.style.opacity='0.8';
+			}
+			
+			oLeft.onmouseover=function(){
+				oRight.style.opacity='0.8';
+				oLeft.style.opacity='0.8';
+			}
+			oRight.onmouseout=function(){
+				oRight.style.opacity='0.1';
+				oLeft.style.opacity='0.1';
+			}
+			oLeft.onmouseout=function(){
+				oRight.style.opacity='0.1';
+				oLeft.style.opacity='0.1';
+			}
 			oRight.onclick=function(){
 //				control++;
 				if(control<arrPic.length-1){
@@ -83,8 +139,10 @@
 				aDot[control].style.background="blue";
 			}
 //			
+			
 			left.onclick=function(){
 //				control++;
+				
 				if(control>0){
 					control--;
 				}else{
@@ -105,9 +163,19 @@
 					aDot[i].style.background='red';
 				}
 				this.style.background="blue";
-				
+				control=this.num;	
+			}
+			aDot[i].onmouseover=function(){
+				oImg.src=arrPic[this.num];
+				oImg.style.display='block';
+				oEm.style.display='block';
+				oImg.style.left=(20*this.num)-15+'px';
+				oEm.style.left=(20*this.num)+13+'px'
+			}
+			aDot[i].onmouseout=function(){
+				oImg.style.display='none';
+				oEm.style.display='none';
 			}
 		}
 	</script>
-	
 </html>
