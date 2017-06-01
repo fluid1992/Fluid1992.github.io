@@ -10,9 +10,9 @@
 }
 .mui-pull-left,
 .mui-pull-right{
-	line-height: 44px;
+	line-height: 23px;
 	font-size: 14px;
-	padding: 0px 5px;
+	padding: 1px 5px;
 }
 .life-header{
 	overflow: hidden;
@@ -125,7 +125,7 @@
 }
 .mui-table-view-cell ul li{
 	font-size: 12px;
-	line-height: 30px;
+	/*line-height: 30px;*/
 	display: inline-block;
 }
 .mui-table-view-cell ul .last-childern{
@@ -145,4 +145,14 @@
 .mui-table-view .mui-media-object{
 	
 	border-radius: 50%;
+}
+.mui-table-view .ulAdr{
+	margin-top: 10px;
+}
+ 
+
+.mui-table-view .ul-reset .none-line-height{
+	font-size: 10px;
+	border: 1px solid #EAEAEA;
+	border-radius: 10px;
 }

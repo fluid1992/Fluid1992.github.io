@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			ul{
+				float: left;
+				list-style: none;
+				
+				padding: 0px;
+				margin: 0px;
+				text-align: center;
+				margin: out;
+			}
+			.cont-left li{
+				width: 150px;
+				height: 100px;
+				border-bottom: 1px solid #EAEAEA;
+				border-top: 1px solid #EAEAEA;
+				line-height: 100px;
+		/*		background: red;*/
+			}
+			.cont-right{
+				float: left;
+				height: 400px;
+				width: 500px;
+				padding: 4px 0px;
+				/*background: blue;*/
+			}
+			img{
+				width: 500px;
+				height: 400px;
+			}
+			.min-ul{
+				text-align: center;
+				position: absolute;
+				width: 100%;
+				bottom: 0px;
+				left: 0px;
+				background: black;
+			}
+			.min-ul li{
+				float: left;
+				width: 33%;
+				padding: 10px 0px;
+				color: white;
+				border-right:1px solid white ;
+				
+			}
+			.min-ul .width-24{
+				width: 24.8%;
+			}
+			.min-ul .width-33{
+				width: 33.1%;
+			}
+			.frist-childern{
+				position: absolute;
+				overflow: hidden;
+				top: 0px;
+				left: 0px;
+				display: none;
+			}
+			.cont-right-ul{
+				position: relative;
+			}
+			.frist-childern.active{
+				display: block;
+			}
+			.activeColor{
+				background: yellow;
+			}
+			.activeColorRight{
+				background:red;
+			}
+			li:hover{
+				cursor: pointer;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="content">
+			<div class="cont-left">
+				<ul class="cont-left-ul">
+					<li class="activeColor">最热团购</li>
+					<li>商城优惠</li>
+					<li>名牌推荐</li>
+					<li>缤纷活动</li>
+				</ul>
+			</div>
+			<div class="cont-right">
+				<ul class="cont-right-ul"> 
+					<li class="frist-childern active">
+						<img src="img/playPic-img/image-20131231-213400.jpg"/>
+						<ul class="min-ul">
+							<li class="width-33 activeColorRight">点我呀</li>
+							<li class="width-33">点我干嘛</li>
+							<li class="width-33">你在我试试</li>
+						</ul>
+					</li>
+					<li class="frist-childern">
+						<img src="img/tx1.jpg"/>
+						<ul class="min-ul">
+							<li class="width-24 activeColorRight">点我呀</li>
+							<li class="width-24">点我干嘛</li>
+							<li class="width-24">你在我试试</li>
+							<li class="width-24">你敢点我</li>
+						</ul>
+					</li>
+					<li class="frist-childern">
+						<img src="img/codeguide.png"/>
+						<ul class="min-ul">
+							<li class="activeColorRight">点我呀</li>
+							<li>点我干嘛</li>
+							<li>你在我试试</li>
+						</ul>
+					</li>
+					<li class="frist-childern">
+						<img src="img/playPic-img/image-20131231-213400.jpg"/>
+						<ul class="min-ul ">
+							<li class="width-24 activeColorRight">点我呀</li>
+							<li class="width-24">点我干嘛</li>
+							<li class="width-24">你再点我试试</li>
+							<li class="width-24">你居然还敢点我</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var oContent=document.getElementById('content');
+		var aLeft=oContent.getElementsByClassName('cont-left-ul')[0];
+		var aLeftLi=aLeft.getElementsByTagName('li');
+		
+		var aRight=oContent.getElementsByClassName('cont-right-ul')[0];
+		var aMinUl=aRight.getElementsByClassName('min-ul');
+		var aImg=aRight.getElementsByTagName('img');
+		var aRightLi=aRight.getElementsByClassName('frist-childern');
+		
+		var arrImg=[
+			['img/playPic-img/image-20131231-213400.jpg','img/playPic-img/image-20131231-213151.jpg','img/playPic-img/image-20131231-213206.jpg'],
+			['img/tx1.jpg','img/tx2.jpg','img/tx3.jpg','img/tx4.jpg'],
+			['img/codeguide.png','img/pi.png','img/tx4.jpg'],
+			['img/img1.png','img/img2.png','img/logo.png','img/tx4.jpg']
+		]
+		
+		
+		for(var i=0;i<aLeftLi.length;i++){
+			fn(i);
+		}
+		
+		function fn(a){
+			var aMinli=aMinUl[a].getElementsByTagName('li');
+			for(var i=0;i<aMinli.length;i++){
+				aMinli[i].num=i;
+				aMinli[i].onclick=function(){
+					for(var i=0;i<aMinli.length;i++){
+						aMinli[i].style.background='black';
+					}
+					aImg[a].src=arrImg[a][this.num];
+					this.style.background='red';
+				}
+			}
+		}
+		
+		for(var i=0;i<aLeftLi.length;i++){
+			aLeftLi[i].num=i;
+			control=aLeftLi[i].num;
+			
+			aLeftLi[i].onclick=function(){
+				for(var i=0;i<aLeftLi.length;i++){
+					aLeftLi[i].style.background='white';
+				}
+				
+				for(var i=0;i<aRightLi.length;i++){
+					aRightLi[i].style.display='none';
+				}
+				
+				aRightLi[this.num].style.display='block';
+				this.style.background='yellow';
+			}
+		}
+	</script>
+</html>

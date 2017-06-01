@@ -63,13 +63,13 @@
 		var aTotelnum=oP.getElementsByTagName('span')[1];
 		var aTotelUnit=oP.getElementsByTagName('span')[3];
 		var Totelnum=0;
-		var TotelUnit=0;
+		var len=aLi.length;
+		var a=[0,0,0,0];
 		
-		
-		for(var i=0;i<aLi.length;i++){
-			goods(aLi[i]);
+		for(var i=0;i<len;i++){
+			goods(aLi[i],i);
 		}
-		function goods(LiObj){
+		function goods(LiObj,i){
 			var aMinu=LiObj.getElementsByTagName('button')[0];
 			var aInput=LiObj.getElementsByTagName('input')[0];
 			var aAdd=LiObj.getElementsByTagName('button')[1];
@@ -79,28 +79,34 @@
 			aInput.value=num;
 			aSubtotal.innerHTML=parseFloat(aUnitprice.innerHTML)*aInput.value+'元';
 			aTotelnum.innerHTML=Totelnum+'件';
-			aTotelUnit.innerHTML=TotelUnit+'元';
+			aTotelUnit.innerHTML='0元';
+			
+			
+			function fun(){
+				var TotelUnit=0;
+				aInput.value=num;
+				aSubtotal.innerHTML=(parseFloat(aUnitprice.innerHTML)*aInput.value).toFixed(2)+'元';
+				aTotelnum.innerHTML=Totelnum+'件';
+				a[i]=parseFloat(aSubtotal.innerHTML);
+				for(var j=0;j<aLi.length;j++){
+					TotelUnit+=parseFloat(a[j]);
+				}
+				aTotelUnit.innerHTML=TotelUnit+'元';
+			}
+			
 			aMinu.onclick=function(){
 				if((--num)<0){
 					num=0;
 				}
-				if((Totelnum--)<0){
+				if((--Totelnum)<0){
 					Totelnum=0;
 				}
-				aInput.value=num;
-				aSubtotal.innerHTML=parseFloat(aUnitprice.innerHTML)*aInput.value+'元';
-				aTotelnum.innerHTML=Totelnum+'件';
-				TotelUnit+=parseFloat(aSubtotal.innerHTML);
-				aTotelUnit.innerHTML=TotelUnit+'元';
+				fun();
 			}
 			aAdd.onclick=function(){
 				Totelnum++
 				num++;
-				aInput.value=num;
-				aSubtotal.innerHTML=parseFloat(aUnitprice.innerHTML)*aInput.value+'元';
-				aTotelnum.innerHTML=Totelnum+'件';
-				TotelUnit+=parseFloat(aSubtotal.innerHTML);
-				aTotelUnit.innerHTML=TotelUnit+'元';
+				fun();
 			}
 		}
 	</script>
