@@ -1,18 +1,20 @@
-.mui-slider{
+.mui-slider-bottom{
 	margin-bottom: 55px;
 }
 .full{
 		width: 100%;
 }
 #search{
-	width:75%;
+	width:65%;
 	border-radius:10px ;
 }
 .mui-pull-left,
 .mui-pull-right{
-	line-height: 23px;
+	
 	font-size: 14px;
-	padding: 1px 5px;
+}
+.text-change{
+	padding: 10px 10px;
 }
 .life-header{
 	overflow: hidden;
@@ -60,6 +62,7 @@
 	margin: 1%;
 }
 .shop-selected{
+	margin-top:20px ;
 	overflow:hidden;
 }
 .tuijian-good-shop,
@@ -121,6 +124,7 @@
 }
 .mui-table-view-cell ul{
 	padding: 0;
+	margin-top:8px ;
 	list-style: none;
 }
 .mui-table-view-cell ul li{
@@ -147,12 +151,29 @@
 	border-radius: 50%;
 }
 .mui-table-view .ulAdr{
-	margin-top: 10px;
+	margin-top: 15px;
 }
- 
+.mui-table-view-cell .last-ul,
+ .mui-table-view .ulAdr.min-margin-top{
+	margin-top: 5px;
+}
 
+.mui-table-view-cell .none-line-height,
 .mui-table-view .ul-reset .none-line-height{
-	font-size: 10px;
+	/*font-size: 10px;*/
 	border: 1px solid #EAEAEA;
+	padding: 0px 5px;
 	border-radius: 10px;
+}
+.mui-table-view.mui-grid-view.margin-top{
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.mui-table-view.mui-grid-view .mui-table-view-cell .mui-media-object.img-90x90{
+	width: 90px;
+	height: 90px;
+}
+.mui-table-view-cell ul .last-childern.last-childern-noA{
+	margin-right: 0px;
 }
