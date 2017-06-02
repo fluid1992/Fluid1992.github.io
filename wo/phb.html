@@ -29,7 +29,14 @@
 				margin-bottom:1px ;
 			}
 			.active{
+				display: block;
+			}
+			.activenone{
 				display: none;
+			}
+			img{
+				hight:100px;
+				width: 100px;
 			}
 		</style>
 	</head>
@@ -41,13 +48,45 @@
 				<li>每周</li>
 				<li>全部</li>
 			</ul>
+			
 			<ul id="content">
-				<li>1</li>
-				<li class="active">
-					<img src=""/>
+				<li class="active">1</li>
+				<li class="activenone">
+					<img src="img/Bootstrap/bootcdn.png"/>
+					
+				</li>
+					<li class="active">1</li>
+				<li class="activenone">
+					<img src="img/Bootstrap/bootcdn.png"/>
 					
 				</li>
 			</ul>
 		</div>
 	</body>
+	<script type="text/javascript">
+		var oContent=document.getElementById('content');
+		
+		var aLi=oContent.getElementsByTagName('li');
+		var len=aLi.length;
+//		for(var i=0;i<len;i++){
+//			aLi[i].num=i;
+//			console.log(aLi[i].num);
+//			if(i/2==0){
+			
+				aLi[1].onmouseout=function(){
+					aLi[1].className='activenone';
+					aLi[0].className='active';
+				}
+			
+//			}else{
+				aLi[0].onmouseover=function(){
+					aLi[0].className='activenone';
+					aLi[1].className='active';
+			
+				}
+				
+//			}
+//		}
+		
+	</script>
 </html>
