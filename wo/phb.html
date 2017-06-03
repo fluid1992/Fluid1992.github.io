@@ -19,24 +19,42 @@
 				
 			}
 			.choose-ul li{
-				display: inline-block;
+				float: right;
 				padding: 0px 5px;
 				border:1px solid deepskyblue;
 			}
-			#content li{
-				
+			.content li{
+				overflow: hidden;
 				background: red;
+				line-height: 32px;
 				margin-bottom:1px ;
 			}
 			.active{
 				display: block;
 			}
-			.activenone{
+			.content .activenone{
 				display: none;
+				line-height:normal;
 			}
 			img{
+				
 				hight:100px;
 				width: 100px;
+			}
+			.left{
+				float:left;
+			}
+			.right{
+				float:right;
+			}
+			.text-num{
+				padding:0 5px;
+				background: #242424;
+				color: white;
+				
+			}
+			.content{
+				display: none;
 			}
 		</style>
 	</head>
@@ -49,44 +67,146 @@
 				<li>全部</li>
 			</ul>
 			
-			<ul id="content">
-				<li class="active">1</li>
-				<li class="activenone">
-					<img src="img/Bootstrap/bootcdn.png"/>
-					
+			<ul class="content">
+				<li class="active">
+					<apan class="text-num">1</apan>
+					你好呀
 				</li>
-					<li class="active">1</li>
 				<li class="activenone">
-					<img src="img/Bootstrap/bootcdn.png"/>
-					
+					<img class="left" src="img/Bootstrap/bootcdn.png"/>
+					<span class="left">哈哈啊哈哈哈</span>
+					<button class="right">点我</button>
+				</li>
+				<li class="active">
+					<apan class="text-num">2</apan>
+					你好呀
+				</li>
+				<li class="activenone">
+					<img class="left" src="img/Bootstrap/bootcdn.png"/>
+					<span class="left">哈哈啊哈哈哈</span>
+					<button class="right">点我</button>
+				</li>
+				
+				<li class="active">
+					<apan class="text-num">3</apan>
+					你好呀
+				</li>
+				<li class="activenone">
+					<img class="left" src="img/Bootstrap/bootcdn.png"/>
+					<span class="left">哈哈啊哈哈哈</span>
+					<button class="right">点我</button>
+				</li>
+			</ul>
+			<ul class="content">
+				<li class="active">
+					<apan class="text-num">1</apan>
+					nihao
+				</li>
+				<li class="activenone">
+					<img class="left" src="img/Bootstrap/bootcdn.png"/>
+					<span class="left">哈哈啊哈哈哈</span>
+					<button class="right">点我</button>
+				</li>
+				<li class="active">
+					<apan class="text-num">2</apan>
+					nihao
+				</li>
+				<li class="activenone">
+					<img class="left" src="img/Bootstrap/bootcdn.png"/>
+					<span class="left">哈哈啊哈哈哈</span>
+					<button class="right">点我</button>
+				</li>
+				
+				<li class="active">
+					<apan class="text-num">3</apan>
+					nihao
+				</li>
+				<li class="activenone">
+					<img class="left" src="img/Bootstrap/bootcdn.png"/>
+					<span class="left">哈哈啊哈哈哈</span>
+					<button class="right">点我</button>
+				</li>
+			</ul>
+				<ul class="content">
+				<li class="active">
+					<apan class="text-num">1</apan>
+					很高兴
+				</li>
+				<li class="activenone">
+					<img class="left" src="img/Bootstrap/bootcdn.png"/>
+					<span class="left">哈哈啊哈哈哈</span>
+					<button class="right">点我</button>
+				</li>
+				<li class="active">
+					<apan class="text-num">2</apan>
+					很高兴
+				</li>
+				<li class="activenone">
+					<img class="left" src="img/Bootstrap/bootcdn.png"/>
+					<span class="left">哈哈啊哈哈哈</span>
+					<button class="right">点我</button>
+				</li>
+				
+				<li class="active">
+					<apan class="text-num">3</apan>
+					很高兴
+				</li>
+				<li class="activenone">
+					<img class="left" src="img/Bootstrap/bootcdn.png"/>
+					<span class="left">哈哈啊哈哈哈</span>
+					<button class="right">点我</button>
 				</li>
 			</ul>
 		</div>
 	</body>
 	<script type="text/javascript">
-		var oContent=document.getElementById('content');
+	
+		var aAll=document.getElementsByClassName('choose-ul')[0];
+		var aChoose=aAll.getElementsByTagName('li');
+		var aContent=document.getElementsByClassName('content');
 		
-		var aLi=oContent.getElementsByTagName('li');
-		var len=aLi.length;
-//		for(var i=0;i<len;i++){
-//			aLi[i].num=i;
-//			console.log(aLi[i].num);
-//			if(i/2==0){
-			
-				aLi[1].onmouseout=function(){
-					aLi[1].className='activenone';
-					aLi[0].className='active';
+		aContent[0].style.display='block';
+		aChoose[0].style.background='red';
+		
+		for(var i=0;i<aChoose.length;i++){
+			fun(i);
+		}	
+		
+		function fun(n){
+			var aLi=aContent[n].getElementsByTagName('li');
+			var len=aLi.length;
+			for(var i=0;i<len;i++){
+				aLi[i].num=i;
+				if(i%2==0){
+					aLi[i].onmouseover=function(){
+						aLi[this.num].className='activenone';
+						aLi[this.num+1].className='active';
+					}
+				}else{
+					aLi[i].onmouseout=function(){
+						aLi[this.num-1].className='active';
+						aLi[this.num].className='activenone';
+					}
 				}
-			
-//			}else{
-				aLi[0].onmouseover=function(){
-					aLi[0].className='activenone';
-					aLi[1].className='active';
-			
+			}	
+		}
+		for(var i=0;i<aChoose.length;i++){
+			aChoose[i].index=i;
+			aChoose[i].onclick=function(){
+				for(var i=0;i<aChoose.length;i++){
+					
+					aChoose[i].style.background='white';
+					aContent[i].style.display='none';
 				}
-				
-//			}
-//		}
+				this.style.background='red';
+				aContent[this.index].style.display='block';
+			}
+		}
+			function int(){}
+			
+		
+		
+		
 		
 	</script>
 </html>
