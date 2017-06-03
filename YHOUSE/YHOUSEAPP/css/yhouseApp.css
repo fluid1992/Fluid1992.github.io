@@ -13,6 +13,7 @@
 	
 	font-size: 14px;
 }
+
 .text-change{
 	padding: 10px 10px;
 }
@@ -46,6 +47,10 @@
 }
 .mui-ellipsis{
 	font-size: 10px;
+}
+.life-header.full.margin-top,
+.margin-top{
+	margin-top: 8px;
 }
 
 .life-header-text p{
@@ -85,7 +90,7 @@
 }
 
 /*.mui-slider .mui-slider-group .mui-slider-item img*/
-.mui-slider .mui-slider-group .mui-slider-item .shop-store-img{
+.mui-slider .mui-slider-item .shop-store-img{
 	width: 96%;
 	height: 120px;
 }
@@ -120,6 +125,7 @@
 	overflow: hidden;
 }
 .day-recommend-img img{
+	width: 100%;
 	height: 200px;
 }
 .mui-table-view-cell ul{
@@ -176,4 +182,62 @@
 }
 .mui-table-view-cell ul .last-childern.last-childern-noA{
 	margin-right: 0px;
+}
+.border-span{
+	border:1px solid #DAA520 ;
+	color:#DAA520 ;
+	line-height: 20px;
+	padding: 0px 5px;
+	margin: 12px 0;
+}
+.con-content{
+	margin-bottom:20px ;
+}
+.con-content.last-con-content{
+	margin: 0px;
+}
+.con-content p{
+	/*height: 30px;*/
+	overflow: hidden; /*自动隐藏文字*/
+	text-overflow: ellipsis;/*文字隐藏后添加省略号*/
+	white-space:nowrap;/*强制不换行*/
+	background: white;
+	padding:8px 0 0 8px ;
+	margin: 0px;
+}
+.border-top{
+	border-top:1px solid #eee ;
+}
+.mui-grid-view.mui-grid-9 .mui-table-view-cell.img-7{
+	margin-right: -4px;
+	padding: 8px 0 0 8px;
+	border: none;
+}
+
+.mui-grid-view.mui-grid-9.background-white{
+	background:white ;
+	border: none;
+}
+.con-content .p-span{
+	padding: 10px ;
+}
+.img-full{
+	width: 100%;
+	height: 150px;
+	margin-bottom: 10px;
+}
+.img-full img{
+	width: 100%;
+	height: 100%;
+}
+.mui-media-body{
+	position: relative;
+}
+.ads-span{
+	position: absolute;
+	right: 0px;
+	top: 0px;
+}
+.mui-table-view-cell.mui-media.border-top{
+	border-top: 1px solid #eee;
 }
