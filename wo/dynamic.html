@@ -7,6 +7,7 @@
 		<style type="text/css">
 			.content{
 				width: 50px;
+				height: 85px;
 				text-align: center;
 				margin: 5px;
 			}
@@ -189,11 +190,26 @@
 		for(var i=0;i<len;i++){
 			aLi[i].index=i;
 			aLi[i].onmouseover=function(){
-				oHint.style.left=this.index*60+35+'px'
-				oHint.style.display='block';
+//				alert(this.index);
+				if(this.index>5){
+					console.log(this.index+'号');
+					
+					oHint.style.top=85-55+'px';
+					oHint.style.left=(this.index-6)*60+35+'px';
+					oHint.style.display='block';
+				}else{
+					oHint.style.top=-55+'px';
+					console.log(this.index);
+					oHint.style.left=this.index*60+35+'px';
+					oHint.style.display='block';
+					
+				}
+				
 			}
 			aLi[i].onmouseout=function(){
 				oHint.style.display='none';
+				
+				
 			}
 			
 		}
