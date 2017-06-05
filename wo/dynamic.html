@@ -189,9 +189,7 @@
 		for(var i=0;i<len;i++){
 			aLi[i].index=i;
 			aLi[i].onmouseover=function(){
-				for(var i=0;i<len;i++){
-					
-				}
+				oHint.style.left=this.index*60+35+'px'
 				oHint.style.display='block';
 			}
 			aLi[i].onmouseout=function(){
