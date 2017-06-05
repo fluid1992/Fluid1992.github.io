@@ -69,9 +69,8 @@
 				</li>-->
 			</ul>
 			<div id="hint">
-				<span>
-					你好啊！！！
-				</span>
+				<p></p>
+				<span></span>
 				<div class="min-box"></div>
 			</div>
 		</div>
@@ -165,6 +164,12 @@
 		]
 		var oMain=document.getElementById('main');
 		var oHint=document.getElementById('hint');
+		
+		var oP=oHint.getElementsByTagName('p')[0];
+		var oSpan=oHint.getElementsByTagName('span')[0];
+		
+		
+		
 //		var aLi=oMain.getElementsByTagName('li');
 		var len=arrLi.length;
 		for(var i=0;i<len;i++){
@@ -191,27 +196,26 @@
 			aLi[i].index=i;
 			aLi[i].onmouseover=function(){
 //				alert(this.index);
-				if(this.index>5){
-					console.log(this.index+'号');
-					
-					oHint.style.top=85-55+'px';
-					oHint.style.left=(this.index-6)*60+35+'px';
+				var num=parseInt(this.index/6);
+//				console.log(num);
+//				if((this.index/6).toFixed(0)==1){
+					oHint.style.top=95*num-55+'px';
+					oHint.style.left=(this.index-6*num)*60+35+'px';
 					oHint.style.display='block';
-				}else{
-					oHint.style.top=-55+'px';
-					console.log(this.index);
-					oHint.style.left=this.index*60+35+'px';
-					oHint.style.display='block';
-					
-				}
-				
+//				}else{
+//					oHint.style.top=85*num-55+'px';
+//					oHint.style.left=this.index*60+35+'px';
+//					oHint.style.display='block';
+//				}
+				oP.innerHTML=arrLi[this.index][0].text;
+				oSpan.innerHTML=arrLi[this.index][0].explain;
 			}
 			aLi[i].onmouseout=function(){
 				oHint.style.display='none';
-				
-				
 			}
 			
 		}
+		
+		
 	</script>
 </html>
