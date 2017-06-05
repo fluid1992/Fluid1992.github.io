@@ -42,6 +42,7 @@
 .mui-col-xs-3.fix-box{
 	top: 80px;
 }
+.con-content.mui-slier-top,/*选项卡下的内容margin-top*/
 .mui-slider.mui-slier-top{
 	margin-top: 38px;
 }
@@ -190,7 +191,7 @@
 	padding: 0px 5px;
 	margin: 12px 0;
 }
-.con-content{
+.con-content.con-content-bottom{
 	margin-bottom:20px ;
 }
 .con-content.last-con-content{
@@ -240,4 +241,7 @@
 }
 .mui-table-view-cell.mui-media.border-top{
 	border-top: 1px solid #eee;
+}
+.mui-table-view-cell.min-padding{
+	padding: 17px 15px 5px 15px;
 }

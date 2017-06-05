@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../taobao/css/reset.css"/>
+		<style type="text/css">
+			.content{
+				width: 50px;
+				text-align: center;
+				margin: 5px;
+			}
+			.content img{
+				width: 50px;
+				height: 50px;
+				border-radius: 5px;
+			}
+			.content p{
+				font-size: 12px;
+				width: 100%;
+				text-align: center;
+			}
+			.content span{
+				font-size: 12px;
+				color: #a8a8a8;
+			}
+			li{
+				float: left;
+			}
+			.box{
+				margin-top: 300px;
+				border-top:1px solid black ;
+				width: 360px;
+				position: relative;
+			}
+			#hint{
+				background: white;
+				border: 1px solid red;
+				position: absolute;
+				top: -55px;
+				left: 35px;
+				width: 100px;
+				height: 50px;
+				border-bottom: 5px solid red;
+				display: none;
+			}
+			.min-box{
+				width: 6px;
+				height: 6px;
+				background: red;
+				position: absolute;
+				transform: rotate(45deg);
+				-webkit-transform:rotate(45deg) ;
+				bottom: -8px;
+				left: 15px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<ul id="main">
+				<!--<li class="content">
+					<img src="img/tx1.jpg"/>
+					<p>娱乐</p>
+					<span>
+						新闻
+					</span>
+				</li>-->
+			</ul>
+			<div id="hint">
+				<span>
+					你好啊！！！
+				</span>
+				<div class="min-box"></div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var arrLi=[
+			[
+				{
+					'imgsrc':'img/tx1.jpg',
+					'text':'人物封面',
+					'explain':'任务类'
+				}
+			],
+			[
+				{
+					'imgsrc':'img/tx2.jpg',
+					'text':'娱乐',
+					'explain':'新闻类'
+				}
+			],
+			[
+				{
+					'imgsrc':'img/tx3.jpg',
+					'text':'娱乐',
+					'explain':'新闻类'
+				}
+			],
+			[
+				{
+					'imgsrc':'img/tx1.jpg',
+					'text':'娱乐',
+					'explain':'新闻类'
+				}
+			],
+			[
+				{
+					'imgsrc':'img/tx1.jpg',
+					'text':'人物封面',
+					'explain':'任务类'
+				}
+			],
+			[
+				{
+					'imgsrc':'img/tx2.jpg',
+					'text':'娱乐',
+					'explain':'新闻类'
+				}
+			],
+			[
+				{
+					'imgsrc':'img/tx3.jpg',
+					'text':'娱乐',
+					'explain':'新闻类'
+				}
+			],
+			[
+				{
+					'imgsrc':'img/tx1.jpg',
+					'text':'娱乐',
+					'explain':'新闻类'
+				}
+			],
+			[
+				{
+					'imgsrc':'img/tx1.jpg',
+					'text':'人物封面',
+					'explain':'任务类'
+				}
+			],
+			[
+				{
+					'imgsrc':'img/tx2.jpg',
+					'text':'娱乐',
+					'explain':'新闻类'
+				}
+			],
+			[
+				{
+					'imgsrc':'img/tx3.jpg',
+					'text':'娱乐',
+					'explain':'新闻类'
+				}
+			],
+			[
+				{
+					'imgsrc':'img/tx1.jpg',
+					'text':'娱乐',
+					'explain':'新闻类'
+				}
+			],
+		]
+		var oMain=document.getElementById('main');
+		var oHint=document.getElementById('hint');
+//		var aLi=oMain.getElementsByTagName('li');
+		var len=arrLi.length;
+		for(var i=0;i<len;i++){
+			intLi(i);
+		}
+		function intLi(n){
+//			var aImg=aLi[n].getElementsByTagName('img')[0];
+//			var aP=aLi[n].getElementsByTagName('p')[0];
+//			var aSpan=aLi[n].getElementsByTagName('span')[0];
+			var str='';
+			
+			for(var i=0;i<len;i++){
+				str+='<li class="content">'
+							+'<img src="'+arrLi[i][0].imgsrc+'"/>'
+							+'<p>'+arrLi[i][0].text+'</p>'
+							+'<span>'+arrLi[i][0].explain+'</span>'
+						+'</li>'
+			}
+			oMain.innerHTML=str;
+		}
+		var aLi=oMain.getElementsByTagName('li');
+		
+		for(var i=0;i<len;i++){
+			aLi[i].index=i;
+			aLi[i].onmouseover=function(){
+				for(var i=0;i<len;i++){
+					
+				}
+				oHint.style.display='block';
+			}
+			aLi[i].onmouseout=function(){
+				oHint.style.display='none';
+			}
+			
+		}
+	</script>
+</html>
