@@ -197,7 +197,7 @@
 .con-content.last-con-content{
 	margin: 0px;
 }
-.con-content p{
+.con-content .textP{
 	/*height: 30px;*/
 	overflow: hidden; /*自动隐藏文字*/
 	text-overflow: ellipsis;/*文字隐藏后添加省略号*/
@@ -243,5 +243,5 @@
 	border-top: 1px solid #eee;
 }
 .mui-table-view-cell.min-padding{
-	padding: 17px 15px 5px 15px;
+	padding: 16px 15px 6px 15px;
 }

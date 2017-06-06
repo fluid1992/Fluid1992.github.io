@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			ul{
+				list-style: none;
+			}
+			.all{
+				padding-bottom: 15px ;
+				border-bottom: 1px solid black;
+			}
+			.fan{
+				padding-top: 15px ;
+				border-top: 1px solid black;
+			}
+		</style>
+	</head>
+	<body>
+		<ul class="all">
+			<li><input type="checkbox" name="" id="" value="" />全选</li>
+		</ul>
+		<ul class="cont">
+			<li><input type="checkbox" name="" id="" value="" />你好</li>
+			<li><input type="checkbox" name="" id="" value="" />你的背包</li>
+			<li><input type="checkbox" name="" id="" value="" />我的背包</li>
+			<li><input type="checkbox" name="" id="" value="" />我们的背包</li>
+			<li><input type="checkbox" name="" id="" value="" />大家的背包</li>
+			<li><input type="checkbox" name="" id="" value="" />红色的背包</li>
+			<li><input type="checkbox" name="" id="" value="" />无色的背包</li>
+			<li><input type="checkbox" name="" id="" value="" />透明的背包</li>
+			<li><input type="checkbox" name="" id="" value="" />稀烂的背包</li>
+			<li><input type="checkbox" name="" id="" value="" />没有背包</li>
+		</ul>
+		<ul class="fan">
+			<li><input type="checkbox" name="" id="" value="" />反选</li>
+		</ul>
+	</body>
+	<script type="text/javascript">
+		var oAll=document.getElementsByClassName('all')[0];
+		var oAlliput=oAll.getElementsByTagName('input')[0];
+		var oCont=document.getElementsByClassName('cont')[0];
+		
+		var ofan=document.getElementsByClassName('fan')[0];
+		var oFanInput=ofan.getElementsByTagName('input')[0];
+		
+		var aLi=oCont.getElementsByTagName('li');
+		var aInput=oCont.getElementsByTagName('input');
+		var len=aLi.length;
+		var control=0;
+		
+		for(var i=0;i<len;i++){
+			aInput[i].index=i;
+			aInput[i].onclick=function(){
+				var a = aInput[this.index].checked;
+				if(a){
+					control++;
+				}else{
+					control--;
+				}
+				if(control==len){
+					oAlliput.checked=true;
+				}
+				if(control!=len){
+					oAlliput.checked=false;
+				}
+			}
+		}
+		
+		oAlliput.onclick=function(){  			//点击全选
+			var ipt=oAlliput.checked;         //获取全选处于什么状态
+			if(control!=len&&ipt){				//判断control是不是都选上了
+				for(var i=0;i<len;i++){			
+					aInput[i].checked=true;
+				}
+			}else{
+				for(var i=0;i<len;i++){
+					aInput[i].checked=false;
+				}
+				control=0;
+			}
+		}
+		
+		oFanInput.onclick=function(){
+			var changeNum=0;
+			var Fipt=oFanInput.checked;
+			var ipt=oAlliput.checked;
+			for(var i=0;i<len;i++){
+				var b = aInput[i].checked;
+				if(b){
+					aInput[i].checked=false;
+				}else{
+					aInput[i].checked=true;
+					changeNum++;
+					control=0;
+				}
+			}
+			
+			control=changeNum;
+//			alert(control);
+			if(control==len && !ipt){
+				oAlliput.checked=true;
+			}else{
+				oAlliput.checked=false;
+			}
+		}
+		
+		
+	</script>
+</html>
