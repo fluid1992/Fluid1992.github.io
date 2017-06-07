@@ -245,3 +245,51 @@
 .mui-table-view-cell.min-padding{
 	padding: 16px 15px 6px 15px;
 }
+.img-InContent{
+	position: relative;
+}
+.img-InContent-Box{
+	width: 100%;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	text-align: center;
+	color: white;
+}
+.img-InContent-Box h4{
+	margin: auto;
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+.img-InContent-Box span{
+	font-size: 12px;
+	padding: 0px 5px;
+	line-height: 20px;
+}
+.img-InContent-Box .border-right{
+	border-right: 1px solid #EAEAEA;
+}
+.img-InContent-Box ul{
+	list-style: none;
+	padding: 0px;
+	overflow: hidden;
+	
+}
+.img-InContent-Box ul li{
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	margin: 5px 3px 0 3px;
+	line-height: 35px;
+	border-radius: 50%;
+	overflow: hidden;
+}
+.img-InContent-Box ul li.color{
+	color: white;
+	text-align: center;
+}
+.img-InContent-Box ul li img{
+	width: 100%;
+	height: 100%;
+	
+}
