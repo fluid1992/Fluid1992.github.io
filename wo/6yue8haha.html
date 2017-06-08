@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			body{
+				background: black;
+			}
+			ul{
+			
+				width: 60%;
+				height: 50px;
+				background: red;
+				margin: auto;
+				margin-top: 200px;
+				position: relative;
+			}
+			li{
+				float: left;
+				width: 20%;
+				background: white;
+				margin-right: 5px;
+				line-height: 50px;
+				position: absolute;
+				top: 0px;
+				text-align: center;
+				border-radius: 10px;
+			}
+			span{
+				width: 100%;
+				background: white;
+				position: absolute;
+				top: 0px;
+				text-align: center;
+				left: 0;
+				border-radius: 10px;
+				
+			}
+			li:nth-of-type(1){
+				left: 5%;
+			}
+			li:nth-of-type(2){
+				left: 40%;
+				z-index: 10;
+			}
+			/*li:nth-of-type(3){
+				left: 40%;
+				display: none;
+				
+			}*/
+			li:nth-of-type(3){
+				left: 75%;
+			}
+			.active{
+				border-bottom: 1px solid #D8D8D8;
+			}
+		</style>
+	</head>
+	<body>
+		<ul id="list">
+			<li>我是合作伙伴</li>
+			<li>
+				<span >我是口碑商家</span>
+				<span class="active">我是商家用户</span>
+			</li>
+			
+			<li>我是个人用户</li>
+		</ul>
+	</body>
+	<script type="text/javascript" src="js/MyQuery.js" ></script>
+	<script type="text/javascript">
+		var aLi=$('list').getElementsByTagName('li')[1];
+		var aLi0=$('list').getElementsByTagName('li')[0];
+		var oSpan=$('list').getElementsByTagName('span')[0];
+		var oSpan1=$('list').getElementsByTagName('span')[1];
+		aLi.onmouseover=function(){
+			oSpan1.innerHTML='我是支付宝商家';
+			oSpan1.borderBottomLeftRadius='0px'
+			oSpan1.borderBottomRightRadius='0px'
+			Go(oSpan,'top',5,25);
+			
+			Go(oSpan1,'top',-5,-25)
+		}
+		aLi.onmouseout=function(){
+			oSpan1.innerHTML='我是商家用户';
+			oSpan.borderTopLeftRadius='0px';
+			oSpan.borderTopRightRadius='0px'
+			Go(oSpan,'top',-5,0);
+			Go(oSpan1,'top',5,0)
+		}
+	</script>
+</html>
