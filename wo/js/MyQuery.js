@@ -10,7 +10,7 @@ function getStyle(obj, strr){
 	}
 }
 //元素的移动
-function Go(obj, moveNum, target, strr, funEnd) {
+function Go(obj, moveNum, target, strr,sleepTime,funEnd) {
 	clearInterval(obj.timer);
 	obj.timer = setInterval(function() {
 		var maLeft = parseInt(getStyle(obj, strr)) + moveNum;
@@ -24,5 +24,17 @@ function Go(obj, moveNum, target, strr, funEnd) {
 				funEnd();
 			}
 		}
-	}, 50)
+	}, sleepTime)
+}
+//改变透明度
+function ChooseOpacity(obj, state,sleepTime) {
+	clearInterval(obj.opaTimer);
+	obj.opaTimer = setInterval(function() {
+		var opa = parseFloat(getStyle(obj, 'opacity')) + state;
+		if(opa >= 1 || opa <= 0) {
+			state > 0 ? opa = 1 : opa = 0;
+			clearInterval(obj.opaTimer);
+		}
+		obj.style.opacity = opa;
+	}, sleepTime)
 }
