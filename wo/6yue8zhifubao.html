@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+		body{
+			margin: 0px;
+		}
+			#content{
+				width: 100%;
+				height:875px;
+				background:url(img/TB1h9xxIFXXXXbKXXXXXXXXXXXX.jpg) no-repeat center center;
+				background-size: 100% 100%;
+				overflow: hidden;
+			}
+			#textImg{
+				width: 682px;
+				height: 183px;
+				background:url(img/TB1POhqIFXXXXXbXFXXXXXXXXXX.png) no-repeat center center;
+				background-size: 100% 100%;
+				margin: auto;
+				margin-top:10%;
+			}
+			#content ul{
+				width: 50%;
+				list-style: none;
+				/*background: red;*/
+				padding: 0;
+				margin: auto;
+				margin-top:100px ;
+				height: 50px;
+				position: relative;
+				
+				
+			}
+			#content ul li{
+				width: 20%;
+				background: #00BFFF;
+				float: left;
+				margin-right:10px ;
+				text-align: center;
+				line-height: 50px;
+				position: absolute;
+				top: 0px;
+				border-radius: 10px;
+				color: white;
+			}
+			span{
+				width: 100%;
+				background: #00BFFF;
+				position: absolute;
+				top: 0;
+				text-align: center;
+				left: 0;
+				border-radius: 10px;
+				
+			}
+			li:nth-of-type(1){
+				left: 10%;
+				
+			}
+			li:nth-of-type(2){
+				left: 40%;
+				z-index: 10;
+				
+			}
+			li:nth-of-type(3){
+				left: 70%;
+				
+			}
+			.active{
+				border-bottom: 1px solid #D8D8D8;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="content">
+			<div id="textImg">
+				
+			</div>
+			<ul id="list">
+				<li>我是合作伙伴</li>
+				<li>	
+					<span >我是口碑商家</span>
+					<span class="active">我是商家用户</span></li>
+				<li>我是个人用户</li>
+			</ul>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/MyQuery.js" ></script>
+	<script type="text/javascript">
+		var bgImg=['img/TB1h9xxIFXXXXbKXXXXXXXXXXXX.jpg','img/TB1pfG4IFXXXXc6XXXXXXXXXXXX.jpg','img/TB1sXGYIFXXXXc5XpXXXXXXXXXX.jpg'];
+		var len=bgImg.length;
+		var num=0;
+		
+		
+		setInterval(function(){
+//			for(var i=0;i<len,i++){
+		
+				if(++num>len-1){
+					num=0
+				}
+				$('content').style.background ='url('+bgImg[num]+')';
+				$('content').style.backgroundSize='100% 100%';
+//			}
+		},3000);
+		var aLi=$('list').getElementsByTagName('li')[1];
+		var oSpan=$('list').getElementsByTagName('span')[0];
+		var oSpan1=$('list').getElementsByTagName('span')[1];
+		aLi.onmouseover=function(){
+			oSpan1.innerHTML='我是支付宝商家';
+			Go(oSpan,5,25,'top');
+			Go(oSpan1,-5,-25,'top');
+		}
+		aLi.onmouseout=function(){
+			oSpan1.innerHTML='我是商家用户';
+			Go(oSpan,-5,0,'top');
+			Go(oSpan1,5,0,'top');
+		}
+		
+		
+	</script>
+</html>

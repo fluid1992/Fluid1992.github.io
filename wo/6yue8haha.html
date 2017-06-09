@@ -79,16 +79,16 @@
 			oSpan1.innerHTML='我是支付宝商家';
 			oSpan1.borderBottomLeftRadius='0px'
 			oSpan1.borderBottomRightRadius='0px'
-			Go(oSpan,'top',5,25);
+			Go(oSpan,5,25,'top');
 			
-			Go(oSpan1,'top',-5,-25)
+			Go(oSpan1,-5,-25,'top')
 		}
 		aLi.onmouseout=function(){
 			oSpan1.innerHTML='我是商家用户';
 			oSpan.borderTopLeftRadius='0px';
 			oSpan.borderTopRightRadius='0px'
-			Go(oSpan,'top',-5,0);
-			Go(oSpan1,'top',5,0)
+			Go(oSpan,-5,0,'top');
+			Go(oSpan1,5,0,'top')
 		}
 	</script>
 </html>

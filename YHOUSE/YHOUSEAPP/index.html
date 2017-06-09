@@ -17,13 +17,13 @@
 	<div id="tab1" class="mui-content  mui-control-content ">
 		
 		<div class="mui-slider mui-slider-bottom">
-		    <div class="mui-slider-indicator mui-segmented-control mui-segmented-control-inverted fix-box">
+		    <div class="mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
 		        <a class="mui-control-item" href="#item1">美食</a>
 		        <a class="mui-control-item" href="#item2">玩乐</a>
 		        <a class="mui-control-item" href="#item3">夜生活</a>
 		        <a class="mui-control-item" href="#item4">美容/SPA</a>
 		    </div>
-		    <!--<div  class="mui-slider-progress-bar mui-col-xs-3 fix-box"></div>-->
+		    <div  id="sliderProgressBar" class="mui-slider-progress-bar mui-col-xs-3"></div>
 		    <div class="mui-slider-group">
 
 		        <div id="item1" class="mui-slider-item mui-control-content mui-active">
@@ -1737,7 +1737,7 @@
 		</div>
 	</div> 
 	<!--社区的主题-->
-	<div id="tab2"  class="mui-content mui-control-content mui-active">
+	<div id="tab2"  class="mui-content mui-control-content">
 		    <div class="mui-slider mui-slider-bottom">
 		        <div class="mui-slider-indicator mui-segmented-control mui-segmented-control-inverted fix-box">
 		            <a class="mui-control-item" href="#conmunityitem1">推荐</a>
@@ -3711,17 +3711,43 @@
 		        </div>
 		    </div>
 	</div>
+
+	
+    <div id="tab3" class="mui-slider-item mui-control-content mui-active">
+       <div class="mui-slider mui-slier-top">
+           <div class="mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+               <a class="mui-control-item" href="#tab3Item1">选项卡1</a>
+               <a class="mui-control-item" href="#tab3Item2">选项卡2</a>
+           </div>
+           <div id="sliderProgressBar" class="mui-slider-progress-bar mui-col-xs-6"></div>
+           <div class="mui-slider-group">
+               <div id="tab3Item1" class="mui-slider-item mui-control-content mui-active">
+                   <ul class="mui-table-view">
+                       <li class="mui-table-view-cell">第1个选项卡子项</li>
+                       <li class="mui-table-view-cell">第1个选项卡子项</li>
+                   </ul>
+               </div>
+               <div id="tab3Item2" class="mui-slider-item mui-control-content">
+                   <ul class="mui-table-view">
+                       <li class="mui-table-view-cell">第2个选项卡子项</li>
+                       <li class="mui-table-view-cell">第2个选项卡子项</li>
+                   </ul>
+               </div>
+           </div>
+       </div>
+    </div>
+	        
 	<!--社区的主题--结束-->
 	<nav class="mui-bar mui-bar-tab ">
 	    <a href="#tab1" class="mui-tab-item ">
 	        <span class="mui-icon mui-icon-home"></span>
 	        <span class="mui-tab-label">精选店</span>
 	    </a>
-	    <a href="#tab2" class="mui-tab-item mui-active">
+	    <a href="#tab2" class="mui-tab-item">
 	        <span class="mui-icon mui-icon-phone"></span>
 	        <span class="mui-tab-label">社区</span>
 	    </a>
-	    <a class="mui-tab-item">
+	    <a href="#tab3" class="mui-tab-item mui-active">
 	        <span class="mui-icon mui-icon-email"></span>
 	        <span class="mui-tab-label">vip会员</span>
 	    </a>
