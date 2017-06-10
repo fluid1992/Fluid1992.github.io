@@ -26,6 +26,8 @@
 				position: absolute;
 				left: 0px;
 				bottom: -80px;
+				opacity: 0.5;
+				color: white;
 			}
 			img{
 				left: 500px;
@@ -51,7 +53,9 @@
 		var aImg=$('new').getElementsByTagName('img');
 		var len=aImg.length;
 		var num=0;
-		var arrText=['这是什么','你动什么','能不能不要动']
+		var arrText=['这是什么,不晓得',
+					'你动什么，我喜欢',
+					'能不能不要动，不得行']
 		document.onclick=function(){
 			Move();
 			function Move(){
