@@ -8,16 +8,27 @@
    <link rel="stylesheet" type="text/css" href="css/yhouseApp.css"/>
 </head>
 <body>
-	<header class="mui-bar mui-bar-nav">
+	<!--<div class="mui-bar mui-bar-nav">
 	    <span class="mui-pull-left text-change"> 重庆 </span>
 	    <input type="text" name="" id="search" value=""  />
 	    <span class="mui-pull-right text-change">筛选></span>	
 	  
-	</header>
+	</div>-->
 	<div id="tab1" class="mui-content  mui-control-content ">
 		
-		<div class="mui-slider mui-slider-bottom">
-		    <div class="mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+		<div class="mui-bar mui-bar-nav clear">        <!--header-->
+		    <span class="mui-pull-left text-change"> 重庆 </span>
+		    <input type="text" name="" id="search" value="" placeholder="搜索商户、商品、地点、用户" />
+		    <span class="mui-pull-right text-change">筛选></span>	
+		  
+		  	
+		  
+		</div>
+		
+		
+		
+		<div class="mui-slider mui-slider-bottom mui-slier-top">
+		    <div class="mui-slider-indicator mui-segmented-control mui-segmented-control-inverted mui-segmented-control-inverted-bg">
 		        <a class="mui-control-item" href="#item1">美食</a>
 		        <a class="mui-control-item" href="#item2">玩乐</a>
 		        <a class="mui-control-item" href="#item3">夜生活</a>
@@ -29,7 +40,7 @@
 		        <div id="item1" class="mui-slider-item mui-control-content mui-active">
 		            <!--第一个选择卡-->
 		            	
-				    <div id="slider" class="mui-slider mui-slier-top" >
+				    <div id="slider" class="mui-slider" >
 				      <div class="mui-slider-group mui-slider-loop">
 				        <!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
 				        <div class="mui-slider-item mui-slider-item-duplicate">
@@ -600,7 +611,7 @@
 		        
 		        <!--第二个选项卡---开始-->
 		        <div id="item2"	 class="mui-slider-item mui-control-content ">
-		            <div id="slider1" class="mui-slider mui-slier-top" >
+		            <div id="slider1" class="mui-slider" >
 				      <div class="mui-slider-group mui-slider-loop">
 				        <!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
 				        <div class="mui-slider-item mui-slider-item-duplicate">
@@ -909,7 +920,7 @@
 		          <!--第三个选项卡---开始-->
 		        <div id="item3"	 class="mui-slider-item mui-control-content">
 		            
-		            <div id="slider2" class="mui-slider mui-slier-top" >
+		            <div id="slider2" class="mui-slider" >
 				      <div class="mui-slider-group mui-slider-loop">
 				        <!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
 				        <div class="mui-slider-item mui-slider-item-duplicate">
@@ -1333,7 +1344,7 @@
 		        
 		          <!--第四个选项卡---开始-->
 		        <div id="item4"	 class="mui-slider-item mui-control-content">
-		            <div id="slider3" class="mui-slider mui-slier-top" >
+		            <div id="slider3" class="mui-slider" >
 				      <div class="mui-slider-group mui-slider-loop">
 				        <!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
 				        <div class="mui-slider-item mui-slider-item-duplicate">
@@ -1738,6 +1749,14 @@
 	</div> 
 	<!--社区的主题-->
 	<div id="tab2"  class="mui-content mui-control-content">
+		
+		
+			<div class="mui-bar mui-bar-nav clear">        <!--header-->
+			    <input type="text" name="" id="search-tab2" value=""  placeholder="搜索商户、商品、用户、图文"/>
+			    
+			</div>
+		
+		
 		    <div class="mui-slider mui-slider-bottom">
 		        <div class="mui-slider-indicator mui-segmented-control mui-segmented-control-inverted fix-box">
 		            <a class="mui-control-item" href="#conmunityitem1">推荐</a>
@@ -3718,11 +3737,19 @@
     </div>
 	    
 	<div id="tab4" class="mui-content  mui-control-content">
-    	挑战
+    	<div class="mui-bar mui-bar-nav clear">  
+    	 	
+    	</div>
+    	<header class="mui-bar mui-bar-nav">
+    	    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+    	    <h1 class="mui-title">标题</h1>
+    	</header>
     </div>
     
     <div id="tab5" class="mui-content  mui-control-content">
-    	我的
+    	
+   	我的
+    	
     </div>
     
 	<!--社区的主题--结束-->
@@ -3743,7 +3770,7 @@
 	        <span class="mui-icon mui-icon-gear"></span>
 	        <span class="mui-tab-label">挑战</span>
 	    </a>
-	     <a href="#tab5" class="mui-tab-item">
+	    <a href="#tab5" class="mui-tab-item">
 	        <span class="mui-icon mui-icon-gear"></span>
 	        <span class="mui-tab-label">我的</span>
 	    </a>

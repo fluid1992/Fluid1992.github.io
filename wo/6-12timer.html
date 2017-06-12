@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		
+		</style>
+	</head>
+	<body>
+		<p>
+			<span>目标时间：</span>
+			<input type="" name="" id="setTime" value="Jun 12,2017 18:0:0" placeholder="格式：Jun 12,2017 18:0:0" />
+		</p>
+		<p>
+			<span>还剩：</span>
+			<input type="text" name="" id="getTime" value="" />
+			<button id="btn">开始计时吧！</button>
+		</p>
+		
+	</body>
+	<script type="text/javascript" src="js/MyQuery.js" ></script>
+	<script type="text/javascript">
+//		剩余的不满一分钟的秒: t%60
+//		剩下的不满一小时的分:Math.floor(t%86400%3600/60)
+//		剩下多少小时:Math.floor(t%86400/3600)
+//		剩下多少天(24*60*60): Math.floor(t/86400);
+		$('btn').onclick=function(){
+			var timer=setInterval(function(){
+				var newDate=new Date($('setTime').value);
+				if($('setTime').value==''){
+					alert('目标时间为空，请输入');
+					clearInterval(timer);
+				}else{
+					
+						var nowDate= new Date();
+						var t=(newDate-nowDate)/1000;
+						var str=Math.floor(t/86400)+'天'+Math.floor(t%86400/3600)
+							+'时'+Math.floor(t%86400%3600/60)+'分'
+							+Math.floor(t%60)+'秒';
+						$('getTime').value=str;
+				}
+			},1000)
+		}
+//		剩余的不满一分钟的秒: t%60
+//		剩下的不满一小时的分:Math.floor(t%86400%3600/60)
+//		剩下多少小时:Math.floor(t%86400/3600)
+//		剩下多少天(24*60*60): Math.floor(t/86400);
+		
+		
+	</script>
+</html>

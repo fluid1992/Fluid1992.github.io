@@ -1,21 +1,50 @@
 .mui-slider-bottom{
 	margin-bottom: 55px;
 }
+.clear{
+	padding-top:10px ;
+}
+.mui-bar-nav.clear{
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+input{
+	font-size: 12px;
+}
+.mui-bar.clear{
+	background-color:white;
+	height:45px;
+}
+/*.width-80{
+	width: 80%;
+}*/
 .full{
 		width: 100%;
 }
+#search-tab2,
 #search{
 	width:65%;
 	border-radius:10px ;
+	height: 30px;
+	margin: 0px;
+	padding: 2px 15px;
+}
+#search-tab2{
+	width:80%;
 }
 .mui-pull-left,
 .mui-pull-right{
 	
 	font-size: 14px;
 }
-
+.mui-segmented-control.mui-segmented-control-inverted.mui-segmented-control-inverted-bg{
+	border: none;
+}
+.mui-slider-indicator.mui-segmented-control-inverted-bg{
+	background-color:white;
+}
 .text-change{
-	padding: 10px 10px;
+	padding: 5px 10px;
 }
 .life-header{
 	overflow: hidden;
@@ -44,7 +73,7 @@
 }
 .con-content.mui-slier-top,/*选项卡下的内容margin-top*/
 .mui-slider.mui-slier-top{
-	margin-top: 38px;
+	margin-top: 45px;
 }
 .mui-ellipsis{
 	font-size: 10px;
