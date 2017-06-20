@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/mui.min.css"/>
+		<script type="text/javascript" src="js/iconfont.js" ></script>
+		<script type="text/javascript" src="js/mui.min.js" ></script>
+		<style type="text/css">
+			#cont{
+				width: 300px;
+				height: 500px;
+				border: 1px solid red;
+				position: relative;
+				overflow: hidden;
+			}
+			#cont .touxiang{
+				width: 50px;
+				height: 50px;
+				margin: auto;
+				margin-top: 30px;
+				border-radius:50%;
+				overflow: hidden;
+				transition: all 1s;
+			}
+			#cont .touxiang img{
+				width: 100%;
+				height: 100%;
+				
+			}
+			#list{
+				list-style: none;
+				padding: 0px;
+				transition: opacity 1s;
+			}
+			#list li{
+				line-height: 25px;
+				padding: 5px 10px;
+			}
+			li:nth-child(odd){
+				background: #EAEAEA;
+			}
+			li:nth-child(even){
+				background: #F8F8F8;
+			}
+			#listG{
+				position: absolute;
+				bottom: -100px;
+				left: 0px;
+				transition: all 2s;
+			}
+			/*#cont:hover #listG{
+				bottom:200px
+			}*/
+			#listG.bottom-1{
+				bottom:190px
+			}
+			
+			/*#cont:hover .touxiang{
+				width: 30px;
+				height: 30px;
+			}*/
+			#cont .Wi-And-He{
+				width: 30px;
+				height: 30px;
+			}
+			
+			
+			/*#cont:hover #list{
+				opacity: 0;
+			}*/
+			
+			/*#cont:hover p[mystyle]{
+				opacity: 0;
+			}*/
+			.opacity-1,
+			#list.opacity-1{
+				opacity: 0;
+			}
+			p[mystyle]{
+				margin: 0;
+				width: 100%;
+				text-align: center;
+				font-size:13px ;
+				transition: all 2s;
+			}
+			p[mystyle='1']{
+				margin-top:10px ;
+				font-weight: bold;
+				color: black;
+				font-size:15px;
+			}
+			#jiantou{
+				width: 10px;
+				height: 10px;
+				border-width: 5px;
+				border-style: solid;
+				border-color: transparent transparent grey transparent; 
+				position: absolute;
+				bottom:130px;
+				left: 50%;
+				margin-left: -5px;
+				transition: bottom 2s,-webkit-transform 1s 2s;
+			}
+			#jiantou.bottom-2{
+				bottom:410px;
+				-webkit-transform: rotate(180deg);
+			}
+		</style>
+	</head>
+	<body>
+		<div id="cont">
+			<div class="touxiang">
+				<img src="img/tx2.jpg"/>
+			</div>
+			<p mystyle="1">我是高手</p>
+			<p mystyle>超级vip</p>
+			<ul id="list">
+				<li>行程</li>
+				<li>钱包</li>
+				<li>客服</li>
+				<li>设置</li>
+			</ul>
+			<div id="jiantou">
+				
+				
+			</div>
+			
+			<ul id="listG" class="mui-table-view mui-grid-view mui-grid-9 ">
+				<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4">
+				    <a href="#">
+				        <span class="mui-icon mui-icon-home"></span>
+				        <div class="mui-media-body">Home</div>
+				    </a>
+				</li>
+				<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4">
+				    <a href="#">
+				        <span class="mui-icon mui-icon-email"><span class="mui-badge mui-badge-red">5</span></span>
+				        <div class="mui-media-body">Email</div>
+				    </a>
+				</li>
+				<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+				    <a href="#">
+				        <span class="mui-icon mui-icon-chatbubble"></span>
+				        <div class="mui-media-body">Chat</div>
+				    </a>
+				</li>
+				<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4">
+				    <a href="#">
+				        <span class="mui-icon mui-icon-location"></span>
+				        <div class="mui-media-body">Location</div>
+				    </a>
+				</li>
+				<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4">
+				    <a href="#">
+				        <span class="mui-icon mui-icon-search"></span>
+				        <div class="mui-media-body">Search</div>
+				    </a>
+				</li>
+				<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4">
+				    <a href="#">
+				        <span class="mui-icon mui-icon-phone"></span>
+				        <div class="mui-media-body">Phone</div>
+				    </a>
+				</li>
+		    </ul>
+			
+		</div>
+	</body>
+	<script type="text/javascript" src="js/MyQuery.js" ></script>
+	<script type="text/javascript">
+		var oP=$('cont').getElementsByTagName('p');
+		var aTx=$('cont').getElementsByClassName('touxiang')[0];
+		var control=true;
+		$('cont').onclick=function(){
+//			$('jiantou').style.transform='rotate(180deg)'
+			if(control){
+				aTx.className='touxiang Wi-And-He';
+				for(var i=0;i<oP.length;i++){
+					oP[i].className='opacity-1';
+				}
+				$('list').className='opacity-1'
+				$('listG').className='mui-table-view mui-grid-view mui-grid-9 bottom-1';				
+				$('jiantou').className='bottom-2';
+			}else{
+				aTx.className='touxiang';
+				for(var i=0;i<oP.length;i++){
+					oP[i].className='';
+				}
+				$('list').className=''
+				$('listG').className='mui-table-view mui-grid-view mui-grid-9';				
+				$('jiantou').className='';
+			}
+				control=!control;
+		}
+	</script>
+</html>
