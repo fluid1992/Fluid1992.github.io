@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.circle{
+				background: black;
+				position: relative;
+				width: 400px;
+				height: 400px;
+				border: 10px solid gray;
+				border-radius: 50%;
+			}
+			ul{
+				list-style: none;
+				
+			}
+			ul li{
+				position: absolute;
+				top: 0;
+				left: 50%;
+				margin-left: -5px;
+				width: 10px;
+				height: 8px;
+				background: white;
+				border-radius:3px ;
+				/*border-bottom-left-radius:3px ;*/
+				/*-webkit-transform: rotate(30deg);*/
+				-webkit-transform-origin: 5px 200px;
+			}
+			.long{
+				height: 15px;
+			}
+			#hour-hand{
+				position: absolute;
+				top: 120px;
+				left: 50%;
+				margin-left:-8px ;
+				width: 16px;
+				height: 80px;
+				background: red;
+				-webkit-transform-origin:bottom center;
+			}
+			#hour-hand span{
+				width: 0;
+				height: 0;
+				border-width: 8px;
+				border-style:solid;
+				border-color:transparent transparent red transparent; 
+				position: absolute;
+				top: -16px;
+				left: 0;
+			}
+			#minute-hand{
+				position: absolute;
+				top: 80px;
+				left: 50%;
+				margin-left:-5px ;
+				width: 10px;
+				height: 120px;
+				background: burlywood;
+				/*-webkit-transform: rotate(45deg);*/
+				-webkit-transform-origin:bottom center;
+			}
+			#minute-hand span{
+				width: 0;
+				height: 0;
+				border-width: 5px;
+				border-style:solid;
+				border-color:transparent transparent burlywood transparent; 
+				position: absolute;
+				top: -9px;
+				left: 0;
+			}
+			#second-hand{
+				position: absolute;
+				top: 9px;
+				left: 50%;
+				margin-left:-5px ;
+				width: 10px;
+				height: 250px;
+				background: orchid;
+				border-radius:5px ;
+				/*-webkit-transform: rotate(-45deg);*/
+				-webkit-transform-origin:5px 192px;
+				/*transition: all 1s;*/
+			}
+			.min-circle{
+				width: 40px;
+				height: 40px;
+				border-radius: 50%;
+				position: absolute;
+				top: 50%;
+				margin-top: -20px;
+				left: 50%;
+				margin-left: -20px;
+				background: orchid;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="circle">
+			<ul id="list">
+				
+			</ul>
+		
+			<div id="hour-hand">
+				<span></span>
+			</div>
+			<div id="minute-hand">
+				<span></span>
+			</div>	
+			<div id="second-hand">
+				<span></span>
+			</div>
+			<div class="min-circle">
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/MyQuery.js" ></script>
+	<script type="text/javascript">
+		var str='';
+		for(var i=0;i<60 ;i++ ){
+			str += '<li></li>'
+		}
+		$('list').innerHTML=str;
+		var aLi=$('list').getElementsByTagName('li');
+		var len =aLi.length;
+		for(var i=0 ;i<len ;i++){
+			if(i%5==0){
+				aLi[i].className='long'
+			}
+			aLi[i].style.webkitTransform='rotate('+i*6+'deg)';
+		}
+		setInterval(function(){
+			var mydate = new Date();
+			var hours = mydate.getHours();
+			var minutes = mydate.getMinutes();
+			var seconds = mydate.getSeconds();
+//			console.log(hours)
+			if(hours>12){
+				hours=hours-12;
+			}
+			$('hour-hand').style.webkitTransform='rotate('+hours*30+minutes*0.5+'deg)';
+			$('minute-hand').style.webkitTransform='rotate('+(minutes*6+seconds*0.1)+'deg)';
+			$('second-hand').style.webkitTransform='rotate('+seconds*6+'deg)';
+		},1000)
+	</script>
+</html>
