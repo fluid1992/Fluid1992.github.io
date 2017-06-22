@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 200px;
+				height: 200px;
+				text-align: center;
+				line-height: 200px;
+			}
+			.cont{
+				border: 1px solid red;
+				margin: 200px;
+				position: relative;
+				-webkit-transform-style: preserve-3d;
+				-webkit-perspective: 0;
+				/*-webkit-transform: rotateY(45deg) rotateX(45deg);*/
+				-webkit-animation:rotateBox 5s linear infinite;
+				-webkit-transition: all 10s;
+			}
+			@-webkit-keyframes rotateBox{
+				from{
+					-webkit-transform: rotateY(0deg) rotateX(0deg);
+				}
+				to{
+					-webkit-transform: rotateX(360deg) rotateY(360deg);
+				}
+			}
+			@-webkit-keyframes rotateMinBox{
+				from{
+					-webkit-transform: rotateY(0deg);
+				}
+				to{
+					-webkit-transform: rotateY(360deg);
+				}
+			}
+			
+			/*.cont:hover {
+				-webkit-animation:rotateMinBox 5s linear infinite;*/
+				/*-webkit-animation:rotateBox 5s linear infinite;*/
+			/*}*/
+			/*控制组成一个大盒子*/
+			.cont div{
+				position: absolute;
+				top: 0px;
+				left: 0px;
+				opacity: 0.6;
+			}
+			.cont div[left]{
+				left: -100px;
+				background:url(img/u=1589769245,3062407322&fm=26&gp=0.jpg)no-repeat center center;
+				-webkit-transform: rotateY(90deg);
+				/*-webkit-transform-origin: left;*/
+			}
+			.cont div[right]{
+				left: 100px;
+				background: url(img/u=1837350930,1729704606&fm=26&gp=0.jpg)no-repeat center center;
+				-webkit-transform: rotateY(90deg);
+			}
+			.cont div[up]{
+				top: -100px;
+				background: url(img/u=1863145503,1330064667&fm=72.jpg)no-repeat center center;
+				-webkit-transform: rotateX(-90deg);
+				/*-webkit-transform-origin: top;*/
+			}
+			.cont div[down]{
+				top: 100px;
+				background: url(img/u=2764130090,144266031&fm=11&gp=0.jpg)no-repeat center center;
+				-webkit-transform: rotateX(90deg);
+				/*-webkit-transform-origin: bottom;*/
+			}
+			.cont div[black]{
+				background: url(img/u=3118157353,973244879&fm=11&gp=0.jpg)no-repeat center center;
+				-webkit-transform:translateZ(-100px);
+			}
+			.cont div[font]{
+				background: url(img/u=3213866713,1433427332&fm=26&gp=0.jpg)no-repeat center center;
+				-webkit-transform:translateZ(100px);
+			}
+			
+			/*组成小盒子*/
+			.cont .min-box{
+				width: 100px;
+				height: 100px;
+				position: absolute;
+				top: 50px;
+				left: 50px;
+				border: 1px solid yellow ;
+				-webkit-transform-style: preserve-3d;
+				-webkit-perspective: 0;
+				transition: all 10s;
+			}
+			
+			.cont .min-box div{
+				position: absolute;
+				left: 0px;
+				top: 0px;
+				width: 100px;
+				height: 100px;
+				text-align: center;
+				line-height: 100px;
+				opacity: 1;
+			}
+			
+			.cont .min-box div[left]{
+				left: -50px;
+				background: url(img/timg.gif)no-repeat center center;
+				-webkit-transform: rotateY(90deg);
+				/*-webkit-transform-origin: left;*/
+			}
+			.cont .min-box div[right]{
+				left: 50px;
+				background: url(img/u=13970165,200033033&fm=26&gp=0.jpg)no-repeat center center;
+				-webkit-transform: rotateY(90deg);
+			}
+			.cont .min-box div[up]{
+				top: -50px;
+				background: url(img/u=1449609396,3622662753&fm=26&gp=0.jpg)no-repeat center center;
+				-webkit-transform: rotateX(-90deg);
+				/*-webkit-transform-origin: top;*/
+			}
+			.cont .min-box div[down]{
+				top: 50px;
+				background: url(img/u=1679644301,3323703456&fm=26&gp=0.jpg)no-repeat center center;
+				-webkit-transform: rotateX(90deg);
+				/*-webkit-transform-origin: bottom;*/
+			}
+			.cont .min-box div[black]{
+				background: url(img/u=2316911064,824970481&fm=26&gp=0.jpg)no-repeat center center;
+				-webkit-transform:translateZ(-50px);
+			}
+			.cont .min-box div[font]{
+				background: url(img/u=3566707517,2624591789&fm=26&gp=0.jpg)no-repeat center center;
+				-webkit-transform:translateZ(50px);
+			}
+			
+			/*鼠标移入事件*/
+			/*小盒子分开*/
+			.cont:hover div[black='black2']{
+				-webkit-transform: translateZ(-150px);
+			}
+			.cont:hover div[font='font2']{
+				-webkit-transform: translateZ(150px);
+			}
+			.cont:hover div[down='down2']{
+				-webkit-transform: translateY(100px) rotateX(90deg);
+			}
+			.cont:hover div[up='up2']{
+				-webkit-transform: translateY(-100px) rotateX(90deg);
+			}
+			.cont:hover div[right='right2']{
+				-webkit-transform: translateX(100px) rotateY(90deg);
+			}
+			.cont:hover div[left='left2']{
+				-webkit-transform: translateX(-100px) rotateY(-90deg);
+			}
+			
+			/*大盒子分开*/
+			.cont:hover div[font='font1']{
+				-webkit-transform: translateZ(300px);
+			}
+			.cont:hover div[black='black1']{
+				-webkit-transform: translateZ(-300px);
+			}
+			.cont:hover div[down='down1']{
+				-webkit-transform: translateY(200px) rotateX(90deg);
+			}
+			.cont:hover div[up='up1']{
+				-webkit-transform: translateY(-200px) rotateX(90deg);
+			}
+			.cont:hover div[right='right1']{
+				-webkit-transform: translateX(200px) rotateY(90deg);
+			}
+			.cont:hover div[left='left1']{
+				-webkit-transform: translateX(-200px) rotateY(-90deg);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="cont">
+			
+		  <div up="up1"></div>
+		  <div down="down1"></div>
+		  <div font="font1"></div>
+		  <div black="black1"></div>
+		  <div left="left1"></div>
+		  <div right="right1"></div>
+		  
+			<div class="min-box">
+			  <div up="up2"></div>
+			  <div down="down2"></div>
+			  <div font="font2"></div>
+			  <div black="black2"></div>
+			  <div left="left2"></div>
+			  <div right="right2"></div>
+			</div>
+		</div>
+		
+		
+		
+	</body>
+	<script type="text/javascript" src="js/MyQuery.js" ></script>
+	<script type="text/javascript">
+	var oCont=document.getElementsByClassName('cont')[0];
+		oCont.onclick=function(){
+			oCont.style.webkitAnimation='rotateMinBox 10s linear infinite';
+			oCont.onmouseout=function(){
+			  oCont.style.webkitAnimation='rotateBox 10s linear infinite';
+			}
+		}
+		
+	</script>
+</html>
