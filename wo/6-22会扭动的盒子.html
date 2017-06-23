@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		#cont{
+			margin: 200px 0 0 200px;
+			/*background: yellow;*/
+			/*border:1px solid red;*/
+			width: 600px;
+			height: 300px;
+			-webkit-transform-style: preserve-3d;
+			-webkit-perspective: 0px;
+		}
+			ul{
+				-webkit-transform-style: preserve-3d;
+				-webkit-perspective: 0px;
+				list-style: none;
+				padding: 0px;
+				margin: 0px;
+			}
+			li{
+				-webkit-transform-style: preserve-3d;
+				-webkit-perspective:0px;
+				float: left;
+				/*margin-left:-1px ;*/
+				width: 10px;
+				height: 300px;
+				/*background: red;*/
+				padding: 0;
+				/*-webkit-transform: rotateX(360deg) rotateY(360deg) ;*/
+				transition: all 2s;
+			}
+			ul:hover li{
+				-webkit-transform: rotateX(360deg);
+			}
+			li div{
+				position: absolute;
+				left: 0px;
+				top: 0px;
+				width: 10px;
+				height: 300px;
+				background-size:600px 300px ;
+				
+			}
+			
+			div[up='up']{
+				top: -150px;
+				background-image: url(img/tx1.jpg);
+				-webkit-transform: rotateX(90deg);
+			}
+			div[down='down']{
+				top: 150px;
+				background-image: url(img/tx2.jpg);
+				-webkit-transform: rotateX(-90deg);
+				
+			}
+			div[black='black']{
+				background-image: url(img/tx3.jpg);
+				-webkit-transform:translateZ(-150px) rotateX(180deg);
+			}
+			div[font='font']{
+				background-image: url(img/tx4.jpg);
+				-webkit-transform:translateZ(150px);
+			}
+		</style>
+	</head>
+	<body>
+		<div id="cont">
+			<ul id="list">
+				
+			</ul>
+		</div>
+		<button id="btn">下一张</button>
+	</body>
+	<script type="text/javascript" src="js/MyQuery.js" ></script>
+	<script type="text/javascript">
+		var str = '';
+		for(var i=0; i<60; i++){
+			str+='<li>'
+				  +'<div up="up" style="background-position: -'+i*10+'px 0px"></div>'
+				  +'<div down="down" style="background-position: -'+i*10+'px 0px"></div>'
+				  +'<div font="font" style="background-position: -'+i*10+'px 0px"></div>'
+				  +'<div black="black" style="background-position: -'+i*10+'px 0px"></div>'
+				+'</li>'
+		}
+		$('list').innerHTML=str;
+		var aLi=$('list').getElementsByTagName('li');
+		var n=0;
+		$('btn').onclick=function(){
+			$('btn').disabled=true;
+			var num=0;
+			n++;
+		  var timer=setInterval(function(){
+				aLi[num].style.webkitTransform='rotateX(-'+n*90+'deg)';
+				
+				
+				if(++num>aLi.length-1){
+					clearInterval(timer);
+					$('btn').disabled=false;
+				}
+			},40)
+			
+		}
+	</script>
+</html>

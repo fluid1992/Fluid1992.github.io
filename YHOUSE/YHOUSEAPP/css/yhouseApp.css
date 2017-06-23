@@ -58,6 +58,7 @@ input{
 	width: 80%
 }
 .mui-table-view.setpadding{
+	margin-top: -10px;
 	padding-top: 20px;
 }
 .life-header .life-header-text{
@@ -166,6 +167,10 @@ input{
 }
 .day-recommend{
 	overflow: hidden;
+}
+.day-recommend-img.set-marginTop{
+	background: white;
+	margin-top:15px ;
 }
 .day-recommend-img img{
 	width: 100%;
@@ -446,4 +451,7 @@ input{
 .MoveStyle a{
 	line-height: 50px;
 	color: red;
+}
+.mui-icon.jion-store{
+	font-size: 12px;
 }
