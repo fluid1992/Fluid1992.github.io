@@ -23,7 +23,7 @@ input{
 }
 #search-tab2,
 #search{
-	width:55%;
+	width:54%;
 	border-radius:10px ;
 	height: 30px;
 	margin: 0px;
@@ -59,7 +59,7 @@ input{
 }
 .mui-table-view.setpadding{
 	margin-top: -10px;
-	padding-top: 20px;
+	padding-top: 10px;
 }
 .life-header .life-header-text{
 	float: left;
@@ -104,7 +104,9 @@ input{
 	margin: 1%;
 }
 .shop-selected{
-	margin-top:20px ;
+	padding-top:10px;
+	margin-top:20px;
+	margin-bottom: 20px;
 	overflow:hidden;
 	background-color: white;
 }
@@ -130,7 +132,7 @@ input{
 /*.mui-slider .mui-slider-group .mui-slider-item img*/
 .mui-slider .mui-slider-item .shop-store-img{
 	width: 96%;
-	height: 120px;
+	height: 150px;
 }
 .shop-store h4{
 	position: absolute;
@@ -167,10 +169,12 @@ input{
 }
 .day-recommend{
 	overflow: hidden;
+	margin-top: 10px;
 }
 .day-recommend-img.set-marginTop{
 	background: white;
-	margin-top:15px ;
+	margin-top:15px;
+	padding-bottom: 8px;
 }
 .day-recommend-img img{
 	width: 100%;
@@ -180,6 +184,9 @@ input{
 	padding: 0;
 	margin-top:8px ;
 	list-style: none;
+}
+.mui-table-view-cell .ul-reset{
+	padding: 0 0 10px 0;
 }
 .mui-table-view-cell ul li{
 	font-size: 12px;
