@@ -38,3 +38,38 @@ function ChooseOpacity(obj, state,sleepTime) {
 		obj.style.opacity = opa;
 	}, sleepTime)
 }
+
+//抖动
+function shake(obj, strr, endFn) {
+	var str = [];
+	for(var i = 20; i > 0; i -= 2) {
+		str.push(i, -i);
+	}
+	var num = 0;
+	obj.timer = setInterval(function() {
+		obj.style[strr] = str[num] + 'px';
+		num++;
+		if(num > str.length) {
+			clearInterval(obj.timer);
+			obj.style[strr] = '0px';
+			if(endFn) {
+				endFn();
+			}
+		}
+	}, 50)
+}
+
+
+//获取到网页左边和右边的距离
+function getDistence(obj) {
+	var arr = {
+		'top': 0,
+		'left': 0
+	}
+	while(obj) {
+		arr.top += obj.offsetTop;
+		arr.left += obj.offsetLeft;
+		obj = obj.offsetParent;
+	}
+	return arr;
+}
