@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box{
+				width: 462px;
+				height: 210px;
+				background: black;
+				position: relative;
+			}
+			span{
+				float: left;
+				display: block;
+				width: 10px;
+				height: 10px;
+				margin: 2px;
+				background: black;
+			}
+			span.active{
+				background: gray;
+			}
+			span.redB{
+				background: red;
+				margin: 0px;
+				padding: 2px;
+			}
+			a{
+				position: absolute;
+				top: 0px;
+				width: 10px;
+				height: 10px;
+				border-radius: 50%;
+				background: yellow;
+				left: 322px;
+			}
+			a{
+				-webkit-animation: move1 0.5s infinite;
+			}
+			@-webkit-keyframes move1{
+				0%{
+					-webkit-transform: translateY(0px);
+				}
+				100%{
+					-webkit-transform: translateY(3px);
+				}
+			}
+			a:nth-child(1){
+				top: 42px;
+			}
+			a:nth-child(2){
+				top: 70px;
+			}
+			#por{
+				width: 10px;
+				height: 15px;
+				background: blue;
+				position: absolute;
+				top: 81px;
+				left: 28px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<a></a>
+			<a></a>
+			<div id="por">
+				
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/MyQuery.js" ></script>
+	<script type="text/javascript">
+		var arrMary=[
+			[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+			[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+			[0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+			[0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+			[0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+			[0,1,1,1,1,1,1,1,1,1,1,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+			[0,1,1,1,1,1,1,1,1,1,1,0,1,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+			[0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0],
+			[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,0],
+			[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,2,2,2,0],
+			[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,2,2,2,0],
+			[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0],
+			[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+			[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+			[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
+		]
+		
+		for(var i=0; i<15;i++){
+			for(var j=0; j<33; j++){
+				var oSpan = document.createElement('span');
+				if(arrMary[i][j]==0){
+					oSpan.className='active';
+				}
+				if(arrMary[i][j]==2){
+					oSpan.className='redB';
+				}
+				$('box').appendChild(oSpan);
+			}
+		}
+		document.onkeydown=function(ev){
+			var newEv = ev || event;
+			var t = parseInt(getStyle($('por'),'top'));
+			var l = parseInt(getStyle($('por'),'left'));
+//			console.log(l);
+			if(newEv.keyCode == 87){//w
+				$('por').setAttribute( 'style','top:'+(t-28)+'px;left:'+(l+20)+'px')
+			}else if(newEv.keyCode == 68){//d
+				console.log(l);
+				console.log(t);
+				if(l>140 && t>53 && l<208){
+					$('por').setAttribute( 'style','left:'+l+'px;top:'+t+'px');
+					console.log(1)
+				}else if(l>208& l<404){
+					$('por').setAttribute( 'style','left:'+(l+2)+'px;top:81px');
+				}else if(l>404){
+					$('por').setAttribute( 'style','left:404px;top:140px;background: orangered;');
+					
+				}else{
+					$('por').setAttribute( 'style','left:'+(l+2)+'px;top:'+t+'px');
+				}
+//				if(l==210){
+//					$('por').setAttribute( 'style','left:'+l+'px;top:'+t+'px')
+//				}
+			}else if(newEv.keyCode == 83){//s
+				
+				$('por').setAttribute( 'style','left:'+l+'px;top:'+(t+28)+'px');
+				
+			}else if(newEv.keyCode == 65){//a
+				$('por').setAttribute( 'style','left:'+(l-2)+'px;top:'+t+'px');
+			}
+		}
+	</script>
+</html>
