@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			img{
+				width: 100px;
+				height: 100px;
+				border: 2px solid #FFFFFF;
+				position: fixed;
+				top: 0px;
+				left: 0px;
+				
+			}
+			img:hover{
+				border: 2px solid #D8D8D8;
+				opacity: 0.8;
+			}
+			#cont{
+				width: 500px;
+				height: 300px;
+				background-image: url(img/QQ图片20170628170823.png);
+				background-size:100% 100%;
+				position: fixed;
+				top: 0;
+				left: 0;
+				display: none;
+			}
+			#cont.active{
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+		<img id="pic" src="img/tx2.jpg"/>
+		
+		<div id="cont">
+			
+		</div>
+	</body>
+	<script type="text/javascript" src="js/MyQuery.js" ></script>
+	<script type="text/javascript">
+		Drag($('pic'));
+		
+		$('pic').ondblclick=function(){
+			var windowW = document.documentElement.clientWidth;
+		    var windowH = document.documentElement.clientHeight;
+		    $('cont').setAttribute('style','top:'+((windowH/2)-150)+'px;left:'+(windowW/2-250)+'px')
+			$('cont').className='active';
+		}
+		
+		
+	windowDrag($('cont'));
+	
+	
+	
+	
+function windowDrag(obj) {
+	obj.onmousedown = function(ev) {
+		var newEv = ev || event;
+		var windowW = document.documentElement.clientWidth;
+		var windowH = document.documentElement.clientHeight;
+		var getY = newEv.clientY - obj.offsetTop;
+		var getX = newEv.clientX - obj.offsetLeft;
+		var getWidth = obj.offsetWidth;
+		var getHeight = obj.offsetHeight;
+		var getTop = obj.offsetTop;
+		var getLeft = obj.offsetLeft;
+		var getDownX = newEv.clientX;
+		var getDownY = newEv.clientY;
+		var loc='';
+		if(newEv.clientY > getTop+5 && newEv.clientY < getTop+25){
+			loc='move'
+			console.log('move')
+		}else if(newEv.clientY > getTop && newEv.clientY < getTop+5){
+			loc='top';
+			console.log('top')
+		}else if(newEv.clientY < getTop + getHeight && newEv.clientY > (getTop + getHeight - 5)){
+			loc='buttom';
+			console.log('buttom')
+		}else if(newEv.clientX < getLeft + getWidth && newEv.clientX > (getLeft + getWidth - 5)){
+			loc='right';
+			console.log('right')
+		}else if(newEv.clientX > getLeft  && newEv.clientX < getLeft + 5){
+			loc='left';
+			console.log('left')
+		}
+		document.onmousemove = function(ev) {
+			var newEv = ev || event;
+			var getMoveX = newEv.clientX;
+			var getMoveY = newEv.clientY;
+			if(loc=='move'){
+				if(newEv.clientX<=0){
+					obj.setAttribute('style', 'top:0px;left: 0px; height: '+windowH+'px;width:'+(windowW/2)+'px')
+				}else if(newEv.clientX>=windowW){
+					obj.setAttribute('style', 'top:0px;left: '+(windowW/2)+'px;height:'+windowH+'px;width:'+windowW/2+'px')
+				}else if(newEv.clientY<=0){
+					obj.setAttribute('style', 'top:0px;left: 0px; height: '+windowH+'px;width:'+windowW+'px')
+				}else{
+					var t = newEv.clientY - getY;
+					var l = newEv.clientX - getX;
+					obj.setAttribute('style', 'top:' + t + 'px;left: ' + l + 'px;width:'+getWidth+'px;height:'+getHeight+'px')
+				}
+			}else if(loc=='right'){
+				var endWidht = getWidth + (getMoveX - getDownX); 
+			 	obj.style.width = endWidht+'px';	
+			}else if(loc=='left'){
+			 	var endWidht = getWidth + (getDownX - getMoveX); 
+			 	obj.style.width = endWidht+'px';
+			 	if(getMoveX > getLeft+getWidth){
+			 		obj.style.left=getLeft +getWidth +'px'
+			 	}else{
+				 	obj.style.left=getLeft + (getMoveX - getDownX)+'px'
+			 	}
+			}else if(loc=='buttom'){
+			 	var endHeight = getHeight + (getMoveY - getDownY);
+			 	obj.style.height = endHeight+'px';
+			}else if(loc=='top'){
+			 	var endHeight = getHeight + (getDownY - getMoveY); 
+			 	obj.style.height = endHeight+'px';
+			 	if(getMoveY > getTop+getHeight){
+			 		obj.style.top=getTop +getHeight +'px'
+				}else{
+				 	obj.style.top=getTop + (getMoveY - getDownY)+'px'
+			 	}
+			}
+		}
+		document.onmouseup = function() {
+			this.onmousemove = null;
+		}
+		return false;
+	}
+}
+
+	function Drag(obj){
+		obj.onmousedown=function(ev){
+		    var wW=document.documentElement.clientWidth;
+		    var wH = document.documentElement.clientHeight;
+		    var newEv = ev || event;
+		    var getY = newEv.clientY-obj.offsetTop;
+		    var getX = newEv.clientX-obj.offsetLeft;
+		  document.onmousemove=function(ev){
+		    var newEv = ev || event;
+		    var t = newEv.clientY-getY;
+		    var l = newEv.clientX-getX;
+		    var w = obj.offsetWidth;
+		    var h = obj.offsetHeight;
+		    if (l < 50){
+		    	l=0;
+		    }else if( l>(wW-150)){
+		    	l=wW-w;
+		    }else if( t<50){
+		    	t=0;
+		    }else if(t>wH-150){
+		    	t=wH-h;
+		    }
+		    
+		    obj.setAttribute('style','top:'+t+'px;left: '+l+'px;')
+		  }
+		  document.onmouseup=function(){
+			  this.onmousemove=null;
+			}
+		  return false;
+		}
+	}
+
+	</script>
+</html>
