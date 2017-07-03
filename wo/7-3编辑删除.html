@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.cont{
+				width: 100%;
+				height: 900px;
+				background: #EAEAEA;
+				position: relative;
+				overflow: hidden;
+			}
+			span{
+				/*display: block;*/
+				/*width: 200px;*/
+				/*text-align: center;*/
+				/*margin: auto;*/
+			}
+			.head{
+				width: 100%;
+				text-align: center;
+				line-height: 50px;
+				background: #F0FAFA;
+				box-shadow: 1px 1px 1px 1px gray;
+				position: fixed;
+				/*top: 0;
+				left: 0;*/
+				z-index: 1;
+				
+			}
+			.left{
+				padding: 0 20px;
+				float: left;
+			}
+			.right{
+				padding: 0 20px;
+				float: right;
+			}
+			a{
+				text-decoration: none;
+			}
+			.bigBox{
+				width: 100%;
+				height: 100%;
+				margin-top: 70px;
+			}
+			ul{
+				padding: 0px;
+				list-style: none;
+				width: 95%;
+				height: 150px;
+				margin: auto;
+				margin-bottom: 10px;
+				border-radius: 20px;
+			}
+			.red{
+				background: red;
+			}
+			.orange{
+				background: orange;
+			}
+			.deepskyblue{
+				background: deepskyblue;
+			}
+			ul li{
+				color: white;
+				padding: 10px 20px;
+				font-size: 14px;
+			}
+			li:nth-of-type(3){
+				margin-left: 30px;
+			}
+			li:nth-of-type(4){
+				display: none;
+			}
+			.other{
+				width: 100%;
+				height: 100%;
+				border: 1px solid black;
+				position: fixed;
+				/*position: absolute;*/
+				display: none;
+				top: 0;
+				left: 0;
+				background: rgba(0,0,0,0.5);
+				z-index: 2;
+			}
+			
+			.box{
+				width: 200px;
+				height: 100px;
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				background: white;
+				margin-top:-50px;
+				margin-left:-100px ;
+				border-radius: 10px;
+				text-align: center;
+			}
+			.box button{
+				margin-right:5px ;
+				padding:5px 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="cont">
+			<div class="head">
+				<a class="left" href="#"><</a>
+				<span>我的银行卡</span>
+				<a class="right" href="#">编辑</a>
+			</div>
+			<div class="bigBox">
+				<ul class="red">
+					<li>中国建设银行</li>
+					<li>存蓄卡</li>
+					<li>**** **** **** 8948</li>
+					<li class="del"><a href="#">删除</a></li>
+				</ul>
+				<ul class="deepskyblue">
+					<li>中国建设银行</li>
+					<li>存蓄卡</li>
+					<li>**** **** **** 8948</li>
+					<li class="del"><a href="#">删除</a></li>
+				</ul>
+				<ul class="orange">
+					<li>中国建设银行</li>
+					<li>存蓄卡</li>
+					<li>**** **** **** 8948</li>
+					<li class="del"><a href="#">删除</a></li>
+				</ul>
+				<div class="other">
+					<div class="box">
+						<p>确定要删除银行卡?</p>
+						<button class="cancel">取消</button>
+						<button class="ensure">确定</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/jquery-3.2.1.min.js" ></script>
+	<script type="text/javascript">
+		var n = 0;
+		$('.right').click(function(){
+			$('.del').toggle();
+		})
+		$('.del').click(function(){
+			$('.other').toggle();
+			
+			n = $('.del').index(this);
+			console.log(n);
+		})
+		$('.cancel').click(function(){
+			$('.other').hide();
+		})
+		$('.ensure').click(function(){
+//			var i = n;
+			$('.other').hide();
+			$('.del').parent().eq(n).remove();
+		})
+	</script>
+</html>

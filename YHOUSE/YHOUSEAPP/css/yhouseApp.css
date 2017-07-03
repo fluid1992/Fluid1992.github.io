@@ -462,3 +462,54 @@ input{
 .mui-icon.jion-store{
 	font-size: 12px;
 }
+.hotAction{
+	width: 100%;
+	background: white;
+}
+.hotAction p{
+	width: 100%;
+}
+.hotAction .rude{
+	font-weight: bold;
+	line-height: 30px;
+	color: black;
+	padding-left: 10px ;
+}
+.hotAction .my-icon{
+	line-height: 30px;
+}
+.hotAction-cont{
+	text-align: center;
+	position: relative;
+	margin-bottom: 15px;
+}
+.hotAction-cont img{
+	width: 98%;
+	height: 160px;
+}
+.hotAction-text{
+	width: 100%;
+	position: absolute;
+	top: 50%;
+	margin-top: -45px;
+}
+.hotAction-text .getName{
+	font-weight: bolder;
+	color: white;
+	margin-bottom: 15px;
+}
+.hotAction-text .getMoney{
+	width: 80px;
+	height: 25px;
+	padding: 2px 5px;
+	line-height: 25px;
+	margin: auto;
+	color: white;
+	background: palevioletred;
+}
+.hotAction-text .getPerson{
+	/*padding: 10px;*/
+	margin-top: 15px;
+	color: white;
+	font-size: 12px;
+}
