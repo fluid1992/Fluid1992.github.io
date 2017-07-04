@@ -14,6 +14,15 @@ input{
 .mui-bar.clear{
 	background-color:white;
 	height:45px;
+	
+}
+.mui-bar.clear.clearP{
+	padding: 0px;
+	margin: 0px;
+	box-shadow: 1px 1px 1px 1px #EAEAEA;
+}
+.mui-bar.clear.clearP h1{
+	line-height: 45px;
 }
 /*.width-80{
 	width: 80%;
@@ -80,7 +89,7 @@ input{
 }
 .con-content.mui-slier-top,/*选项卡下的内容margin-top*/
 .mui-slider.mui-slier-top{
-	margin-top: 45px;
+	margin-top: 35px;
 }
 .mui-ellipsis{
 	font-size: 10px;

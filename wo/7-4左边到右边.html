@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.cont{
+				width: 640px;
+				height: 700px;
+				border: 1px solid #EAEAEA;
+				text-align: center;
+				position: relative;
+			}
+			.left,
+			.right{
+				width: 220px;
+				height: 600px;
+				margin-top:20px ;
+			}
+			.left{
+				float: left;
+				margin-left:20px ;
+			}
+			.right{
+				float: right;
+				margin-right:20px ;
+			}
+			.installBtn{
+				width: 140px;
+				height: 600px;
+				/*border: 1px solid orange;*/
+				position: absolute;
+				left: 50%;
+				top: 20px;
+				margin-left: -70px ;
+				
+			}
+			button{
+				width: 90px;
+				height: 20px;
+				margin-bottom: 40px;
+				text-align: center;
+			}
+			button:nth-child(1){
+				margin-top:180px ;
+			}
+			p{
+				padding: 0;
+				margin: 0;
+				font-size: 13px;
+				width: 100%;
+				height: 30px;
+				line-height: 30px;
+			}
+			ul{
+				width: 100%;
+				height: 570px;
+				border: 1px solid black;
+				padding: 0;
+				list-style: none;
+				text-align: left;
+				margin: 0;
+			}
+			li{
+				width: 100%;
+				box-sizing: border-box;
+				border: 1px solid white;
+				border-radius:5px ;
+				/*margin: 0 5px;*/
+				padding: 2px 5px ;
+				font-size: 14px;
+				/*background: #FFA500;*/
+			}
+			.active{
+				background:#EAEAEA;
+				border: 1px solid deepskyblue;
+			}
+			li:hover{
+				border: 1px solid orange;
+				background: #EAEAEA;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="cont">
+			<div class="left">
+				<p>未选择模块</p>
+				<ul class="leftUl">
+					<li>Accelerometer(加速度传感器)</li>
+					<li>Audio(音频)</li>
+					<li>Barcode(二维码)</li>
+					<li>Camera(摄像头)</li>
+					<li>Contact(通讯录)</li>
+					<li>Downloader(文件下载)</li>
+					<li>Gallery(相册)</li>
+					<li>Geolocation(位置信息)</li>
+					<li>IO(文件系统)</li>
+					<li>Maps(地图)</li>
+					<li>Messaging(短彩邮件消息)</li>
+					<li>Native.js(文件下载)</li>
+				</ul>
+			</div>
+			<div class="right">
+				<p>已选择模块</p>
+				<ul class="rightUl">
+				</ul>
+			</div>
+			<div class="installBtn">
+				<button class="allAdd">全部添加 >></button>
+				<button class="add">添加 >></button>
+				<button class="del"><< 删除</button>
+				<button class="allDel"><< 全部删除</button>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/jquery-3.2.1.min.js" ></script>
+	<script type="text/javascript">
+		var chenge = 0;
+		var index = 0;
+		var len = $('li').length;
+		console.log(len)
+		$('.left li').each(function(i,elem){
+			$(elem).attr('num',i);
+		})
+		$('.left li').click(function(){
+			$(this).toggleClass('active')
+			var classN = $(this).attr('class');
+			if(classN == 'active'){
+				index = $('li').index(this);
+				console.log(index);
+				chenge = 1;
+			}else{
+				chenge = 0;
+			}
+		})
+		$('.add').click(function(){
+			if(chenge == 1){
+				var $clone = $('.left li').eq(index).clone(true);
+				$clone.appendTo($('.rightUl'));
+				$clone.attr('class','')
+				$('.left li').eq(index).remove();
+			}
+			paixuR();
+			chenge = 0;
+		})
+		
+		$('.del').click(function(){
+			if(chenge == 1){
+//					console.log(index);
+				var $clone = $('li').eq(index).clone(true);
+				$('li').eq(index).remove();
+				$clone.appendTo($('.leftUl'));
+				$clone.attr('class','')
+			}
+			paixuL();
+			chenge = 0;
+		})
+		
+		
+		
+		$('.allAdd').click(function(){
+			var $clone = $('.left li').clone(true);
+			$clone.appendTo($('.rightUl'));
+			$('.left li').remove();
+			paixuR();
+		})
+		
+		
+		$('.allDel').click(function(){
+			var $clone = $('.right li').clone(true);
+			$clone.appendTo($('.leftUl'));
+			$('.right li').remove();
+			paixuL();
+		})
+		
+		function paixuL(){
+			for(var i = 0; i < len; i++){
+				$('.left li').each(function(j,ele){
+					if(i == $(ele).attr('num')){
+						$(ele).appendTo($('.left li').parent());
+					}
+				})
+			}
+		}
+		
+		function paixuR(){
+			for(var i = 0; i < len; i++){
+				$('.right li').each(function(j,ele){
+					if(i == $(ele).attr('num')){
+						$(ele).appendTo($('.right li').parent());
+					}
+				})
+			}
+		}
+	</script>
+</html>
