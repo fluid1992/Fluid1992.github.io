@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--1,通过src的方式引入视频路径-->
+		<video id="myVideo" src="video/37d888piCa2m.mp4" controls="controls"></video>
+		<!--2，浏览器厂商，音视频的编码解码器。source文件源-->
+		<!--<video width="800" height="" controls="controls">
+			<source src="myvideo.mp4" type="video/mp4"></source>
+			<source src="myvideo.ogv" type="video/ogg"></source>
+			<source src="myvideo.webm" type="video/webm"></source>
+			<object width="" height="" type="application/x-shockwave-flash" data="myvideo.swf">
+				<param name="movie" value="myvideo.swf" />
+				<param name="flashvars" value="autostart=true&amp;file=myvideo.swf" />
+			</object>
+			当前浏览器不支持 video直接播放，点击这里下载视频： <a href="myvideo.webm">下载视频</a>
+		</video>-->
+		<!--3，视频的控制项-->
+		<!--<video id="myVideo" src="video/oceans.mp4" controls="controls"></video>-->
+		<!--<audio id="myVideo" src="audio/moon.mp3" controls="controls"></audio>-->
+		<button>播放</button>
+		<button>暂停</button>
+		<button>获取播放时间</button>
+		<button>静音</button>
+		<button>取消静音</button>
+		<button>音量+</button>
+		<button>音量-</button>
+	</body>
+	<script type="text/javascript" src="js/jquery-3.2.1.min.js" ></script>
+	<script type="text/javascript">
+//		一,视频控制项
+		var oV=$('#myVideo').get(0);
+		
+		$('button').eq(0).click(function(){
+			oV.play(); //1，播放视频
+		})
+		$('button').eq(1).click(function(){
+			oV.pause(); //2,暂停视频
+		})
+		
+//		oV.autoplay=true;   /3，自动播放true
+//		oV.loop=true;   //4，循环播放
+		$('button').eq(2).click(function(){
+			console.log(oV.duration); //5，获取总时长
+			console.log(oV.currentTime);  //6,当前播放的时间点
+		})
+		$('button').eq(3).click(function(){
+			oV.muted=true;  //7，是否静音
+		})
+		$('button').eq(4).click(function(){
+			oV.muted=false;
+		})
+		
+		$('button').eq(5).click(function(){
+//			console.log(oV.volume);
+			if(oV.volume<1){
+				oV.volume+=0.2;
+			}
+			console.log(oV.volume);
+		})
+		$('button').eq(6).click(function(){
+//			console.log(oV.volume);
+			if(oV.volume>=0){
+				oV.volume-=0.2;
+			}
+			console.log(oV.volume);
+		})
+		
+//		二,音视频的事件监听
+		oV.addEventListener('pause',function(){
+			alert('视频暂停了');
+		})
+		
+		oV.addEventListener('ended',function(){
+			alert('视频播放完了');
+		})
+		oV.loop=true;
+	</script>
+</html>

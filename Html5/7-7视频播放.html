@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.cont{
+				position: relative;
+				width: 400px;
+				height: 225px;
+				border: 1px solid red;
+			}
+			.control{
+				width: 100%;
+				position: absolute;
+				left: 0;
+				bottom: 0;
+				background: #808080;
+				/*opacity: 0;*/
+			}
+			.newtime,.oldtime{
+				color: white;
+				float: left;
+				width: 10%;
+				line-height: 30px;
+				text-align: center;
+			}
+			.time{
+				height: 30px;
+			}
+			.bar{
+				height: 10px;
+				width: 80%;
+				border-radius:1px ;
+				background: black;
+				float: left;
+				margin-top: 10px;
+				position: relative;
+			}
+			ul{
+				list-style: none;
+				padding: 5px 0 0 0;
+				margin: 0;
+			}
+			ul li{
+				width: 30px;
+				height: 30px;
+				float: left;
+				margin-left: 5px;
+			}
+			.voice{
+				margin-left: 80px;
+			}
+			ul li img{
+				width: 100%;
+				height: 100%;
+			}
+			.bar span{
+				height: 16px;
+				width: 16px;
+				background: cyan;
+				border-radius: 50%;
+				position: absolute;
+				top: -3px;
+				left: -8px;
+			}
+			.bar-move,
+			.voice-bar-move{
+				height: 10px;
+				width: 0px;
+				background:repeating-linear-gradient(45deg,green 10%,red 20%);
+			}
+			.voice-box img{
+				width: 30px;
+				height: 30px;
+			}
+			.voice-bar{
+				margin-left: 20px;
+				height: 10px;
+				width: 100px;
+				background: #000000;
+				margin-top: 10px;
+				position: relative;
+			}
+			
+			.voice-move{
+				height: 16px;
+				width: 16px;
+				background: cyan;
+				border-radius: 50%;
+				position: absolute;
+				top: -3px;
+				left: -8px;
+			}
+			.text{
+				line-height: 30px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="cont">
+			<video width="400" height=""  >
+				<source src="video/37d888piCa2m.mp4" type="video/mp4"></source>
+				<source src="video/37d888piCa2m.ogv" type="video/ogg"></source>
+				<source src="video/37d888piCa2m.webm" type="video/webm"></source>
+				<object width="" height="" type="application/x-shockwave-flash" data="myvideo.swf">
+					<param name="movie" value="myvideo.swf" />
+					<param name="flashvars" value="autostart=true&amp;file=myvideo.swf" />
+				</object>
+				当前浏览器不支持 video直接播放，点击这里下载视频： <a href="video/37d888piCa2m.mp4">下载视频</a>
+			</video>
+			
+			<div class="control">
+				<div class="time">
+					<span class="newtime">00</span>
+					<div class="bar">
+						<div class="bar-move"></div>
+						<span class="video-move">&nbsp;</span>
+					</div>
+					<span class="oldtime">00</span>
+				</div>
+				<ul>
+					<li class="last"><img src="img/QQ截图20170707113644.png"/></li>
+					<li class="play"><img src="img/QQ截图20170707113239.png"/></li>
+					<li class="next"><img src="img/QQ截图20170707113457.png"/></li>
+					<li class="voice"><img src="img/QQ截图20170707134437.png"/></li>
+					<li class="voice-bar">
+						<div class="voice-bar-move"></div>
+						<span class="voice-move">&nbsp;</span>
+					</li>
+					<li class="text">0</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/jquery-3.2.1.min.js" ></script>
+	<script type="text/javascript">
+		var $controlH = $('.control').height();
+		var $controlW = $('.control').width();
+		var $controlT = $('.control').offset().top;
+		var $controlL = $('.control').offset().left;
+		var oV = $('video').get(0);
+		$(document).mouseover(function(ev){
+			var getX = ev.clientX;
+			var getY = ev.clientY;
+			console.log(getX)
+			if(getX > $controlL && getX < ($controlW+$controlL) && getY > $controlT && getY < ($controlT + $controlH)){
+				$('.control').css('opacity',1);
+//				$('.control').hide();
+			}else{
+				$('.control').css('opacity',0);
+//				$('.control').toggle()
+			}
+			ev.stopPropagation();
+		})
+		var timer = null;
+		var barW = $('.bar').width();
+		$('.play').click(function(){
+			var oldTime = oV.duration;
+			oV.play();
+			$('.oldtime').html(oldTime.toFixed(0));
+			clearInterval(timer);
+			timer =	setInterval(function(){
+				var newTime = oV.currentTime;
+				$('.newtime').html(newTime.toFixed(0));
+				var w = newTime/oldTime*barW
+				$('.bar-move').css('width',w+'px')
+				$('.video-move').css('left',w-8+'px')
+			},40)
+		})
+		
+		$('.video-move').mousedown(function(ev){
+			var oldTime = oV.duration;
+			oV.pause()
+			clearInterval(timer);
+			var getbX = ev.clientX;
+			var getL = $('.video-move').position().left;
+			var getW = $('.bar-move').width();
+			var get
+			$(document).mousemove(function(ev){
+				var getMoveX = ev.clientX;
+				var addX = getMoveX - getbX;
+				var newW = getW+addX;
+				var newL = getL+addX;
+				
+				if(newW < 0){
+					newW = 0;
+				}
+				if(newW > barW){
+					newW = barW;
+				}
+				if(newL < -8){
+					newL = -8;
+				}
+				if(newL > (barW-8)){
+					newL = barW-8;
+				}
+				$('.bar-move').css('width',newW+'px')
+				$('.video-move').css('left',newL+'px')
+				console.log(newW/barW*oldTime)
+				
+				oV.currentTime = newW/barW*oldTime;
+				
+				console.log(oV.currentTime)
+				
+				$('.newtime').html(oV.currentTime.toFixed(0));
+				ev.stopPropagation();
+			})
+			$(document).mouseup(function(){
+				$(this).off().mousemove();
+			})
+			
+		})
+		
+		var VbarW = $('.voice-bar').width();
+		$('.voice-move').mousedown(function(ev){
+			var getL = $('.voice-move').position().left;
+			var getW = $('.voice-bar-move').width();
+			var getX = ev.clientX;
+			$(document).mousemove(function(ev){
+				var getmoveX = ev.clientX;
+				var addX = getmoveX - getX;
+				var newW = getW+addX;
+				var newL = getL+addX;
+				if(newW < 0){
+					newW = 0;
+				}
+				if(newW > VbarW){
+					newW = VbarW;
+				}
+				if(newL < -8){
+					newL = -8;
+				}
+				if(newL > (VbarW-8)){
+					newL = VbarW-8;
+				}
+				$('.voice-bar-move').css('width',newW+'px')
+				$('.voice-move').css('left',newL+'px')
+				oV.volume =  newW/VbarW;
+				$('.text').html((oV.volume*100).toFixed(0))
+				
+			})
+			$(document).mouseup(function(){
+				$(this).off().mousemove();
+			})
+			return false;
+		})
+	</script>
+</html>

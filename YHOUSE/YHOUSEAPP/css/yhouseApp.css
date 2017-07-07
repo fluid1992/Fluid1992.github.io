@@ -359,12 +359,12 @@ input{
 	height: 100%;
 	
 }
-.mui-scroll-wrapper{
+/*.mui-scroll-wrapper{
 	overflow: visible;
-}
-.mui-segmented-control{
+}*/
+/*.mui-segmented-control{
 	overflow: visible;
-}
+}*/
 /*.scroll-img.mui-control-item{
 	height: 100px;
 }
@@ -378,24 +378,38 @@ input{
 	width: 100%;
 	height: 100%;
 }*/
-.mui-segmented-control.mui-segmented-control-inverted.top .mui-control-item.mui-active{
+
+.super-h4{
+	height: 40px;
+	line-height: 40px;
+	margin-bottom: 0px;
+	background: white;
+	/*margin-top: -5px;*/
+	padding-left: 10px;
+	padding-top: 10px;
+	
+}
+/*左右滚动*/
+.mui-segmented-control.mui-segmented-control-inverted.h-img .mui-control-item.mui-active{
     border-bottom: 0px solid white;
 }
 .mui-scroll.scroll-img{
 	height: 300px;
-	
 }
-.mui-segmented-control.mui-scroll-wrapper.top{
-	height: 70px;
+.mui-segmented-control.mui-scroll-wrapper.h-img .mui-control-item{
+	padding: 0 0 0 10px;
+}
+.mui-segmented-control.mui-scroll-wrapper.h-img{
+	height: 90px;
 	background: white;
-	/*box-sizing: content-box;*/
-	padding-top: 20px;
-	/*margin-top: -10px;*/
+	box-sizing: content-box;
+	padding-top: 10px;
 }
 .scroll-img img{
 	width: 200px;
-	height: 50px;
+	height: 80px;
 }
+
 
 .tiaozhan-img{
 	height: 300px;

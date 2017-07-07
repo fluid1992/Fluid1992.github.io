@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/base.css"/>
+		<style type="text/css">
+			body{
+				background: #94a6ad;
+			}
+			.cont{
+				width: 520px;
+				height: 410px;
+				background: #f7f7f7;
+				border-radius: 5px;
+				/*padding: 10px;*/
+				margin: 100px auto;
+			}
+			video{
+				background: #FFF;
+				margin-left: 10px;
+			}
+			.progress{
+				width: 380px;
+				height: 10px;
+				/*background: #D8D8D8;*/
+				border-radius: 5px;
+				box-shadow: 2px 2px 10px #9b9b9b inset; 
+			}
+			.inner{
+				height: 100%;
+				width: 0;
+				position: relative;
+				border-radius: 5px;
+				background: repeating-linear-gradient(-45deg,#797979 0,#797979 5px,#595959 5px,#595959 10px);
+			}
+			.inner img{
+				position: absolute;
+				top: -4px;
+				right: -10px;
+			}
+			.bar{
+				padding: 20px 15px;
+			}
+			.fl{
+				float: left;
+			}
+			.time{
+				position: relative;
+				top: -4px;
+				margin-left: 10px;
+			}
+			.control{
+				height: 88px;
+				width: 100%;
+				background: url(img/control_bg.png) no-repeat;
+				background-size: 100% 100%;
+				margin-top: 20px;
+			}
+			.control li{
+				float: left;
+				text-align: center;
+				height: 60px;
+				line-height: 60px;
+				width: 50%;
+				/*border: 1px solid red;*/
+				
+			}
+			.control li img{
+				vertical-align: middle;
+			}
+			.control ul{
+				float: left;
+				padding-top: 15px;
+			}
+			.control ul:nth-of-type(1),
+			.control ul:nth-of-type(3){
+				width: 100px;
+				height: 80px;
+				padding: 15px 20px;
+				overflow: hidden;
+			}
+			.control ul:nth-of-type(2){
+				width: 200px;
+			}
+			.control ul:nth-of-type(2) li{
+				width: 33.333%;
+			}
+			.control .voice{
+				height: 30px;
+				width: 50px;
+				margin-top: 13px;
+				background: url(img/v_control.png) no-repeat;
+			}
+			.mute{
+				background: url(img/voice_bg.png) no-repeat center center;
+			}
+			.play{
+				text-align: center;
+				background: url(img/play_bg.png) no-repeat center center;
+			}
+			.play img{
+				height: 30px;
+				width: 30px;
+				margin-left: 3px;
+			}
+			
+			.lrcShow{
+				height: 300px;
+				border:1px solid red;
+				text-align: center;
+				overflow: hidden;
+			}
+			.lrcShow li{
+				height: 40px;
+				line-height: 40px;
+			}
+			.lrcShow li.active{
+				color: red;
+			}
+			.lrcShow ul{
+				margin-top: 150px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="cont">
+			<audio src="audio/moon.mp3"></audio>
+			<div class="bar">
+				<div class="progress fl">
+					<div class="inner">
+						<img class="dot" src="img/drag.png"/>
+					</div>
+				</div>
+				<div class="fl time">
+					<span>00:00</span>
+					/
+					<span>00:00</span>
+				</div>
+			</div>
+			<div class="control">
+				<ul>
+					<li class="mute">
+						<img src="img/hear.png"/>
+					</li>
+					<li class="voice">
+						
+					</li>
+				</ul>
+				<ul>
+					<li>
+						<img src="img/back.png"/>
+					</li>
+					<li class="play" state='true'>
+						<img src="img/play.png"/>
+					</li>
+					<li>
+						<img src="img/next.png"/>
+					</li>
+				</ul>
+				<ul>
+					<li>
+						<img src="img/full.png"/>
+					</li>
+					<li></li>
+				</ul>
+			</div>
+		</div>
+		<div class="lrcShow">
+			<ul></ul>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/jquery-3.1.1.min.js" ></script>
+	<script type="text/javascript" src="js/lrc.js" ></script>
+	<script type="text/javascript">
+		var oV=$('audio').get(0);
+//		console.log(typeof oV.duration)
+		$('.time span').eq(1).html(changeTime(oV.duration));
+		var fullW=$('.progress').width();
+		$('.dot').mousedown(function(ev){
+			var beginX=ev.clientX;
+			var w=$('.inner').width();
+			$(document).mousemove(function(ev){
+				var addX=ev.clientX-beginX;
+				var newW=w+addX;
+				if(newW>=fullW){
+					newW=fullW;
+				}else if(newW<=0){
+					newW=0;
+				}
+				$('.inner').css('width',newW+'px');
+				var currentT=newW/fullW*(oV.duration);
+				$('.time span').eq(0).html(changeTime(currentT));
+				oV.currentTime=currentT;
+//				当前宽度/总宽度=当前时间/总时间
+				$('.lrcShow li').each(function(i,elem){  //遍历所有个词列表li
+					if($(elem).attr('time')==changeTime(currentT)){  //找到跟当前播放事件点对应的那一个li
+						$('.lrcShow li').removeClass('active');
+						var _index=$(elem).index();  //获取到跟当前播放时间点对应的li的下标（序号）
+						$('.lrcShow li').eq(_index).addClass('active'); //给跟当前播放时间点对应的li添加active样式
+//						if(num<$('li').length){
+//							num++;
+//						}
+						$('.lrcShow ul').animate({'margin-top':150-(_index*40)+'px'},500);
+						//让ul移动到当前播放时间点对应的li
+					}
+				})
+			})
+			$(document).mouseup(function(){
+				$(this).off('mousemove');
+			})
+			
+			return false;
+		})
+		
+//		视频的播放与暂停
+		var timer=null;
+		$('.play').click(function(){
+			if($(this).attr('state')=='true'){
+				oV.play();
+				$(this).attr('state','false');
+				
+				timer = setInterval(function(){
+					var innerW=parseInt((oV.currentTime/oV.duration)*fullW); //火狐不识别小数作为宽度赋值
+					console.log(innerW); 
+					$('.inner').css('width',innerW+'px');
+					$('.time span').eq(0).html(changeTime(oV.currentTime))
+				},1000);
+//				当前播放时间/总时间=当前宽度/总宽度
+				
+			}else{
+				oV.pause();
+				$(this).attr('state','true');
+				clearInterval(timer);
+			}
+		})
+		
+		var str='';
+		for(attr in lrc){
+			str+='<li time="'+attr+'">'+lrc[attr]+'</li>';
+		}
+		$('.lrcShow ul').html(str);
+//		var num=0;
+//		setInterval(function(){
+//			$('.lrcShow li').removeClass('active');
+//			$('.lrcShow li').eq(num).addClass('active');
+//			if(num<$('li').length){
+//				num++;
+//			}
+//			$('.lrcShow ul').animate({'margin-top':150-(num*40)+'px'},500);
+//		},1000)
+		
+		function changeTime(d){
+			var m= double(Math.floor(d/60));
+			var s= double(Math.floor(d%60));
+			return m+':'+s;
+		}
+		
+		function double(n){
+			return n<10 ? n='0'+n :n;
+		}
+	</script>
+</html>
