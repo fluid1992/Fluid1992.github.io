@@ -42,14 +42,17 @@ function Play(){
 
 			$('.bar-move').css('width', addBarW + 'px');
 			$('.dot-move').css('left', addBarW - 6 + 'px');
+			if(playTime == Au.duration){
+				changeSong(true);
+			}
 		}, 10)
 		stopSing = false;
 	} else {
 		stopPlay();
 	}
 }
-function stopPlay() {
-	Au.pause(); //暂停
+function stopPlay() {//音乐暂停
+	Au.pause(); 
 	$('.needle').removeClass('active');
 	$('.dish').removeClass('active');
 	clearInterval(timer);
@@ -106,32 +109,53 @@ function lrcShow(time) {
 
 var songLen = lrc.length;
 console.log(songLen)
-
+var degree = 0;
+$('.pLoop').click(function(){
+	degree++;
+	switch(degree){
+		case 0://顺序播放
+//			
+		break;
+		case 1://单曲循环
+//			Au.autoplay = true;
+			
+		break;
+		case 2://随机播放
+//			Au.autoplay = true;
+			
+		break;
+	}
+})
 $('.next').click(function(){//下一首
-	changeSong(true);
+	changeSong('true');
 })
 $('.last').click(function(){//上一首
-	changeSong(false);
+	changeSong('false');
 })
 
-function changeSong(bool){//选择上一首或者下一首
+
+function changeSong(str){//选择上一首或者下一首
 	stopPlay();
-	if(bool){
+	if(str == 'true'){
 		singNum++;
 		if(singNum > songLen-1){
 			singNum=0
 		}
-	}else{
+	}else if(str == 'false'){
 		singNum--;
 		if(singNum < 0){
 			singNum = songLen-1
 		}
+	}else if(str == 'false'){
+		
 	}
 	setLrc(singNum);
 	setTimeout(function(){
 		Play();
 	},1000)
 }
+
+
 
 function getTwo(n) {
 	return n > 9 ? n : '0' + n;
