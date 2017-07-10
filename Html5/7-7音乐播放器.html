@@ -100,6 +100,7 @@
 				font-size: 12px;
 				height: 20px;
 				line-height: 20px;
+				padding-bottom: 10px;
 			}
 			.singPlayer:after{
 				content: '';
@@ -112,7 +113,7 @@
 			}
 			.lyric-text{
 				width: 100%;
-				height: 320px;
+				height: 300px;
 				overflow: hidden;
 			}
 			.lyric ul{
@@ -130,17 +131,18 @@
 				/*height: 10%;*/
 				list-style: none;
 				padding: 0;
-				margin: auto;
+				/*margin: auto;*/
 				padding-top: 20px;
-				
 				background: #3A3A3A;
-				overflow: hidden
+				/*overflow: hidden;*/
+				display: inline-block;
+				margin-left: 15px;
 			}
 			.control-box{
 				width: 100%;
 				height: 20%;
 				background: #3A3A3A;
-				overflow: hidden
+				/*overflow: hidden*/
 			}
 			.control li{
 				float: left;
@@ -216,8 +218,8 @@
 				border-radius: 50%;
 			}
 			.lyric li{
-				height: 40px;
-				line-height: 40px;
+				height: 35px;
+				line-height: 35px;
 			}
 			.lyric li.active{
 				color: yellow;
@@ -225,10 +227,50 @@
 			.lyric ul {
 				margin-top: 100px;
 			}
+			.voice-li{
+				position: relative;
+			}
+			.bar-voice{
+				width: 100px;
+				height: 20px;
+				position: absolute;
+				bottom: 30px;
+				left: 0px;
+				/*background: red;*/
+				/*display: none;*/
+				-webkit-transform: rotate(-90deg);
+				-moz-transform: rotate(-90deg);
+				-webkit-transform-origin: 10px center
+			}
+			.bar-voice.active{
+				display: none;
+			}
+			.v-bar{
+				width: 100px;
+				height: 10px;
+				background: gray;
+				position: relative;
+				margin-top: 5px;
+			}
+			.Vbar-move{
+				height: 10px;
+				width: 0px;
+				background: #DB7093;
+			}
+			.Vdot-move{
+				position: absolute;
+				top: -1px;
+				left: -6px;
+				width: 2px;
+				height: 2px;
+				border:5px solid white;
+				border-radius: 50%;
+				
+			}
 		</style>
 	</head>
 	<body>
-		<audio src="audio/1.mp3">
+		<audio src="audio/noya.mp3">
 		</audio>
 		<!--<audio width="800" height="">
 			<source src="myvideo.mp4" type="video/mp4"></source>
@@ -261,7 +303,14 @@
 					<li><img class="last" src="img/icon/QQ截图20170707184428.png"/></li>
 					<li><img class="play" src="img/icon/QQ截图20170707184458.png"/></li>
 					<li><img class="next" src="img/icon/QQ截图20170707184533.png"/></li>
-					<li><img class="voice" src="img/icon/QQ截图20170707184741.png"/></li>
+					<li class="voice-li"><img class="voice" src="img/icon/QQ截图20170707184741.png"/>
+						<div class="bar-voice active">
+							<div class="v-bar">
+								<div class="Vbar-move"></div>
+								<span class="Vdot-move">&nbsp;</span>
+							</div>
+						</div>
+					</li>
 					<li><img class="getMore" src="img/icon/QQ截图20170707184759.png"/></li>
 				</ul>
 				<div class="bar-cont">
@@ -277,108 +326,172 @@
 	</body>
 	<script type="text/javascript" src="js/lrc.js" ></script>
 	<script type="text/javascript" src="js/jquery-3.2.1.min.js" ></script>
-	<script type="text/javascript">
-		var str='';
-		for(attr in lrc){
-			str+='<li natrue="'+attr+'">'+lrc[attr]+'</li>';
-			if(attr =='singname'){
-				$('.singName').html(lrc[attr]);
-			}
-			if(attr =='singplayer'){
-				$('.singPlayer').html(lrc[attr]);
-			}
-		}
+	<script type="text/javascript" src="js/7-7音乐播放器.js" ></script>
+//	<script type="text/javascript">
+//		var str='';
+//		for(attr in lrc){
+//			str+='<li natrue="'+attr+'">'+lrc[attr]+'</li>';
+//			if(attr =='singname'){
+//				$('.singName').html(lrc[attr]);
+//			}
+//			if(attr =='singplayer'){
+//				$('.singPlayer').html(lrc[attr]);
+//			}
+//		}
+//		
+//		$('.lyric ul').html(str);
+//		var Au = $('audio').get(0);
+//		var stopSing = true;
+//		var getBarW = $('.bar').width();
+//		var timer = null;
+////		console.log($('.lyric li').attr('attr','singname')) 
+//
+//		var getBW = $('.bar-voice').width();//获取声音条的宽度
+//		$('.Vbar-move').css('width',Au.volume*getBW + 'px');
+//		$('.Vdot-move').css('left', Au.volume*getBW -6 + 'px');
+//		
+//		$('.play').click(function(){
+//			if(stopSing){// 播放
+//				Au.play();
+//				$('.oldtime').html(changeNum(Au.duration));//放置总时间
+//				$('.needle').addClass('active');
+//				$('.dish').addClass('active');
+//
+//				clearInterval(timer);
+//				timer = setInterval(function(){
+//					var playTime = Au.currentTime;
+//					console.log(playTime)
+//					lrcShow(playTime);
+//					$('.newtime').html(changeNum(playTime));//放置播放时间
+//					var addBarW = Au.currentTime/Au.duration*getBarW;
+//					
+//					$('.bar-move').css('width',addBarW + 'px');
+//					$('.dot-move').css('left',addBarW-6 + 'px');
+//				},10)
+//				
+//				stopSing = false;
+//			}else{
+//				stopPlay();
+//			}
+//		})
+//		
+//		function stopPlay(){
+//			Au.pause();  //暂停
+//			$('.needle').removeClass('active');
+//			$('.dish').removeClass('active');
+//			clearInterval(timer);
+//			stopSing = true;
+//		}
+//		
+//		$('.dot-move').mousedown(function(ev){
+//			
+//			stopPlay();
+//			var getX = ev.clientX;
+//			var getMBarW = $('.bar-move').width();
+//			var getMDotL = $('.dot-move').position().left;
+//			
+//			$(document).mousemove(function(ev){
+//				var getMoveX = ev.clientX;
+//				var addW =getMoveX - getX;
+//				var setMBarW = getMBarW + addW;
+//				var setMDotL = getMBarW + addW - 6;
+//				if(setMDotL < -6){
+//					setMDotL = -6;
+//				}else if(setMDotL > getBarW - 6)(
+//					setMDotL = getBarW - 6
+//				)
+//				if(setMBarW < 0){
+//					setMBarW = 0;
+//				}else if(setMBarW > getBarW){
+//					setMBarW = getBarW;
+//				}
+//				$('.bar-move').css('width',setMBarW + 'px');
+//				$('.dot-move').css('left', setMDotL + 'px');
+//				var playTime = setMBarW/getBarW*Au.duration;
+//				Au.currentTime = playTime;
+//				$('.newtime').html(changeNum(playTime));
+//				lrcShow(playTime);
+//			})
+//			$(document).mouseup(function(){
+//				$(this).off().mousedown();
+//			})
+//			return false;
+//		})
+//		
+//		function lrcShow(time){
+//			$('.lyric li').each(function(i,elem){
+//				if($(elem).attr('natrue') == changeNum(time)){
+//					$('.lyric li').removeClass('active');
+//					var _index=$(elem).index();  
+//					$('.lyric li').eq(_index).addClass('active'); 
+//					$('.lyric ul').animate({'margin-top':100-(_index*40)+'px'},5);
+//				}
+//			})
+//		}
+//		function getTwo(n){
+//			return n > 9 ? n : '0' + n;
+//		}
+//		function changeNum(t){
+//			var m = getTwo(Math.floor(t/60)); 
+//			var s = getTwo(Math.ceil(t%60));
+//			return m + ':' + s;
+//		}
+//		//voice条的空控制
+//		var voiceControl = true;
+//		$('.voice-li').click(function(ev){
+//			if(voiceControl){
+//				$('.bar-voice').removeClass('active');
+//				
+//			}else{
+//				$('.bar-voice').addClass('active');
+//			}
+//			voiceControl = !voiceControl;
+//			ev.stopPropagation()
+//		})
+//		$('.cont').click(function(ev){
+//			$('.bar-voice').addClass('active');
+//			ev.stopPropagation()
+//		});
+//		
+//		
+//		$('.Vdot-move').mousedown(function(ev){
+////			console.log(getBH);
+//			var getY = ev.clientY;
+//			var getL = $('.Vdot-move').position().top;
+//			var getW = $('.Vbar-move').width();
+//			
+//			$(document).mousemove(function(ev){
+//				var getMoveY = ev.clientY;
+//				var addY = getMoveY - getY;
+//				console.log(-addY)
+//				var setL = -addY + (94 - getL-6);
+//				var setW = -addY + getW;
+//				
+//				if(setL < -6){
+//					setL = -6;
+//				}else if(setL > getBW - 6)(
+//					setL = getBW - 6
+//				)
+//				if(setW < 0){
+//					setW = 0;
+//				}else if(setW > getBW){
+//					setW = getBW;
+//				}
+//				
+//				$('.Vbar-move').css('width',setW + 'px');
+//				$('.Vdot-move').css('left', setL + 'px');
+//				
+//				Au.volume = setW/getBW
+//				ev.stopPropagation();
+//			})
+//			
+//			$(document).mouseup(function(ev){
+//				$(this).off().mousemove();
+//				ev.stopPropagation();
+//			})
+//			ev.stopPropagation();
+//			return false;
+//		})
 		
-		$('.lyric ul').html(str);
-		var Au = $('audio').get(0);
-		var stopSing = true;
-		var getBarW = $('.bar').width();
-		var timer = null;
-		console.log($('.lyric li').attr('attr','singname')) 
-		
-		$('.play').click(function(){
-			if(stopSing){// 播放
-				Au.play();
-				
-				$('.oldtime').html(changeNum(Au.duration));//放置总时间
-				$('.needle').addClass('active');
-				$('.dish').addClass('active');
-
-				clearInterval(timer);
-				timer = setInterval(function(){
-					var playTime = Au.currentTime;
-					console.log(playTime)
-					lrcShow(playTime);
-					$('.newtime').html(changeNum(playTime));//放置播放时间
-					var addBarW = Au.currentTime/Au.duration*getBarW;
-					
-					$('.bar-move').css('width',addBarW + 'px');
-					$('.dot-move').css('left',addBarW-6 + 'px');
-				},10)
-				
-				stopSing = false;
-			}else{
-				stopPlay();
-			}
-		})
-		function stopPlay(){
-			Au.pause();  //暂停
-			$('.needle').removeClass('active');
-			$('.dish').removeClass('active');
-			clearInterval(timer);
-			stopSing = true;
-		}
-		$('.dot-move').mousedown(function(ev){
-			stopPlay();
-			
-			var getX = ev.clientX;
-			var getMBarW = $('.bar-move').width();
-			var getMDotL = $('.dot-move').position().left;
-			$(document).mousemove(function(ev){
-				var getMoveX = ev.clientX;
-				var addW =getMoveX - getX;
-				var setMBarW = getMBarW + addW;
-				var setMDotL = getMBarW + addW - 6;
-				if(setMDotL < -6){
-					setMDotL = -6;
-				}else if(setMDotL > getBarW - 6)(
-					setMDotL = getBarW - 6
-				)
-				if(setMBarW < 0){
-					setMBarW = 0;
-				}else if(setMBarW > getBarW){
-					setMBarW = getBarW;
-				}
-				$('.bar-move').css('width',setMBarW + 'px');
-				$('.dot-move').css('left', setMDotL + 'px');
-				var playTime = setMBarW/getBarW*Au.duration;
-				Au.currentTime = playTime;
-				$('.newtime').html(changeNum(playTime));
-				lrcShow(playTime);
-			})
-			$(document).mouseup(function(){
-				$(this).off().mousedown();
-			})
-			return false;
-		})
-		
-		function lrcShow(time){
-			$('.lyric li').each(function(i,elem){
-				if($(elem).attr('natrue') == changeNum(time)){
-					$('.lyric li').removeClass('active');
-					var _index=$(elem).index();  
-					$('.lyric li').eq(_index).addClass('active'); 
-					$('.lyric ul').animate({'margin-top':100-(_index*40)+'px'},5);
-				}
-			})
-		}
-		function getTwo(n){
-			return n > 9 ? n : '0' + n;
-		}
-		function changeNum(t){
-			var m = getTwo(Math.floor(t/60)); 
-			var s = getTwo(Math.ceil(t%60));
-			return m + ':' + s;
-		}
 	</script>
 </html>
