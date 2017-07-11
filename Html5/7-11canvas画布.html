@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#mycanvas{
+				background: yellow;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="mycanvas" width="400" height="400"></canvas>
+		
+	</body>
+	<script type="text/javascript" src="js/MyQuery.js" ></script>
+	<script type="text/javascript">
+		var context = $('mycanvas').getContext('2d');
+		context.beginPath()
+		context.moveTo(0,0)
+		context.lineTo(400,0)
+		context.lineTo(200,200)
+		context.lineTo(0,0)
+		context.fillStyle = 'red';
+		context.closePath();
+		context.fill();
+//		context.stroke();
+		var imgData = context.getImageData(10,1,10,10);
+		console.log(imgData.data[0])
+		
+	</script>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#canvas{
+				background: cornflowerblue;
+				/*border: 2px solid #000;*/
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas" width="400" height="400"></canvas>
+	</body>
+	<script type="text/javascript">
+		var oC=document.getElementById('canvas');
+		var context=oC.getContext('2d');  
+		
+//		1,rect(起点x,起点y,宽度，高度)
+//		context.rect(10.5,10.5,100,100);
+//		context.stroke();
+//		2,strokeRect
+//		context.strokeStyle='red';
+//		context.lineWidth=20;
+//		context.lineJoin='bevel';
+//		context.strokeRect(10.5,10.5,100,100);
+
+//		3,rect()方法实现实心矩形
+//		context.rect(10.5,10.5,100,100);
+//		context.fill();
+//		4,fillRect()
+		context.fillStyle='red';
+//		context.lineJoin='bevel';
+		context.fillRect(10.5,10.5,100,100);
+//		5,清除画布
+		context.clearRect(0,0,oC.width,oC.height);
+	</script>
+</html>

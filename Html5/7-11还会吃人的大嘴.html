@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#mycanvas{
+				background: dodgerblue;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="mycanvas" width="400" height="400"></canvas>
+	</body>
+	<script type="text/javascript" src="js/MyQuery.js" ></script>
+	<script type="text/javascript">
+		var context = $('mycanvas').getContext('2d');
+		var ang=0;
+		var control = 0
+		
+		setInterval(function(){
+			context.clearRect(0,0,400,400);
+			draw(ang);
+			if(ang > -1 && ang < 40 && control == 0){
+				ang++;
+				if(ang > 39){
+					control = 1;
+					ang = 40;
+				}
+			}
+			if(control == 1 && ang > 0){
+				ang--;
+				if(ang == 0){
+					control = 0;
+					ang = 0
+				}
+			}
+		},10)
+		
+		function draw(n){
+			var startAng = (2*Math.PI/360)*(-n);
+			var endAng = (2*Math.PI/360)*(360+n);
+			
+			drawDish(200,130,startAng,endAng,'white');
+			drawDish(160,10,0,2*Math.PI,'black');
+		}
+		function drawDish(dot,r,start,end,color){
+			context.beginPath()
+			context.moveTo(200,200);
+			context.arc(dot,dot,r,start,end,true);
+			context.fillStyle = color;
+			context.fill();
+			context.closePath()
+		}
+	</script>
+</html>

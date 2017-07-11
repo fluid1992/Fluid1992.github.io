@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#canvas{
+				background: cornflowerblue;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas" width="400" height="400"></canvas>
+	</body>
+	<script type="text/javascript">
+//		1,canvas画布的作用，更加灵活地绘制图形
+//		2,使用canvas
+//		(1)canvas标签
+		var oC=document.getElementById('canvas');
+		var context=oC.getContext('2d');  //一张画纸
+//		(2)笔尖落点
+		context.beginPath();
+		context.moveTo(100,100);
+//		(3)笔尖的终点
+		context.lineTo(300,100);
+		context.lineTo(200,200);
+		context.lineTo(100,100);
+		context.fillStyle='red';
+		context.fill();
+//		(4)绘画动作
+		context.closePath();
+//		(5)填充颜色
+		context.stroke();
+		
+		context.beginPath();
+		context.moveTo(200,200);
+		context.lineTo(100,300);
+		context.lineTo(300,300);
+		context.lineTo(200,200);
+		context.fillStyle='blueviolet';
+		context.fill();
+		context.closePath();
+		context.stroke();
+		
+//		(6)绘制路径的闭合,使用如下方法，将不同模块的canvas路径包裹起来
+			context.beginPath();
+			context.closePath();
+	</script>
+</html>

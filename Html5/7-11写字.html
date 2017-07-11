@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#mycanvas{
+				background: cyan;
+			}
+			/*#mycanvas:hover{
+				cursor: crosshair;
+			}*/
+		</style>
+	</head>
+	<body>
+		<canvas id="mycanvas" width="400" height="400"></canvas>
+		<button id="del">点击删除</button>
+	</body>
+	<script type="text/javascript" src="js/MyQuery.js" ></script>
+	<script type="text/javascript">
+		var pen = $('mycanvas').getContext('2d');
+		var arr = ['blue','red','yellow','orange','white','green','gold'];
+		var arrlen = arr.length-1;
+		var del = true;
+		var control = 0 ;
+		$('mycanvas').onmousedown=function(ev){
+			var newEv = ev||event;
+			var getX = newEv.clientX - $('mycanvas').offsetLeft;
+			var getY = newEv.clientY - $('mycanvas').offsetTop;
+			pen.beginPath()
+			pen.moveTo(getX,getY);
+			pen.strokeStyle = ''+arr[Math.round(Math.random()*arrlen)]+''
+			pen.lineWidth = ''+Math.round(Math.random()*5+1)+''
+			if(del){
+				$('mycanvas').onmousemove=function(ev){
+					var newEv = ev||event;
+					var getMX = newEv.clientX - $('mycanvas').offsetLeft;
+					var getMY = newEv.clientY - $('mycanvas').offsetTop;
+					pen.lineTo(getMX,getMY);
+					pen.stroke();
+				}
+				document.onmouseup=function(){
+					$('mycanvas').onmousemove = null;
+					pen.closePath();
+				}
+			}else{
+				$('mycanvas').onmousemove=function(ev){
+					var newEv = ev||event;
+					var getMX = newEv.clientX - $('mycanvas').offsetLeft;
+					var getMY = newEv.clientY - $('mycanvas').offsetTop;
+					pen.clearRect(getMX-10,getMY-10,20,20)
+					
+				}
+				document.onmouseup=function(){
+					$('mycanvas').onmousemove = null;
+				}
+			}
+			
+		}
+		
+		$('del').onclick = function(){
+			if(control == 0){
+				del = false;
+				control = 1;
+				$('del').innerHTML='点我画画';
+			}else{
+				del = true;
+				control = 0;
+				$('del').innerHTML='点我删除';
+			}
+			
+		}
+		
+	</script>
+</html>

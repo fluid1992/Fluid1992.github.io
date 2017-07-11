@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#canvas{
+				background: cornflowerblue;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas" width="400" height="400"></canvas>
+	</body>
+	<script type="text/javascript">
+		var oC=document.getElementById('canvas');
+		var context=oC.getContext('2d');  //一张画纸
+		
+		context.beginPath();
+		context.moveTo(100,100);
+		context.lineTo(300,100);
+		context.lineTo(200,200);
+		context.lineTo(100,100);
+//		(1)画笔的粗细
+		context.lineWidth=10;
+//		(2)线条端点的样式（线帽）
+//		context.lineCap='butt'; //默认
+//		context.lineCap='square'; //正方形的线帽
+		context.lineCap='round';  //圆角
+//		(3)线条衔接点的风格
+//		context.lineJoin='miter'  //默认尖角
+//		context.lineJoin='bevel'  //斜切
+		context.lineJoin='round'  //圆角
+		context.stroke();
+	</script>
+</html>
