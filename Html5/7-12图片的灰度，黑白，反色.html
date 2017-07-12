@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			canvas{
+				border: 1px solid lightslategray;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="convastext" width="500" height="300"></canvas>
+		<canvas id="yconvas" width="500" height="300"></canvas>
+		<canvas id="mconvas" width="500" height="300"></canvas>
+		<button>灰色</button>
+		<button>黑白</button>
+		<button>反色</button>
+		<button>什么？</button>
+		
+		<!--<img src="img/f882eaa66ee3af7c9582d5e07c1758fd.jpg"/>-->
+	</body>
+	<!--<script type="text/javascript" src="js/MyQuery.js" ></script>-->
+	<script type="text/javascript">
+		var aYcanvas = document.getElementById('yconvas');
+		var Ycontext = aYcanvas.getContext('2d');
+		var aMcanvas = document.getElementById('mconvas');
+		var Mcontext = aMcanvas.getContext('2d');
+		var abtn = document.getElementsByTagName('button');
+		
+		var canvasT = document.getElementById('convastext');
+		var Tcontext = canvasT.getContext('2d');
+		
+		Tcontext.fillStyle = 'rgba(55,197,64,0.8)'
+		Tcontext.font = 'bold 45px "宋体"';
+		Tcontext.textBaseline = 'middle';
+		Tcontext.textAlign = 'center'
+		Tcontext.fillText('月影下的忧伤',250,150)
+		
+		var oImg = new Image();
+		
+		oImg.src = 'img/f882eaa66ee3af7c9582d5e07c1758fd.jpg';
+		oImg.onload = function(){
+			console.log(oImg.heght)
+			Ycontext.drawImage(oImg,0,0,oImg.width,oImg.height,0,0,aYcanvas.width,aYcanvas.height)
+			Ycontext.drawImage(canvasT,0,0,canvasT.width,canvasT.height,0,0,aYcanvas.width,aYcanvas.height)
+		}
+		abtn[2].onclick = function(){
+			var YimgData = Ycontext.getImageData(0,0,aYcanvas.width,aYcanvas.height);
+			var imgData = YimgData.data;
+			var len = imgData.length;
+			console.log(len);
+			for(var i = 0; i<len/4; i++){
+				r = imgData[i*4+0];
+				g = imgData[i*4+1];
+				b = imgData[i*4+2];
+//				a = imgData[i+3];
+				
+				imgData[i*4+0]=255-r;
+				imgData[i*4+1]=255-g;
+				imgData[i*4+2]=255-b;
+//				imgData[i+3]=255-a;
+//				console.log(a)
+			}
+			Mcontext.putImageData(YimgData,0,0,0,0,aMcanvas.width,aMcanvas.height);
+		}
+		
+		abtn[0].onclick = function(){
+			var YimgData = Ycontext.getImageData(0,0,aYcanvas.width,aYcanvas.height);
+			var imgData = YimgData.data;
+			var len = imgData.length;
+			console.log(len);
+			for(var i = 0; i<len/4; i++){
+				r = imgData[i*4+0];
+				g = imgData[i*4+1];
+				b = imgData[i*4+2];
+//				a = imgData[i+3];
+				Gray=r*0.3+g*0.59+b*0.11
+				
+				imgData[i*4+0]=Gray;
+				imgData[i*4+1]=Gray;
+				imgData[i*4+2]=Gray;
+//				imgData[i+3]=255-a;
+//				console.log(a)
+			}
+			Mcontext.putImageData(YimgData,0,0,0,0,aMcanvas.width,aMcanvas.height);
+		}
+		abtn[1].onclick = function(){
+			var YimgData = Ycontext.getImageData(0,0,aYcanvas.width,aYcanvas.height);
+			var imgData = YimgData.data;
+			var len = imgData.length;
+			console.log(len);
+			for(var i = 0; i<len/4; i++){
+				r = imgData[i*4+0];
+				g = imgData[i*4+1];
+				b = imgData[i*4+2];
+//				a = imgData[i+3];
+				var Gray=r*0.3+g*0.59+b*0.11
+				if(Gray>120){
+					Gray = 255;
+				}else{
+					Gray = 0;
+				}
+				imgData[i*4+0]=Gray;
+				imgData[i*4+1]=Gray;
+				imgData[i*4+2]=Gray;
+//				imgData[i+3]=255-a;
+//				console.log(a)
+			}
+			Mcontext.putImageData(YimgData,0,0,0,0,aMcanvas.width,aMcanvas.height);
+			
+		}
+		abtn[3].onclick = function(){
+			var YimgData = Ycontext.getImageData(249,119,250,120);
+			var imgData = YimgData.data;
+			var len = imgData.length;
+			console.log(len);
+			var num = 0;
+			for(var i = 0; i<len; i++){
+				r = imgData[i*4+0];
+				g = imgData[i*4+1];
+				b = imgData[i*4+2];
+//				a = imgData[i+3];
+				var Gray=r*0.3+g*0.59+b*0.11
+				console.log(Gray)
+				if(Gray>120){
+					Gray = 255;
+				}else{
+					Gray = 0;
+				}
+				imgData[i*4+0]=Gray;
+				imgData[i*4+1]=Gray;
+				imgData[i*4+2]=Gray;
+			}
+				var pNum = num/len/4;
+				
+				console.log(pNum);
+			Mcontext.putImageData(YimgData,0,0,0,0,aMcanvas.width,aMcanvas.height);
+			
+		}
+	</script>
+</html>

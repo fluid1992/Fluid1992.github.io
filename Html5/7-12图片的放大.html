@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<style type="text/css">
+	#myCanvas{
+		background: cyan;
+	}
+	
+	#box{
+		position: relative;
+	}
+	#move-box{
+		width: 50px;
+		height: 50px;
+		background: yellow;
+		opacity: 0.5;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+	#box,
+	img{
+		width: 400px;
+	}
+</style>
+<body>
+	<div id="box">
+		<img id="img1" src="img/fffffff.jpg"/>
+		<div id="move-box">
+			
+		</div>
+	</div>
+<canvas id="myCanvas" width="150" height="150" style="border:1px solid #d3d3d3;">
+Your browser does not support the HTML5 canvas tag.
+</canvas>
+<script>
+
+	var c=document.getElementById("myCanvas");
+	var ctx=c.getContext("2d");
+	var img=document.getElementById("img1");
+	var mBox = document.getElementById("move-box");
+	var oBox = document.getElementById("box");
+	img.onload=function(){
+		oBox.onmousemove = function(ev){
+			newEv = ev || event;
+			var getX = ev.clientX-img.offsetLeft;
+			var getY = ev.clientY-img.offsetTop;
+			var movX = (getX-70)*3.2;
+			var movY = (getY-70)*3.2;
+			console.log(movX)
+			mBox.style.top = getY-30+'px';
+			mBox.style.left = getX-30+'px';
+			ctx.clearRect(0,0,300,300);
+			ctx.drawImage(img,movX,movY,150,150,0,0,150,150);
+		}
+		
+	}
+		
+</script>
+
+</body>
+</html>
+

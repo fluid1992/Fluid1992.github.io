@@ -17,7 +17,7 @@ var stopSing = true;
 var getBarW = $('.bar').width();
 var timer = null;
 var changeModle = 1;
-//		console.log($('.lyric li').attr('attr','singname')) 
+
 
 var getBW = $('.bar-voice').width(); //获取声音条的宽度
 $('.Vbar-move').css('width', Au.volume * getBW + 'px');
@@ -26,7 +26,7 @@ $('.Vdot-move').css('left', Au.volume * getBW - 6 + 'px');
 $('.play').click(function() {//播放与暂停按键
 	Play();
 })
-//var = 
+
 function Play(){//播放与暂停函数
 	if(stopSing) { // 播放
 		Au.play();
@@ -102,7 +102,7 @@ $('.dot-move').mousedown(function(ev) { //音乐的进度条
 	return false;
 })
 
-function lrcShow(time) {
+function lrcShow(time) {  //歌词
 	$('.lyric li').each(function(i, elem) {
 		if($(elem).attr('natrue') == changeNum(time)) {
 			$('.lyric li').removeClass('active');
@@ -122,27 +122,19 @@ var degree = 0;
 $('.pLoop').click(function(){//播放模式  顺序播放 ，单曲循环，随机播放
 	
 	console.log(degree)
-	
-//	degree++;
-	
 	switch(degree){
 		case 0://顺序播放
-//			changeSong('true');
 			changeModle = 1;
 			console.log(degree)
 			degree = 1;
 		break;
 		case 1://单曲循环
-//			Au.autoplay = true;
-//			changeSong('single');
 			changeModle = 2;
 			console.log(degree)
 			degree = 2;
 			
 		break;
 		case 2://随机播放
-//			Au.autoplay = true;
-//			changeSong('rand');
 			changeModle = 3;
 			console.log(degree)
 			degree = 0;
@@ -179,9 +171,31 @@ function changeSong(changeStr){//选择上一首或者下一首
 		Play();
 	},1000)
 }
+//获取歌曲菜单
+$('.getSonglist').click(function(){
+	var songStr = '';
+	for(var i=0;i<lrc.length;i++){
+		songStr += '<li num = '+i+'>'
+				+''+lrc[i].singname+'<span >'
+				+''+lrc[i].singplayer+''
+				+'</span></li>'
+	}
+	$('.songList-ul').html(songStr);
+	
+	$('.songList').addClass('active');
+	$('.songList-ul').delegate('li','click',function(){
+		stopPlay();
+		console.log($(this));
+		setLrc($(this).attr('num'));
+		setTimeout(function(){
+			Play();
+		},1000);
+	});
 
-
-
+})
+$('.opacityBox').click(function(){
+	$('.songList').removeClass('active');
+})
 function getTwo(n) {
 	return n > 9 ? n : '0' + n;
 }

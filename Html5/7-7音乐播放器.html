@@ -3,271 +3,8 @@
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
-		<style type="text/css">
-			.cont{
-				height: 600px;
-				width: 300px;
-				border: 1px solid darkgray;
-				background: #3A3A3A;
-			}
-			.myPic{
-				width: 30%;
-				height: 20%;
-				margin: auto;
-				position: relative;
-				/*background: yellow;*/
-			}
-			/*.needle{
-				width: 10px
-				height: 30px;
-				background: red;
-			}*/
-			.needle {
-				/*margin-top: 200px;*/
-				/*margin-left: 50%;*/
-				width: 60%;
-				-webkit-transform-origin: 0 0;
-				-moz-transform-origin: 0 0;
-				
-				-webkit-transform: rotate(15deg);
-				-moz-transform: rotate(15deg);
-				
-				/*background: red;*/
-				position: absolute;
-				top: 0;
-				left: 50%;
-				z-index: 1;
-				-webkit-transition: all 2s;
-				-moz-transition: all 2s;
-			}
-			.needle.active{
-				-webkit-transform: rotate(45deg);
-				-moz-transform: rotate(45deg);
-			}
-			.dish{
-				width: 100%;
-				position: absolute;
-				bottom: 0px;
-				left: 0;
-				-webkit-transition: all 2s;
-				-moz-transition: all 2s;
-			}
-			.dish.active{
-				-webkit-animation:rot 5s linear infinite;
-				-moz-animation:rot 5s linear infinite;
-			}
-			@-webkit-keyframes rot{
-				from{
-					-webkit-transform: rotate(0deg);
-					}
-				to{
-					-webkit-transform: rotate(360deg);
-				}
-			}
-			@-moz-keyframes rot{
-				from{
-					-moz-transform: rotate(0deg);
-					}
-				to{
-					-moz-transform: rotate(360deg);
-				}
-			}
-			.lyric{
-				width: 100%;
-				height: 60%;
-				/*background: #00FFFF;*/
-				list-style: none;
-				padding: 0;
-				
-				overflow: hidden;
-			}
-			.singName{
-				margin: 0px;
-				width: 100%;
-				margin-top: 10px;
-				font-size: 15px;
-				height: 20px;
-				line-height: 20px;
-				color: white;
-				text-align: center;
-			}
-			.singPlayer{
-				display: block;
-				width: 100%;
-				color: white;
-				text-align: center;
-				position:relative;
-				font-size: 12px;
-				height: 20px;
-				line-height: 20px;
-				padding-bottom: 10px;
-			}
-			.singPlayer:after{
-				content: '';
-				position:absolute;
-				bottom: 0;
-				left: 25%;
-				width: 50%;
-				height: 1px;
-				background: #808080;
-			}
-			.lyric-text{
-				width: 100%;
-				height: 300px;
-				overflow: hidden;
-			}
-			.lyric ul{
-				text-align: center;
-				list-style: none;
-				padding: 0;
-				font-size: 16px;
-				color: #A9A9A9;
-			}
-			ul{
-				margin: 0;
-			}
-			.control{
-				width: 90%;
-				/*height: 10%;*/
-				list-style: none;
-				padding: 0;
-				/*margin: auto;*/
-				padding-top: 20px;
-				background: #3A3A3A;
-				/*overflow: hidden;*/
-				display: inline-block;
-				margin-left: 15px;
-			}
-			.control-box{
-				width: 100%;
-				height: 20%;
-				background: #3A3A3A;
-				/*overflow: hidden*/
-			}
-			.control li{
-				float: left;
-				height: 40px;
-				line-height: 40px;
-				margin-left: 10px;
-				text-align: center;
-				
-			}
-			.control li:nth-child(4){
-				/*margin-top: -10px;*/
-			}
-			
-			.control img{
-				width: 100%;
-				height: 100%;
-			}
-			.control li:nth-child(1),
-			.control li:nth-child(2),
-			.control li:nth-child(6),
-			.control li:nth-child(7){
-				width: 20px;
-				height: 20px;
-			}
-			.control li:nth-child(3),
-			.control li:nth-child(5){
-				width: 30px;
-				height: 30px;
-				/*margin-top: px;*/
-			}
-			.control li:nth-child(4){
-				width: 40px;
-				height: 40px;
-				margin-top: -5px;
-			}
-			.bar-cont{
-				width: 90%;
-				color: white;
-				overflow: hidden;
-				margin: auto;
-				box-sizing: border-box;
-				margin-top: 20px;
-			}
-			.bar,
-			.bar-cont span{
-				float: left;
-			}
-			 .newtime,.oldtime{
-				height: 25px;
-				font-size: 12px;
-				line-height: 25px;
-			}
-			.bar{
-				height: 10px;
-				background: gray;
-				width: 70%;
-				margin: 8px 5px 0 5px;
-				position: relative;
-			}
-			.bar-move{
-				height: 10px;
-				width: 0;
-				background: palevioletred;
-				
-			}
-			.dot-move{
-				position: absolute;
-				top: -1px;
-				left: -6px;
-				width: 2px;
-				height: 2px;
-				border:5px solid white;
-				border-radius: 50%;
-			}
-			.lyric li{
-				height: 35px;
-				line-height: 35px;
-			}
-			.lyric li.active{
-				color: yellow;
-			}
-			.lyric ul {
-				margin-top: 100px;
-			}
-			.voice-li{
-				position: relative;
-			}
-			.bar-voice{
-				width: 100px;
-				height: 20px;
-				position: absolute;
-				bottom: 30px;
-				left: 0px;
-				/*background: red;*/
-				/*display: none;*/
-				-webkit-transform: rotate(-90deg);
-				-moz-transform: rotate(-90deg);
-				-webkit-transform-origin: 10px center
-			}
-			.bar-voice.active{
-				display: none;
-			}
-			.v-bar{
-				width: 100px;
-				height: 10px;
-				background: gray;
-				position: relative;
-				margin-top: 5px;
-			}
-			.Vbar-move{
-				height: 10px;
-				width: 0px;
-				background: #DB7093;
-			}
-			.Vdot-move{
-				position: absolute;
-				top: -1px;
-				left: -6px;
-				width: 2px;
-				height: 2px;
-				border:5px solid white;
-				border-radius: 50%;
-				
-			}
-		</style>
+		<link rel="stylesheet" type="text/css" href="css/7-7音乐播放器.css"/>
+		
 	</head>
 	<body>
 		<audio src="audio/noya.mp3">
@@ -311,7 +48,7 @@
 							</div>
 						</div>
 					</li>
-					<li><img class="getMore" src="img/icon/QQ截图20170707184759.png"/></li>
+					<li><img class="getSonglist" src="img/icon/QQ截图20170707184759.png"/></li>
 				</ul>
 				<div class="bar-cont">
 					<span class="newtime">00:00</span>
@@ -321,6 +58,15 @@
 					</div>
 					<span class="oldtime">00:00</span>
 				</div>
+			</div>
+			
+			<div class="songList">
+				<div class ="opacityBox"></div>
+				<ul class="songList-ul">
+					<!--<li>wo <span >
+						nihao 
+					</span></li>-->
+				</ul>
 			</div>
 		</div>
 	</body>

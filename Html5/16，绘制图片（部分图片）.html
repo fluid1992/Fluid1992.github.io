@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			img{
+				width: 400px;
+			}
+			canvas{
+				background: cornflowerblue;
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			<img id="myImg" src="img/img.jpg"/>
+			<div id="cover"></div>
+		</div>
+		<canvas id="myCanvas" width="250" height="250"></canvas>
+	</body>
+	<script type="text/javascript">
+		var oImg=document.getElementById('myImg');
+		var oC=document.getElementById('myCanvas');
+		var context=oC.getContext('2d');
+		oImg.onload=function(){
+//			context.drawImage(oImg,0,0);
+//			context.drawImage(图片对象,图片剪切x坐标,图片剪切的y坐标,剪切的宽度,剪切的高度,绘制的x起点,绘制的y起点,绘制宽度,绘制高度)
+//			context.drawImage(oImg,460,150,120,120,0,0,250,250); //绘制一个字
+//			context.drawImage(oImg,0,0,2880,1800,0,0,400,250); //绘制一个字
+		}
+	</script>
+</html>

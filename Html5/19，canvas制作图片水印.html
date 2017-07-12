@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			canvas{
+				/*background: cornflowerblue;*/
+			}
+			#newCanvas{
+				border: 1px solid red;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas" width="200" height="100" style="display: none;"></canvas>
+		<canvas id="newCanvas" width="500" height="400"></canvas>
+	</body>
+	<script type="text/javascript">
+		var oC=document.getElementById('canvas');
+		var context=oC.getContext('2d');
+//		1,绘制的字体样式
+		context.font='bold 50px "微软雅黑"';
+//		2,纵向的文字对齐方式,需要 配合指定绘制的基线
+		context.textBaseline='middle';
+//		3,横向文字对齐方式,需要 配合指定绘制的基线
+		context.textAlign='center';
+//		4,文字的颜色
+		context.fillStyle='rgba(0,0,0,0.7)';
+//		context.strokeStyle='rgba(0,0,0,0.5)'
+//		5,绘制文字的方法
+		context.fillText('Yooe',100,50);
+//		context.strokeText('Yooe',100,50);
+		
+		var oNew=document.getElementById('newCanvas');
+		var newContext=oNew.getContext('2d');
+		var oImg=new Image();
+		oImg.src='img/an2.jpg';
+		oImg.onload=function(){
+			newContext.drawImage(oImg,0,0,oImg.width,oImg.height,0,0,oNew.width,oNew.height);
+			var x=oNew.width-oC.width;
+			var y=oNew.height-oC.height;
+			newContext.drawImage(oC,0,0,oC.width,oC.height,x,y,oC.width,oC.height);
+		}
+	</script>
+</html>
