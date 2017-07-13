@@ -386,9 +386,9 @@ input{
 	background: white;
 	/*margin-top: -5px;*/
 	padding-left: 10px;
-	padding-top: 10px;
-	
+	/*padding-top: 10px;*/
 }
+
 /*左右滚动*/
 .mui-segmented-control.mui-segmented-control-inverted.h-img .mui-control-item.mui-active{
     border-bottom: 0px solid white;
@@ -403,17 +403,50 @@ input{
 	height: 90px;
 	background: white;
 	box-sizing: content-box;
-	padding-top: 10px;
+	/*padding-top: 10px;*/
 }
-.scroll-img img{
-	width: 200px;
+.mui-segmented-control.mui-scroll-wrapper.h-img.iconfont-height{
 	height: 80px;
 }
+.scroll-img img{               /* 这堆是滑动的那个什么鬼的控制*/
+	width: 150px;
+	height: 80px;
+}
+.scroll-margin{
+	margin: 10px 0;
+}
+.scroll-margin.scroll-padding{
+	padding-top: 10px;
+	background: white;
+	margin-top: 0;
+}
+.scroll-margin-bottom{
+	/*padding-top: 10px;*/
+	margin-bottom: 10px;
+	background: white;
+}
 
+.scroll-cont-box {
+	margin: 5px 10px 0 10px;
+}
+.scroll-cont-bigbox{
+	margin: 5px 13px 0 13px;
+}
+.mui-slider-indicator .mui-icon.noborder{
+	border: none;
+	font-size: 30px;
+}
+.mui-media-body.mui-media-fontsize{
+	font-size: 10px;
+}
+.mui-segmented-control .mui-control-item .mui-media-body.mui-media-fontsize{
+	line-height: 30px;
+}
 
 .tiaozhan-img{
 	height: 300px;
 }
+
 /*body{
 	overflow: hidden;
 }*/

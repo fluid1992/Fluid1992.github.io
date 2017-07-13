@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.box{
+				height: 500px;
+				/*width: 500px;*/
+				background: darkgray;
+				position: relative;
+			}
+			img{
+				height: 500px;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<img class="y" src="img/aliImg/TB15Tk6RVXXXXaUXFXXXXXXXXXX-1600-880.png"/>
+			<img class="s" src="img/aliImg/TB1exNXSXXXXXcvXpXXXXXXXXXX-1600-880.png"/>
+			<img class="w" src="img/aliImg/TB1ODBfSXXXXXapXpXXXXXXXXXX-1600-880.png"/>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/jquery-3.2.1.min.js" ></script>
+	<script type="text/javascript">
+	console.log($('.box').offset().top)
+		var boxH = $('.box').height();
+		var boxW = $('.box').width();
+		$('.box').mousemove(function(ev){
+			var getX = ev.clientX - $(this).offset().left;
+			var getY = ev.clientY - $(this).offset().top;
+			var lvX = getX/boxW;
+			var lvY = getY/boxH;
+			$('.y').css({'top':lvY*30+'px','left':lvX*20+'px',})	
+			$('.s').css({'top':lvY*20+'px','left':lvX*20+'px',})
+			$('.w').css({'top':lvY*5+'px','left':lvX*5+'px',})	
+		})
+	</script>
+</html>

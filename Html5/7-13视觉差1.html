@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title><style type="text/css">
+		body{
+			margin: 0;
+			padding: 0;
+		}
+			.box{
+				height: 350px;
+				border: 1px solid red;
+				overflow: hidden;
+				position: relative;
+				min-width: 1000px;
+			}
+			img{
+				position: absolute;
+			}
+			.sand{
+				width: 120%;
+				height: 120%;
+			}
+			.bigHouse{
+				top: 25%;
+				left: 50%;
+			}
+			.house{
+				top: 40%;
+				left: 85%;
+			}
+			.fly{
+				top: 40%;
+				left: 45%;
+				z-index: 1;
+			}
+			.fiyBw{
+				top: 70%;
+				left: 45%;
+			}
+			.person{
+				top: 20%;
+				left: 40%;
+				z-index: 2;
+			}
+			.personBw{
+				top: 80%;
+				left: 40%;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<img class="sand" src="img/visionImg/sand.jpg"/>
+			<img class="bigHouse" src="img/visionImg/bigHouse.png"/>
+			<img class="fly" src="img/visionImg/fly.png"/>
+			<img class="fiyBw" src="img/visionImg/fiyBw.png"/>
+			<img class="house" src="img/visionImg/house.png"/>
+			<img class="person" src="img/visionImg/person .png"/>
+			<img class="personBw" src="img/visionImg/personBw.png"/>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/jquery-3.2.1.min.js" ></script>
+	<script type="text/javascript">
+		var wH = $(window).height();
+		var wW = $(window).width();
+		var peT = $('.person').position().top;
+		var peL =  $('.person').position().left;
+		var peBT = $('.personBw').position().top;
+		var peBL =  $('.personBw').position().left;
+		var flyT = $('.fly').position().top;
+		var flyL =  $('.fly').position().left;
+		var flyBT = $('.fiyBw').position().top;
+		var flyBL =  $('.fiyBw').position().left;
+		
+		var bigHT = $('.bigHouse').position().top;
+		var bigHL =  $('.bigHouse').position().left;
+		var HuoseT = $('.house').position().top;
+		var HuoseL =  $('.house').position().left;
+		
+		$(document).mousemove(function(ev){
+			var getX = ev.clientX;
+			var getY = ev.clientY;
+			var scaleY = getY/wH;
+			var scaleX = getX/wW;
+			$('.person').css({'top':peT-scaleY*20+'px','left':peL-scaleX*30+'px'});		
+			$('.personBw').css({'top':peBT-scaleY*20+'px','left':peBL-scaleX*30+'px'});		
+			$('.fly').css({'top':flyT-scaleY*20+'px','left':flyL-scaleX*30+'px'});		
+			$('.fiyBw').css({'top':flyBT-scaleY*20+'px','left':flyBL-scaleX*30+'px'});
+			
+			$('.bigHouse').css({'top':bigHT+scaleY*20+'px','left':bigHL+scaleX*30+'px'});		
+			$('.house').css({'top':HuoseT+scaleY*20+'px','left':HuoseL+scaleX*30+'px'});
+			
+			$('.sand').css({'marginTop':-scaleY*30+'px','left':-scaleX*40+'px'});
+			
+		})
+	</script>
+</html>
