@@ -1,0 +1,29 @@
+body{
+	background:#080d27  url(../img/bg.png)no-repeat center top;
+}
+
+/*版权所有权*/
+.copyright{
+	position: absolute;
+	bottom: 10px;
+	left: 50%;
+	margin-left: -512px;
+	width: 1024px;
+	text-align: center;
+	color: #0468a1;
+	line-height: 18px;
+	font-size: 12px;
+}
+/*左上角的链接*/
+.toplinks{
+	position: absolute;
+	top: 50px;
+	left: 30px;
+}
+.toplinks a{
+	color: #3ac1ff;
+	line-height: 18px;
+	font-size: 14px;
+	padding: 0 10px;
+	border-right: 1px solid #3ac1ff;
+}
