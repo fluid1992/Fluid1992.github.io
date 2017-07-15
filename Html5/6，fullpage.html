@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/jquery.fullPage.css"/>
+		<script type="text/javascript" src="js/jquery-3.2.1.min.js" ></script>
+		<script type="text/javascript" src="js/jquery.fullPage.min.js" ></script>
+	</head>
+	<body>
+		<div id="fullpage">
+			<div class="section">
+				<div class="slide">1</div>
+				<div class="slide">2</div>
+				<div class="slide">3</div>
+				<div class="slide">4</div>
+			</div>
+			<div class="section">2</div>
+			<div class="section">3</div>
+			<div class="section">4</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		$(function(){
+			$('#fullpage').fullpage({
+				sectionsColor:['pink','blue','green','red'],
+				scrollingSpeed:200,
+				controlArrows:false,
+				verticalCentered:false,
+				scrollBar: true
+//				controlArrows
+			});
+		})
+	</script>
+</html>

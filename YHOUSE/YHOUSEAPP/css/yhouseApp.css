@@ -432,6 +432,52 @@ input{
 .scroll-cont-bigbox{
 	margin: 5px 13px 0 13px;
 }
+.gbg{
+	width: 100%;
+	height: 100%;
+	margin-top: 10px;
+	box-sizing: content-box;
+	background-size: 100% 100%;
+	color: white;
+	text-align: left;
+}
+.bg{
+	background: url(../img/funtion/c4snq75.jpg) no-repeat;
+}
+.bg1{
+	background: url(../img/comminity/a1snq75.jpg) no-repeat;
+}
+.bg2{
+	background: url(../img/comminity/518336944029418_3@r_750w_750h.jpg-snq75.jpg) no-repeat;
+}
+.bg3{
+	background: url(../img/comminity/518336759653286_4@r_1280w_960h.jpg-snq75.jpg) no-repeat;
+}
+.bg4{
+	background: url(../img/comminity/518336759613386_1@r_750w_562h.jpg-snq75.jpg) no-repeat;
+}
+.scroll-cont-box.gbg h5{
+	padding: 10px 0 0 10px;
+	font-size: 14px;
+	font-weight: bold;
+	margin-bottom: 0;
+	color: white;
+}
+.scroll-cont-box.gbg span{
+	margin-top: -5px;
+	font-size: 10px;
+	padding-left:10px;
+	
+}
+/*.mui-segmented-control .mui-control-item .gbg span{
+	line-height: 10px;
+	
+}*/
+.mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mya{
+	width: 160px;
+	height: 70px;
+}
+
 .mui-slider-indicator .mui-icon.noborder{
 	border: none;
 	font-size: 30px;
