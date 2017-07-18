@@ -1,7 +1,6 @@
 body{
 	background:#080d27  url(../img/bg.png)no-repeat center top;
 }
-
 /*版权所有权*/
 .copyright{
 	position: absolute;
@@ -40,18 +39,70 @@ body{
 	/*border: 1px solid red;*/
 	background: url(../img/nav.png);
 }
+.downloadA{
+	position: absolute;
+	left: 50%;
+	bottom: 20%;
+	margin-left: -103px;
+}
+.downloadA,
+.download{
+	display: inline-block;
+	width: 206px;
+	height: 56px;
+}
+.download{
+	background: #00C249;
+	color: white;
+	line-height: 56px;
+	font-size: 32px;
+	text-align: center;
+}
+/*下面那个滚动向下的按键*/
+.roll-down{
+	width: 66px;
+	height: 55px;
+	position: absolute;
+	left: 50%;
+	bottom: 10%;
+	margin-left: -33px;
+	background-image: url(../img/scrolling.png);
+	background-size: 100% 100%;
+	-webkit-animation: rollDown 1s infinite linear;
+	-moz-animation: rollDown 1s infinite linear;
+}
+@-webkit-keyframes rollDown{
+	from{
+		bottom: 10%;
+		opacity: 0;
+		}
+	to{
+		bottom: 8%;
+		opacity: 1;
+	}
+}
+@-moz-keyframes rollDown{
+	from{
+		bottom: 10%;
+		opacity: 0;
+		}
+	to{
+		bottom: 8%;
+		opacity: 1;
+	}
+}
 /*中间的主要内容*/
 .p0{
 	width: 80%;
 	height: 768px;
 	border: 1px solid red;
-	/*overflow: hidden;*/
 	position: absolute;
 	left: 10%;
 	top: 50%;
 	margin-top: -384px;
 	background-image: url(../img/p0/p1_i_3.png);
 	background-size: 100% 100%;
+	display: none;
 }
 .p0 div{
 	position: absolute;
@@ -59,19 +110,114 @@ body{
 .p0 .p0_i_2,.p0 .p0_i_2 img{
 	width: 740px;
 	height: 660px;
-	
 }
 .p0 .p0_i_2{
-	top: 50%;
+	top: 38%;
 	margin-top: -330px;
 	left: 50%;
 	margin-left: -370px;
+	z-index: 1;
+	opacity: 0;
 }
 .p0 .p0_t_1{
-	top: 25%;
-	left: 10%;
+	top: 20%;
+	left: 50%;
+	margin-left: -299px;
+	opacity: 0;
 }
 .p0 .p0_t_2{
-	top: 40%;
-	left: 30%;
+	top: 35%;
+	left: 50%;
+	margin-left: -143px;
+	opacity: 0;
+}
+.p0 .p0_i_1{
+	top: 35%;
+	left: 50%;
+	margin-left: -320px;
+	/*opacity: 0;*/
+	/*z-index: 1;*/
+	transform: rotateX(92deg);
+	-webkit-transform: rotateX(92deg);
+	-moz-transform: rotateX(92deg);
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	-webkit-perspective: 0;
+	-moz-perspective: 0;
+	/*-webkit-transition: all 1s;*/
+}
+/*斜着的那个地图旋转的css3*/
+.p0 .p0_i_1.myrotateXdown{
+	-webkit-animation: myrotateXdown 1s forwards;
+	-moz-animation: myrotateXdown 1s forwards;
+	
+}
+@-webkit-keyframes myrotateXdown{
+	0%{-webkit-transform: rotateX(90deg);}
+	60%{-webkit-transform: rotateX(92deg);}
+	70%{-webkit-transform: rotateX(0deg);}
+	85%{-webkit-transform: rotateX(10deg);}
+	100%{
+		-webkit-transform: rotateX(0deg);
+		opacity: 1;	
+	}
+}
+@-moz-keyframes myrotateXdown{
+	0%{-moz-transform: rotateX(90deg);}
+	60%{-moz-transform: rotateX(92deg);}
+	70%{-moz-transform: rotateX(10deg);}
+	85%{-moz-transform: rotateX(5deg);}
+	100%{
+		-moz-transform: rotateX(0deg);
+		opacity: 1;	
+	}
+}
+/*斜着的那个地图旋转的css3*/
+/*移除的动画*/
+.p0 .p0_i_1.myscale{
+	-webkit-animation:myscale 2s forwards;
+}
+.p0 .p0_t_1.myscaleL{
+	-webkit-animation:myscaleL 2s forwards;
+}
+.p0 .p0_t_2.myscaleR{
+	-webkit-animation:myscaleR 2s forwards;
+}
+.p0 .p0_i_2.myscaleO{
+	-webkit-animation:myscaleO 2s forwards;
+}
+@-webkit-keyframes myscaleL{
+	0%{
+		opacity: 1;
+	}
+	100%{
+		-webkit-transform: translate(-50px,20px) ;
+		opacity: 0;
+	}
+}
+@-webkit-keyframes myscaleR{
+	0%{
+		opacity: 1;
+	}
+	100%{
+		-webkit-transform: translate(50px,10px) ;
+		opacity: 0;
+	}
+}
+@-webkit-keyframes myscale{
+	0%{
+		opacity: 1;
+	}
+	100%{
+		-webkit-transform: scale(3,0.3) ;
+		opacity: 0;
+	}
+}
+@-webkit-keyframes myscaleO{
+	0%{
+		opacity: 1;
+	}
+	100%{
+		opacity: 0;
+	}
 }

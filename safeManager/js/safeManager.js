@@ -23,3 +23,27 @@ function MouseWheelHandler(delta){
 	$('.right-nav li').eq(scrollControl).css('background-position',39*scrollControl+'px 39px');
 }
 //上面是右边的那个滑动导航
+
+	//出现
+	$('.p0').css('display','block');
+	setTimeout(function(){
+	  $('.p0_t_1').css('opacity',1).addClass('animated fadeInLeft');
+	},200)
+	setTimeout(function(){
+	  $('.p0_t_2').css('opacity',1).addClass('animated fadeInRight');
+	},300)
+	setTimeout(function(){
+	  $('.p0_i_1').css('opacity',1).addClass('myrotateXdown');
+	},400)
+	setTimeout(function(){
+	  $('.p0_i_2').css('opacity',1).addClass('animated fadeIn');
+	},500)
+	//消失
+	setTimeout(function(){
+	  $('.p0_i_1').removeClass('myrotateXdown').addClass('myscale');
+	  $('.p0_t_1').addClass('animated fadeInLeft').addClass('myscaleL')
+	  setTimeout(function(){
+		  $('.p0_t_2').addClass('animated fadeInRight').addClass('myscaleR')
+		  $('.p0_i_2').addClass('animated fadeIn').addClass('myscaleO')
+	  },500)
+	},2000)
