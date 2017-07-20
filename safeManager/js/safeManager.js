@@ -121,3 +121,77 @@ function MouseWheelHandler(delta){
 			},5000)
 		}
 		
+//第四页动画开始
+animationp3();
+function animationp3(){
+	$('.p3').css('display','block');
+	$('.p3_i_1').css('opacity',1).addClass('translateY300');
+	$('.p3_t_1').css('opacity',1).addClass('animated fadeInLeft');
+	
+	setTimeout(function(){
+		$('.p3_i_2').css('opacity',1).addClass('translateYX');
+	},250)
+	setTimeout(function(){
+		$('.p3_i_3').css('opacity',1).addClass('translateleftXY');
+	},650)
+	setTimeout(function(){
+		$('.p3_i_4').css('opacity',1).addClass('translateRot');
+		$('.p3_i_7').css('opacity',1).addClass('translateRotRightMI');
+		
+	},200)
+	$('.p3_i_5').css('opacity',1).addClass('translateRot');
+	$('.p3_i_6').css('opacity',1).addClass('translateRotRight');
+	$('.p3_t_2').css('opacity',1).addClass('animated fadeIn');
+	//动画移除
+	setTimeout(function(){
+		$('.p3_i_1').removeClass('translateY300').addClass('largenout3');
+		setTimeout(function(){
+			$('.p3_i_2').removeClass('translateYX').addClass('largenout3');
+		},100)
+		setTimeout(function(){
+			$('.p3_i_3').removeClass('translateleftXY').addClass('largenout3');
+		},300)
+		$('.p3_t_1').removeClass('animated fadeInLeft').addClass('largenout3');
+		$('.p3_t_2').removeClass('fadeIn').addClass('fadeOut');
+		$('.p3_i_4').removeClass('translateRot').addClass('translateYXRp3');
+		$('.p3_i_5').removeClass('translateRot').addClass('translateYXRp3');
+		$('.p3_i_6').removeClass('translateRot').addClass('translateYXp3');
+		$('.p3_i_7').removeClass('translateRotRightMI').addClass('translateYXp3');
+	},5000)
+}
+//第四页动画结束
+//第五页动画开始
+//	animationp4();
+	function animationp4(){
+		$('.p4').css('display','block');
+		$('.p4_i_1').css('opacity',1).addClass('translateY300');
+		setTimeout(function(){
+			$('.p4_i_2').css('opacity',1).addClass('translateYX');
+		},250)
+		setTimeout(function(){
+			$('.p4_i_3').css('opacity',1).addClass('translateYX');
+		},650)
+		$('.p4_i_4').css('opacity',1).addClass('animated fadeIn');
+		setTimeout(function(){
+			$('.imgp4').css('opacity',1).addClass('myrotate');
+		},200)
+		setTimeout(function(){
+			$('.p4_t_1').css('opacity',1).addClass('translateTX');
+		},800)
+		setTimeout(function(){
+			$('.p4_t_2').css('opacity',1).addClass('animated fadeIn');
+		},1500)
+	//第五页动画结束
+		setTimeout(function(){
+			$('.p4_t_1').removeClass('translateTX').addClass('largenout');
+			$('.p4_i_1').removeClass('translateY300').addClass('largenout');
+			$('.p4_t_2').removeClass('fadeIn').addClass('fadeOut');
+			$('.p4_i_4').removeClass('animated fadeIn').addClass('largenout3');
+			setTimeout(function(){
+				$('.p4_i_2').removeClass('translateYX').addClass('largenout');
+			},500)
+			setTimeout(function(){
+				$('.p4_i_3').removeClass('translateYX').addClass('largenout');
+			},1000)
+		},5000)
+	}
