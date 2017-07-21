@@ -71,6 +71,9 @@ body{
 	-webkit-animation: rollDown 1s infinite linear;
 	-moz-animation: rollDown 1s infinite linear;
 }
+.roll-down:hover{
+	cursor: pointer;
+}
 @-webkit-keyframes rollDown{
 	from{
 		bottom: 10%;
@@ -111,28 +114,28 @@ body{
 	position: absolute;
 	opacity: 0;
 }
-.p0 .p0_i_2,.p0 .p0_i_2 img{
+.p0_i_2,.p0 .p0_i_2 img{
 	width: 740px;
 	height: 660px;
 }
-.p0 .p0_i_2{
+.p0_i_2{
 	top: 38%;
 	margin-top: -330px;
 	left: 50%;
 	margin-left: -370px;
 	z-index: 1;
 }
-.p0 .p0_t_1{
+.p0_t_1{
 	top: 20%;
 	left: 50%;
 	margin-left: -299px;
 }
-.p0 .p0_t_2{
+ .p0_t_2{
 	top: 35%;
 	left: 50%;
 	margin-left: -143px;
 }
-.p0 .p0_i_1{
+.p0_i_1{
 	top: 35%;
 	left: 50%;
 	margin-left: -320px;
@@ -147,11 +150,16 @@ body{
 	/*-webkit-transition: all 1s;*/
 }
 /*斜着的那个地图旋转的css3*/
-.p0 .p0_i_1.myrotateXdown{
-	-webkit-animation: myrotateXdown 1s forwards;
+.p0_i_1.myrotateXdown{
+	-webkit-animation: myrotateXdown 1s forwards ;
 	-moz-animation: myrotateXdown 1s forwards;
-	
 }
+.p0_i_1.myrotateXdownRe{
+	-webkit-animation: myrotateXdown 1s forwards alternate-reverse;
+	-moz-animation: myrotateXdown 1s forwards alternate-reverse;
+}
+
+
 @-webkit-keyframes myrotateXdown{
 	0%{-webkit-transform: rotateX(90deg);}
 	60%{-webkit-transform: rotateX(92deg);}
@@ -177,14 +185,29 @@ body{
 .p0 .p0_i_1.myscale{
 	-webkit-animation:myscale 2s forwards;
 }
+
+.p0 .p0_i_1.myscaleRe{
+	-webkit-animation:myscale 2s forwards alternate-reverse;
+}
+
 .p0 .p0_t_1.myscaleL{
 	-webkit-animation:myscaleL 2s forwards;
 }
+.p0 .p0_t_1.myscaleLRe{
+	-webkit-animation:myscaleL 2s forwards alternate-reverse;
+}
+
 .p0 .p0_t_2.myscaleR{
 	-webkit-animation:myscaleR 2s forwards;
 }
+.p0 .p0_t_2.myscaleRRe{
+	-webkit-animation:myscaleR 2s forwards alternate-reverse;
+}
 .p0 .p0_i_2.myscaleO{
 	-webkit-animation:myscaleO 2s forwards;
+}
+.p0 .p0_i_2.myscaleORe{
+	-webkit-animation:myscaleO 2s forwards alternate-reverse;
 }
 @-webkit-keyframes myscaleL{
 	0%{
@@ -274,9 +297,11 @@ body{
 	bottom: 30px;
 }
 /*第二页进入动画*/
-.p1_i_2.myrotate{
-	-webkit-transform-origin: 209px 209px; 
+.p1_i_2.myrotate{ 
 	-webkit-animation: myrotate 1s linear infinite;
+}
+.p1_i_2.myrotateRe{ 
+	-webkit-animation: myrotate 1s linear infinite alternate-reverse;
 }
 @-webkit-keyframes myrotate{
 	from{
@@ -288,7 +313,9 @@ body{
 }
 .p1_i_1.myfly{
 	-webkit-animation: myfly 0.5s linear ;
-	
+}
+.p1_i_1.myflyRe{
+	-webkit-animation: myfly 0.5s linear alternate-reverse;
 }
 @-webkit-keyframes myfly{
 	from{
@@ -300,6 +327,9 @@ body{
 .p1_i_4.myslide{
 	-webkit-animation: myslide 1s linear;
 }
+.p1_i_4.myslideRe{
+	-webkit-animation: myslide 1s linear alternate-reverse;
+}
 @-webkit-keyframes myslide{
 	from{
 		opacity: 0;
@@ -309,6 +339,9 @@ body{
 }
 .redUp.myredUp{
 	-webkit-animation: myredUp 1s linear forwards;
+}
+.redUp.myredUpRe{
+	-webkit-animation: myredUp 1s linear forwards alternate-reverse;
 }
 @-webkit-keyframes myredUp{
 	from{
@@ -320,6 +353,9 @@ body{
 .greenDown.mygreendown{
 	-webkit-animation: mygreendown 1s linear forwards;
 }
+.greenDown.mygreendownRe{
+	-webkit-animation: mygreendown 1s linear forwards alternate-reverse;
+}
 @-webkit-keyframes mygreendown{
 	from{
 		-webkit-transform: translateY(-20px);
@@ -329,7 +365,9 @@ body{
 }
 .p1_i_3.myscleP1{
 	-webkit-animation: myscleP1 1s linear forwards ;
-	
+}
+.p1_i_3.myscleP1Re{
+	-webkit-animation: myscleP1 1s linear forwards alternate-reverse;
 }
 @-webkit-keyframes myscleP1{
 	0%{
@@ -356,7 +394,11 @@ body{
 .p1_i_4.myscaleEnd{
 	-webkit-animation: myscaleEnd 2s linear forwards;
 }
-
+.p1_i_2.myscaleEndRe,
+.p1_i_3.myscaleEndRe,
+.p1_i_4.myscaleEndRe{
+	-webkit-animation: myscaleEnd 2s linear forwards alternate-reverse;
+}
 @-webkit-keyframes myscaleEnd{
 	0%{
 		opacity: 1;
@@ -373,7 +415,9 @@ body{
 /*第二页出去动画*/
 .p1_i_1.myflyout{
 	-webkit-animation: myflyout 0.5s linear forwards;
-	
+}
+.p1_i_1.myflyoutRe{
+	-webkit-animation: myflyout 0.5s linear forwards alternate-reverse;
 }
 @-webkit-keyframes myflyout{
 	from{
@@ -385,7 +429,9 @@ body{
 }
 .p1_t_1.mylargen{
 	-webkit-animation: mylargen 0.5s linear forwards;
-	
+}
+.p1_t_1.mylargenRe{
+	-webkit-animation: mylargen 0.5s linear forwards alternate-reverse;
 }
 @-webkit-keyframes mylargen{
 	0%{
@@ -483,6 +529,9 @@ body{
 .p2_i_1.mymove{
 	-webkit-animation: mymove 1s linear forwards;
 }
+.p2_i_1.mymoveRe{
+	-webkit-animation: mymove 1s linear forwards alternate-reverse;
+}
 @-webkit-keyframes mymove{
 	0%{
 		-webkit-transform: scale(0);
@@ -503,6 +552,9 @@ body{
 .p2_i_2.myrotate45{
 	-webkit-animation: myrotate45 0.2s linear forwards;
 }
+.p2_i_2.myrotate45Re{
+	-webkit-animation: myrotate45 0.2s linear forwards alternate-reverse;
+}
 @-webkit-keyframes myrotate45{
 	from{}
 	to{-webkit-transform: rotateX(0deg);}
@@ -510,8 +562,14 @@ body{
 .p2_i_5.mymovei5{
 	-webkit-animation: mymoveLoogGun 0.2s linear forwards;
 }
+.p2_i_5.mymovei5Re{
+	-webkit-animation: mymoveLoogGun 0.2s linear forwards alternate-reverse;
+}
 .loog-gun.mymoveLoogGun{
 	-webkit-animation: mymoveLoogGun 1s linear forwards;
+}
+.loog-gun.mymoveLoogGunRe{
+	-webkit-animation: mymoveLoogGun 1s linear forwards alternate-reverse;
 }
 @-webkit-keyframes mymoveLoogGun{
 	0%{
@@ -528,8 +586,14 @@ body{
 .p2_i_7.mymovei7{
 	-webkit-animation: mymoveShortGun 0.2s linear forwards;
 }
+.p2_i_7.mymovei7Re{
+	-webkit-animation: mymoveShortGun 0.2s linear forwards alternate-reverse;
+}
 .short-gun.mymoveShortGun{
 	-webkit-animation: mymoveShortGun 1s linear forwards;
+}
+.short-gun.mymoveShortGunRe{
+	-webkit-animation: mymoveShortGun 1s linear forwards alternate-reverse;
 }
 @-webkit-keyframes mymoveShortGun{
 	0%{
@@ -544,7 +608,9 @@ body{
 }
 .p2_i_9.mymoveRight{
 	-webkit-animation: mymoveRight 1s linear forwards;
-	
+}
+.p2_i_9.mymoveRightRe{
+	-webkit-animation: mymoveRight 1s linear forwards;
 }
 @-webkit-keyframes mymoveRight{
 	0%{
@@ -557,7 +623,9 @@ body{
 }
 .img10.myImgrotate1{
 	-webkit-animation: myImgrotate1 1s linear forwards;
-	
+}
+.img10.myImgrotate1Re{
+	-webkit-animation: myImgrotate1 1s linear forwards alternate-reverse;
 }
 @-webkit-keyframes myImgrotate1{
 	0%{
@@ -572,7 +640,9 @@ body{
 }
 .img11.myImgrotate2{
 	-webkit-animation: myImgrotate2 2s linear forwards;
-	
+}
+.img11.myImgrotate2Re{
+	-webkit-animation: myImgrotate2 2s linear forwards alternate-reverse;
 }
 @-webkit-keyframes myImgrotate2{
 	0%{
@@ -594,6 +664,9 @@ body{
 .p2_t_1.active{
 	-webkit-animation: Tscale 0.3s linear forwards;
 }
+.p2_t_1.activeRe{
+	-webkit-animation: Tscale 0.3s linear forwards alternate-reverse;
+}
 @-webkit-keyframes Tscale{
 	0%{
 		-webkit-transform: scale(2);
@@ -609,6 +682,11 @@ body{
 .p2_i_3.largenout,
 .p2_t_1.largenout{
 	-webkit-animation: largenout 1s linear forwards;
+}
+.p2_i_1.largenoutRe,
+.p2_i_3.largenoutRe,
+.p2_t_1.largenoutRe{
+	-webkit-animation: largenout 1s linear forwards alternate-reverse;
 }
 @-webkit-keyframes largenout{
 	0%{
@@ -627,6 +705,10 @@ body{
 	-webkit-transform-origin: center center;
 	-webkit-animation: largenout1 1s linear forwards;
 }
+.p2_i_2.largenout1Re{
+	-webkit-transform-origin: center center;
+	-webkit-animation: largenout1 1s linear forwards alternate-reverse;
+}
 @-webkit-keyframes largenout1{
 	0%{
 		
@@ -644,6 +726,9 @@ body{
 .p2_i_5.moveout1{
 	-webkit-animation: moveout1 0.5s linear forwards;
 }
+.p2_i_5.moveout1Re{
+	-webkit-animation: moveout1 0.5s linear forwards alternate-reverse;
+}
 @-webkit-keyframes moveout1{
 	0%{opacity:1;}
 	100%{
@@ -654,6 +739,9 @@ body{
 .p2_i_7.moveout2{
 	-webkit-animation: moveout2 0.5s linear forwards;
 }
+.p2_i_7.moveout2Re{
+	-webkit-animation: moveout2 0.5s linear forwards alternate-reverse;
+}
 @-webkit-keyframes moveout2{
 	0%{opacity:1;}
 	100%{
@@ -663,6 +751,9 @@ body{
 }
 .p2_i_9.moveout3{
 	-webkit-animation: moveout3 0.5s linear forwards;
+}
+.p2_i_9.moveout3Re{
+	-webkit-animation: moveout3 0.5s linear forwards alternate-reverse;
 }
 @-webkit-keyframes moveout3{
 	0%{opacity:1;}
@@ -732,11 +823,20 @@ body{
 .p3_i_1.translateY300{
 	-webkit-animation: translateY300 0.4s linear forwards;
 }
+.p3_i_1.translateY300Re{
+	-webkit-animation: translateY300 0.4s linear forwards alternate-reverse;
+}
 .p3_i_2.translateYX{
 	-webkit-animation: translateYX 0.4s linear forwards;
 }
+.p3_i_2.translateYXRe{
+	-webkit-animation: translateYX 0.4s linear forwards alternate-reverse;
+}
 .p3_i_3.translateleftXY{
 	-webkit-animation: translateleftXY 0.4s linear forwards;
+}
+.p3_i_3.translateleftXYRe{
+	-webkit-animation: translateleftXY 0.4s linear forwards alternate-reverse;
 }
 
 @-webkit-keyframes translateleftXY{
@@ -748,8 +848,14 @@ body{
 .p3_i_4.translateRot{
 	-webkit-animation: translateRot 1s ease-in forwards;
 }	
+.p3_i_4.translateRotRe{
+	-webkit-animation: translateRot 1s ease-in forwards alternate-reverse;
+}
 .p3_i_5.translateRot{
 	-webkit-animation: translateRot 1s ease-in forwards;
+}
+.p3_i_5.translateRotRe{
+	-webkit-animation: translateRot 1s ease-in forwards alternate-reverse;
 }
 @-webkit-keyframes translateRot{
 	0%{
@@ -761,6 +867,9 @@ body{
 .p3_i_6.translateRotRight{
 	-webkit-animation: translateRotRight 1s ease-in forwards;
 }
+.p3_i_6.translateRotRightRe{
+	-webkit-animation: translateRotRight 1s ease-in forwards alternate-reverse;
+}
 @-webkit-keyframes translateRotRight{
 	0%{
 		-webkit-transform: translate(200px,-100px) rotate(90deg) scale(2);
@@ -770,6 +879,9 @@ body{
 }
 .p3_i_7.translateRotRightMI{
 	-webkit-animation: translateRotRightMI 1s ease-in forwards;
+}
+.p3_i_7.translateRotRightMIRe{
+	-webkit-animation: translateRotRightMI 1s ease-in forwards alternate-reverse;
 }
 @-webkit-keyframes translateRotRightMI{
 	0%{
@@ -785,10 +897,19 @@ body{
 .p3_i_3.largenout3{
 	-webkit-animation: largenout3 1s linear forwards;
 }
-
+.p3_i_1.largenout3Re,
+.p3_t_1.largenout3Re,
+.p3_i_2.largenout3Re,
+.p3_i_3.largenout3Re{
+	-webkit-animation: largenout3 1s linear forwards alternate-reverse;
+}
 .p3_i_4.translateYXRp3,
 .p3_i_5.translateYXRp3{
 	-webkit-animation: translateYXRp3 1s linear forwards;
+}
+.p3_i_4.translateYXRp3Re,
+.p3_i_5.translateYXRp3Re{
+	-webkit-animation: translateYXRp3 1s linear forwards alternate-reverse;
 }
 @-webkit-keyframes translateYXRp3{
 	0%{
@@ -802,6 +923,10 @@ body{
 .p3_i_6.translateYXp3,
 .p3_i_7.translateYXp3{
 	-webkit-animation: translateYXp3 1s linear forwards;
+}
+.p3_i_6.translateYXp3Re,
+.p3_i_7.translateYXp3Re{
+	-webkit-animation: translateYXp3 1s linear forwards alternate-reverse;
 }
 @-webkit-keyframes translateYXp3{
 	0%{
@@ -872,6 +997,9 @@ body{
 .p4_i_1.translateY300{
 	-webkit-animation: translateY300 0.4s linear forwards;
 }
+.p4_i_1.translateY300Re{
+	-webkit-animation: translateY300 0.4s linear forwards alternate-reverse;
+}
 @-webkit-keyframes translateY300{
 	0%{-webkit-transform: translateY(-300px);
 		opacity: 0;
@@ -883,8 +1011,14 @@ body{
 .p4_i_2.translateYX{
 	-webkit-animation: translateYX 0.4s linear forwards;
 }
+.p4_i_2.translateYXRe{
+	-webkit-animation: translateYX 0.4s linear forwards alternate-reverse;
+}
 .p4_i_3.translateYX{
 	-webkit-animation: translateYX 0.4s linear forwards;
+}
+.p4_i_3.translateYXRe{
+	-webkit-animation: translateYX 0.4s linear forwards alternate-reverse;
 }
 @-webkit-keyframes translateYX{
 	0%{-webkit-transform: translate(-120px,120px);
@@ -894,6 +1028,9 @@ body{
 }
 .p4_t_1.translateTX{
 	-webkit-animation: translateTX 0.4s linear forwards;
+}
+.p4_t_1.translateTXRe{
+	-webkit-animation: translateTX 0.4s linear forwards alternate-reverse;
 }
 @-webkit-keyframes translateTX{
 	0%{
@@ -909,14 +1046,23 @@ body{
 /*进入动画*/
 /*出来动画*/
 
-	.p4_i_1.largenout,
-	.p4_i_2.largenout,
-	.p4_i_3.largenout,
-	.p4_t_1.largenout{
-		-webkit-animation: largenout 1s linear forwards;
-	}
+.p4_i_1.largenout,
+.p4_i_2.largenout,
+.p4_i_3.largenout,
+.p4_t_1.largenout{
+	-webkit-animation: largenout 1s linear forwards;
+}
+.p4_i_1.largenoutRe,
+.p4_i_2.largenoutRe,
+.p4_i_3.largenoutRe,
+.p4_t_1.largenoutRe{
+	-webkit-animation: largenout 1s linear forwards alternate-reverse;
+}
 .p4_i_4.largenout3{
 		-webkit-animation: largenout3 1s linear forwards;
+}
+.p4_i_4.largenout3Re{
+		-webkit-animation: largenout3 1s linear forwards alternate-reverse;
 }
 @-webkit-keyframes largenout3{
 	0%{

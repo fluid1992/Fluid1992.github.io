@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.cont{
+				height: 300px;
+				width: 300px;
+				border: 1px solid black;
+			}
+		</style>
+	</head>
+	<body>
+		<button id="btn">获取位置信息</button>
+		<div class="cont"></div>
+	</body>
+	<script type="text/javascript" src="js/jquery-3.1.1.min.js" ></script>
+	<script>
+//		1,地理位置
+//		经度    南北连线
+//		纬度   东西连线
+//		2,地理信息从何而来
+	//		IP地址  运营商
+	//	·	GPS定位
+	//		WIFI无线网络
+	//		基站
+		$('#btn').click(function(){
+//			单词定位的方法:
+//			navigator.geolocation.getCurrentPosition(获取成功的回调函数,获取失败的回调函数,配置项);
+			navigator.geolocation.getCurrentPosition(function(position){
+//				经度:
+				var lon='经度:'+position.coords.longitude;
+				var alt='纬度：'+position.coords.altitude;
+				var accuracy='精确度:'+position.coords.accuracy;
+				var altitudeA='海拔高度:'+position.coords.altitudeAccuracy; 
+				var time='时间戳:'+position.coords.timeStamp; 
+				$('.cont').html(lon);
+			},function(err){
+				console.log(err.code);
+//				0 : 其他错误
+//				1: 用户拒绝了
+//				2: 尝试获取地理位置,但是失败了
+//				3:获取超时
+			},{
+				timeout:5000
+			})
+		})
+	</script>
+</html>
