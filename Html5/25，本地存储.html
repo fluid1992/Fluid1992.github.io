@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" name="" id="" value="" />
+		<button>设置本地存储</button>
+		<button>获取本地存储</button>
+		<button>删除本地存储</button>
+	</body>
+	<script type="text/javascript" src="js/jquery-3.1.1.min.js" ></script>
+	<script type="text/javascript">
+//		1,跨页面传递参数
+		
+//		2,本地存储的方式:
+//		 (1)永久性存储,必须设置清除浏览器缓存才能清除  window.localStorage
+//			如果未设置,则获取到的是null
+//		 (2)临时存储,关闭浏览器的时候自动清除  window.sessionStorage
+		 
+//		 (3)存储特点：
+//			存储量的限制(5M)
+//			所有本地存储的操作都是在客户端(浏览器),不会请求服务器
+//		$('button').eq(0).click(function(){
+////			alert(1);
+//			var loc=$('input').val();
+////			window.localStorage.getItem('name');
+//			window.localStorage.setItem('name',loc);
+//		})
+//		$('button').eq(1).click(function(){
+////			alert(1);
+////			var loc=$('input').val();
+//			console.log(window.localStorage.getItem('name'));
+////			console.log(localStorage.getItem('password'));
+//		})
+//		
+//		$('button').eq(2).click(function(){
+//			window.localStorage.removeItem('name');
+//		})
+
+		$('button').eq(0).click(function(){
+			var loc=$('input').val();
+			window.sessionStorage.setItem('name',loc);
+		})
+		$('button').eq(1).click(function(){
+			console.log(window.sessionStorage.getItem('name'));
+		})
+		
+		$('button').eq(2).click(function(){
+			window.sessionStorage.removeItem('name');
+		})
+	</script>
+</html>
