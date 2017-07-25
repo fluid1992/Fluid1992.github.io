@@ -26,9 +26,15 @@
 	width: 800px;
 	/*border: 1px solid red;*/
 	background: yellow;
+	position: relative;
 }
 .cont div{
 	background: red;
 	width: 10px;
 	height: 10px;
+	position: absolute;
+}
+.head{
+	top: 0;
+	left: 0;
 }
