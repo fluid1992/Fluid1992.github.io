@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 100px;
+				height: 100px;
+				background: orange;
+				/*margin-left: 100px;*/
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			
+		</div>
+		<!--<div id="box1">
+			
+		</div>-->
+	</body>
+	<script type="text/javascript">
+		function Drag(id){
+			this.abox = document.getElementById(id);
+			this.getX = 0;
+			this.getY = 0;
+			this.getH = 0;
+			this.getT = 0;
+		}
+		Drag.prototype.myDrag=function(ev){
+			var _this = this;
+			
+			this.abox.onmousedown = function(){
+				_this.Fndown();
+			}
+		}
+		Drag.prototype.Fndown=function(ev){
+			var newEv = ev || event;
+			this.getX = newEv.clientX;
+			this.getY = newEv.clientY;
+			this.getH = this.offsetLeft;
+			this.getT = this.offsetTop;
+			console.log(this.getT)
+			var _this = this;
+			document.onmousemove = function(){
+				_this.FnMove();
+			};
+			document.onmouseup = function(){
+				_this.FnUp();
+			};
+			
+			
+		}
+		Drag.prototype.FnMove=function(ev){
+				var newEv = ev || event;
+				var getmoveX = newEv.clientX;
+				var getmoveY = newEv.clientY;
+				var addX = this.getH + getmoveX - this.getX;
+				var addY = this.getT + getmoveY - this.getY;
+				this.style.left = addX+'px';
+				this.style.top = addY+'px';
+		}
+		Drag.prototype.FnUp=function(ev){
+			document.onmousemove = '';
+		}
+		var drag = new Drag('box');
+		drag.myDrag();
+//		var drag1 = new Drag('box1');
+//		drag1.myDrag();
+		
+	</script>
+</html>

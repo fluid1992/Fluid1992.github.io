@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		
+	</body>
+	<script type="text/javascript">
+//		1,什么是面向对象?
+//		现实生活中,我们用不同的代名词指代具体的事物:东西,物体。物体都具有属性跟方法
+//		在编码语言中,把拥有属性跟方法的函数，统称为对象
+		
+//		2,举例说明  对象
+//		系统本来就自带的一些常用对象,称之为系统对象
+//		var arr=new Array();   //数组对象
+//		var myDate=new Date();  //日期对象
+		
+//		arr.length;  //数组对象下的长度属性
+//		arr.push();  //数组下面的push方法
+		
+//		myDate.getFullYear()
+
+//		3,如何操作对象的属性跟方法
+//		var arr=[];
+//		对象下面的变量,叫做对象的属性,可以通过赋值的方式进行操作
+//		arr.number=10;
+//		
+//		arr.test = function(){
+//			alert(123);
+//		}
+//		对象下面的函数,叫做对象的方法
+//		arr.test();
+		
+//		4,创建第一个自定义JS对象
+//		var obj=new Object();
+//		obj.name='小猫';
+//		obj.showName=function(){
+//			alert(this.name);
+//		}
+//		obj.showName();
+//		
+//		var obj1=new Object();
+//		obj1.name='小狗';
+//		obj1.showName=function(){
+//			alert(this.name);
+//		}
+//		obj1.showName();
+		
+//		很显然,如果用以上方法生成对象的话,会有大量的冗余代码,我们需要一个机制为我们生成对象.
+//		就像我们需要一个工厂为我们生产汽车,而不是每次开车的时候都手动制造一辆汽车。
+//		由此,引出JS中的   工厂方式
+//		相当于js中有一个一个生产对象的工厂,而这个工厂,其本质就是我们封装的一个函数
+//		建造工厂的方式：
+//		function creatAnimal(name){
+////			1,原料
+//			var obj=new Object();
+////			2,加工,为原材料添加属性跟方法
+//			obj.name=name;
+//			obj.showName=function(){
+//				alert(this.name);
+//			}
+////			3,出厂
+//			return obj;
+//		}
+		
+//		var p1=creatAnimal('小猫');
+//		p1.showName();
+		
+//		var p2=creatAnimal('小狗');
+//		p2.showName();
+		
+//		alert(p1.showName==p2.showName);  //为什么是false
+		
+//		5,上面这种生成对象的方式，每一个新的对象都会占据一块新的内存空间，如果这种类似的对象被频繁创建
+//		会造成极大的内存浪费。
+//		(1):构造函数
+//			new调用构造函数的时候,构造函数内部的this指的就是你创建出的新对象
+//		function creatAnimal(name){
+//			this.name=name;
+//			this.showName=function(){
+//				alert(this.name);
+//			}
+//		}
+//		var p1=new creatAnimal('小猫');
+////		p1.showName();
+//		var p2=new creatAnimal('小猫');
+//		p2.showName();
+		
+//		(2)怎么才能让他们公用一个内存?  对象的原型
+//		原型:以一种新的方法去改写对象下面的方法或属性,让公用的方法或属性存在一个内存当中(提高性能)
+//			挂在到构造函数的下面,prototype
+//		原型相当于:css样式控制里的class
+//		普通的方法:标签里的style
+		
+//		(3)原型挂载方法
+//		var arr=[];
+//		arr.number=10;
+//		Array.prototype.test=function(){
+//			alert(123);
+//		}
+//		var arr2=[123];
+		
+//		arr2.test();
+		
+//		alert(arr.test==arr2.test)
+		
+//		(4)普通挂载方法
+//		var arr=[123];
+//		arr.test=function(){
+//			alert(123);
+//		}
+//		var arr1=[123];
+//		arr1.test=function(){
+//			alert(123);
+//		}
+//		alert(arr.test==arr1.test);
+
+		
+	</script>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 100px;
+				height: 100px;
+				position: absolute;
+			}
+			#box{
+				top: 0;
+				left: 0;
+				background: red;
+			}
+			#box1{
+				top: 0;
+				left: 100px;
+				background: orange;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+		<div id="box1"></div>
+	</body>
+	<script type="text/javascript">
+		function Drag(id){
+			this.Div = document.getElementById(id)
+			this.getX = 0;
+			this.getY = 0;
+		}
+		Drag.prototype.init = function(){
+			var _this = this;
+			this.Div.onmousedown = function(){
+				_this.fnDown();
+			} 
+		}
+		Drag.prototype.fnDown = function(ev){
+			var newEv = ev || event;
+			var _this = this;
+			this.getX = newEv.clientX - this.Div.offsetLeft;
+			this.getY = newEv.clientY - this.Div.offsetTop;
+			document.onmousemove = function(){
+				_this.fnMove();
+			};
+			document.onmouseup = this.fnUp;
+			return false;
+		}
+		Drag.prototype.fnMove= function(ev){
+			var newEv = ev || event;
+			this.Div.style.left = newEv.clientX - this.getX+'px';
+			this.Div.style.top = newEv.clientY - this.getY+'px';
+		}
+		Drag.prototype.fnUp = function(){
+			document.onmousemove = null;
+		}
+		
+		
+		function newDrag(id){
+			Drag.call(this,id);
+		}
+		for(attr in Drag.prototype){
+			newDrag.prototype[attr] = Drag.prototype[attr];
+		}
+		newDrag.prototype.fnMove = function(ev){
+			var newEv = ev || event;
+			var L = newEv.clientX - this.getX;
+			var T = newEv.clientY - this.getY;
+			if(L < 0){
+				L = 0;
+			}
+			if(L > document.documentElement.clientWidth - this.Div.offsetWidth){
+				L = document.documentElement.clientWidth - this.Div.offsetWidth
+			}
+			if(T < 0){
+				T = 0;
+			}
+			if(T>document.documentElement.clientHeight - this.Div.offsetHeight){
+				T = document.documentElement.clientHeight - this.Div.offsetHeight
+			}
+			this.Div.style.left = L +'px';
+			this.Div.style.top = T +'px';
+		}
+		var box = new Drag('box');
+		box.init();
+		var box1 = new newDrag('box1');
+		box1.init();
+	</script>
+</html>

@@ -10,7 +10,7 @@
 		<button>获取本地存储</button>
 		<button>删除本地存储</button>
 	</body>
-	<script type="text/javascript" src="js/jquery-3.1.1.min.js" ></script>
+	<script type="text/javascript" src="js/jquery-3.2.1.min.js" ></script>
 	<script type="text/javascript">
 //		1,跨页面传递参数
 		
@@ -44,7 +44,7 @@
 			window.sessionStorage.setItem('name',loc);
 		})
 		$('button').eq(1).click(function(){
-			console.log(window.sessionStorage.getItem('name'));
+			console.log(typeof window.sessionStorage.getItem('name'));
 		})
 		
 		$('button').eq(2).click(function(){

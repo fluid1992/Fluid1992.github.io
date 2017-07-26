@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			ul{
+				list-style: none;
+				overflow: hidden;
+				padding: 0;
+			}
+			ul li{
+				padding: 0;
+				margin: 0;
+				float: left;
+				width: 100px;
+				height: 50px;
+				line-height: 50px;
+				background: gray;
+				text-align: center;
+			}
+			.cont{
+				width: 300px;
+				height: 300px;
+				border: 1px solid #000;
+				display: none;
+			}
+			ul li.active{
+				color: white;
+				background: orange;
+			}
+			.cont.active{
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="Tab">
+			<ul>
+				<li class="active">菜单1</li>
+				<li>菜单2</li>
+				<li>菜单3</li>
+			</ul>
+			<div class="cont active">内容1</div>
+			<div class="cont">内容2</div>
+			<div class="cont">内容3</div>
+		</div>
+		<div id="Tab1">
+			<ul>
+				<li class="active">菜单1</li>
+				<li>菜单2</li>
+				<li>菜单3</li>
+			</ul>
+			<div class="cont active">内容1</div>
+			<div class="cont">内容2</div>
+			<div class="cont">内容3</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		function Tab(id){
+			this.aTab = document.getElementById(id);
+			this.oLi = this.aTab.getElementsByTagName('li');
+			this.oDiv = this.aTab.getElementsByClassName('cont');
+			this.num = 0;
+		}
+		Tab.prototype.init=function(){
+			var _This = this;
+			for(var i = 0;i < this.oLi.length;i++){
+				this.oLi[i].index = i;
+				this.oLi[i].onclick = function(){
+//					var This = this;
+					_This.num = this.index;
+					_This.change();
+				}
+			}
+		}
+		Tab.prototype.change=function(){
+			for(var i = 0;i < this.oLi.length;i++){
+				this.oLi[i].className = '';
+				this.oDiv[i].className = 'cont';
+			}
+			this.oLi[this.num].className = 'active';
+			this.oDiv[this.num].className = 'cont active';
+		}
+		Tab.prototype.autoPlay=function(){
+//			console.log(this)
+			var _this = this;
+			setInterval(function(){
+				if(_this.num<_this.oLi.length-1){
+					_this.num ++ ;
+				}else{
+					_this.num = 0;
+				}
+				_this.change()
+			},1000)
+		}
+		var tab1 = new Tab('Tab1');
+		tab1.init();
+		var tab = new Tab('Tab');
+		tab.init();
+		tab1.autoPlay();
+	</script>
+</html>

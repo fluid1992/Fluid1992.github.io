@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+//		1,继承就是,子类可以继承父类的一些功能,但是这个过程中子类不影响父类的功能.
+//		为什么要使用继承这样一种处理方式，因为在看法过程中，时常会遇到一些功能很相似，个别地方有区别的时候，可以用继承的方法处理。
+		
+//		例如: QQ面板，普通文件管理面板（拖拽，改变宽高度的功能一样，但是QQ面板有吸附隐藏的效果）
+//			两个元素的拖拽，一个元素无限制的拖拽，另外一个需要限制在屏幕范围内
+		
+//		2,继承的时候分为两步分:属性的继承,方法的继承
+
+//		3,属性的继承
+//		  (1)创建两个对象，一个做为子类，一个作为父类
+//			function creatPerson(name,sex){  //父类
+//				this.name=name;
+//				this.sex=sex;
+//			}
+//			creatPerson.prototype.showName=function(){
+//				alert(this.name);
+//			}
+//			
+//			var p1=new creatPerson('小明');
+////			p1.showName();
+//			function creatStar(name,sex,job){
+//				this.name=name;
+//				this.sex=sex;  //可以看出name跟sex两个属性，可以通过父类的方式继承下来
+//				this.job=job;
+//			}
+//			creatStar.prototype.showName=function(){
+//				alert(this.name);
+//			}
+//			
+//			var s1=new creatStar('黄晓明','男','明星');
+//			s1.showName();
+//			(2)通过构造函数.call()调用的方式继承父类的属性
+//			function creatPerson(name,sex){  //父类
+//				this.name=name;
+//				this.sex=sex;
+//			}
+//			creatPerson.prototype.showName=function(){
+//				alert(this.name);
+//			}
+//			
+//			var p1=new creatPerson('小明');
+////			p1.showName();
+//			function creatStar(name,sex,job){
+////				creatPerson(name,sex);  //这里是window对象调用了creatPerson，this指向了window
+//				creatPerson.call(this,name,sex);  //通过call方法强行指定this指向
+//				this.job=job;
+//			}
+//			creatStar.prototype.showName=function(){
+//				alert(this.name);
+//			}
+//			
+//			var s1=new creatStar('黄晓明','男','明星');
+//			s1.showName();
+//		4,方法的继承
+//			(1)第一种方式,直接通过子类引用父类对象的原型,达到方法的公用
+//			function creatPerson(name,sex){  //父类
+//				this.name=name;
+//				this.sex=sex;
+//			}
+//			creatPerson.prototype.showName=function(){
+//				alert(this.name);
+//			}
+////			
+//			function creatStar(name,sex,job){
+//				creatPerson.call(this,name,sex);  //通过call方法强行指定this指向
+//				this.job=job;
+//			}
+//			creatStar.prototype=creatPerson.prototype;
+//			
+//			creatStar.prototype.showJob=function(){
+//				alert(this.job);
+//			}
+//			var s1=new creatStar('黄晓明','男','明星');
+////			s1.showJob();
+//			var p1=new creatPerson('小明','男');
+//			p1.showJob();  //为什么在creatStar下面挂载的方法，会出现在creatPerson下面？
+//			(2)以上这种方法，因为子类跟父类公用同一个内存空间，所以子类添加方法会影响父类
+//			var a={
+//				name:'小明'
+//			};
+//			var b=a;  //对象的直接引用导致互相影响
+//			b.name='小红';
+//			alert(a.name);
+//			通过for in拷贝的方式复制属性
+//			var a={
+//				name:'小明'
+//			};
+//			var b={};
+//			for(attr in a){
+//				b[attr]=a[attr];
+//			}
+//			b.name='小红';
+//			alert(a.name);
+			
+//			将属性或方法拷贝的处理方式封装成一个函数
+			function extend(obj1,obj2){  //把obj2里的属性或方法复制给obj11
+				for(attr in obj2){
+					obj1[attr]=obj2[attr];
+				}
+			}
+//			
+//			var a={
+//				name:'小明'
+//			};
+//			var b={};
+//			extend(b,a);
+//			b.name='小红';
+//			alert(b.name);
+//			(3)通过拷贝的方式让creatStar继承creatPerson
+			function creatPerson(name,sex){  //父类
+				this.name=name;
+				this.sex=sex;
+			}
+			creatPerson.prototype.showName=function(){
+				alert(this.name);
+			}
+//			
+			function creatStar(name,sex,job){
+				creatPerson.call(this,name,sex);  //通过call方法强行指定this指向
+				this.job=job;
+			}
+			
+			extend(creatStar.prototype,creatPerson.prototype);
+			
+			creatStar.prototype.showJob=function(){
+				alert(this.job);
+			}
+			var s1=new creatStar('黄晓明','男','明星');
+			s1.showJob();
+			var p1=new creatPerson('小明','男');
+//			p1.showJob();  //为什么在creatStar下面挂载的方法，会出现在creatPerson下面？
+
+//		5,实例的演示:两个元素的拖拽，一个元素无限制的拖拽，另外一个需要限制在屏幕范围内
+	</script>
+</html>

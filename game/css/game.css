@@ -11,7 +11,7 @@
 .score button{
 	line-height: 50px;
 }
-.score span{
+.score .nowScore{
 	float: left;
 	padding: 0px 10px;
 }
@@ -35,6 +35,6 @@
 	position: absolute;
 }
 .head{
-	top: 0;
-	left: 0;
+	top: 50%;
+	left: 50%;
 }

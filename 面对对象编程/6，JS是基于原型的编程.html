@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+	</body>
+	<script type="text/javascript">
+//		(1)我们可以通过构造函数+原型的方式创建自己的特有对象。
+//		function creatAnimal(name){
+//			this.name=name;
+//		}
+//		creatAnimal.prototype.showName=function(){
+//			alert(this.name);
+//		}
+//		
+//		var a1=new creatAnimal('小猫');
+//		a1.showName();
+		
+//		(2)其实JS的源码,或者说是JS的系统对象,也是基于构造函数+原型的这种方式来实现的
+		
+//		var arr=[1,2,3];
+//		arr.push(4);
+//		alert(arr);  //1,2,3,4
+//		如何验证push方法是不是挂载到数组对象的构造函数下面的?  数组的构造函数是Array
+//		Array.prototype.push=function(){}
+//		arr.push(4);
+//		alert(arr); //1,2,3
+
+//		(3)小练习，模拟系统对象的push方法
+		var arr=[1,2,3];
+		Array.prototype.push=function(){
+			console.log(this.length)
+			for(var i=0;i<arguments.length;i++){
+				this[this.length]=arguments[i];  //通过实参的集合，一次给数组对象追加内容
+			}
+			return this.length;  //模拟原生JS返回push之后数组的长度
+		}
+		arr.push(4,5);
+		alert(arr);
+//		
+//		(4)扩展练习： pop shift unshift sort
+		var arr=[1,2,3];
+		Array.prototype.pop=function(){
+			console.log(this.length)
+			var end = this[this.length-1]
+			this.length = this.length - 1;	
+			
+			return end;  //模拟原生JS返回push之后数组的长度
+		}
+		arr.pop();
+		alert(arr.pop());
+	</script>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+//		function sum(a,b){
+//			return a+b;
+//		}
+//		alert(sum(51,168));
+		
+		function sum(){
+//			console.log(arguments.length);
+			var n=0;
+			for(var i=0;i<arguments.length;i++){
+				n+=arguments[i]
+			}
+			return n;
+		}
+		
+		console.log(sum(1,2,245,752));
+	</script>
+</html>
