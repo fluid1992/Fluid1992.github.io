@@ -12,6 +12,11 @@
 				position: absolute;
 				top: 0;
 				left: 0;
+				
+			}
+			body{
+				margin: 0;
+				padding: 0;
 			}
 		</style>
 	</head>
@@ -29,17 +34,30 @@
 			this.W = 0;
 			this.H = 0;
 			this.L = 0;
-			this.T = 0
+			this.T = 0;
+			this.change = 1;
+			this.getW = 0;
+			this.getH = 0;
+			this.getT = 0;
+			this.getL = 0;
+			this.control = 0;
 		}
 		myWindow.prototype.init = function(){
 			var _this = this;
 			this.win.onmousedown = function(){
 				_this.fnDown();
 			}
+			this.win.ondblclick = function(){
+				_this.fnDbclick();
+			}
+			this.win.onmousemove = function(){
+				_this.fnMoveC();
+			}
 		}
 		myWindow.prototype.fnDown = function(ev){
 			var newEv = ev || event; 
 			var _this = this;
+			this .control = 1;
 			this.W = this.win.offsetWidth;
 			this.H = this.win.offsetHeight;
 			this.T = this.win.offsetTop;
@@ -47,20 +65,28 @@
 			this.getX = newEv.clientX - this.L;
 			this.getY = newEv.clientY - this.T;
 			if(this.getX > 0 && this.getX < 10){
+//				this.win.style.cursor = 'ew-resize';
 				document.onmousemove = function(){
 					_this.fnMoveL();
 				}
 			}else if(this.getX > this.W-10 && this.getX < this.W){
+//				this.win.style.cursor = 'ew-resize';
 				document.onmousemove = function(){
 					_this.fnMoveR();
 				}
 			}else if(this.getY > 0 && this.getY < 10){
+//				this.win.style.cursor = 'ns-resize';
 				document.onmousemove = function(){
 					_this.fnMoveT();
 				}
 			}else if(this.getY > this.H - 10 && this.getY < this.H){
+//				this.win.style.cursor = 'ns-resize';
 				document.onmousemove = function(){
 					_this.fnMoveB();
+				}
+			}else if(this.getY > 10 && this.getY < 30){
+				document.onmousemove = function(){
+					_this.fnMove();
 				}
 			}
 			document.onmouseup = this.fnUp;
@@ -73,13 +99,12 @@
 			}
 			this.win.style.width = nowW + 'px';
 			console.log(newEv.clientX )
-			var moveLift =  newEv.clientX - this.getX - this.L;
-//			if(moveLift >= this.W-200 + this.L){
-//				moveLift = this.W-200 + this.L;
-//			}
+			var moveLift =  newEv.clientX - this.getX;
+			if(moveLift >= this.W-200 + this.L){
+				moveLift = this.W-200 + this.L;
+			}
 			this.win.style.left =  moveLift + 'px';
 		}
-		
 		myWindow.prototype.fnMoveR = function(ev){
 			var newEv = ev || event; 
 			var nowW = this.W + newEv.clientX - this.getX - this.L;
@@ -95,17 +120,11 @@
 				nowH = 200;
 			}
 			this.win.style.height = nowH + 'px';
-//			
 			var moveTop = newEv.clientY - this.getY;
-			if(newEv.clientY>8){
 				if(moveTop >= this.H-200 + this.T){
 					moveTop = this.H-200 + this.T;
 				}
-				this.win.style.top =  moveTop + 'px';
-			}else{
-				this.win.style.top =  moveTop - this.T + 'px';
-			}
-			
+			this.win.style.top =  moveTop + 'px';
 		}
 		myWindow.prototype.fnMoveB = function(ev){
 			var newEv = ev || event; 
@@ -114,6 +133,92 @@
 				nowH = 200;
 			}
 			this.win.style.height = nowH + 'px';
+		}
+		myWindow.prototype.fnMove = function(ev){
+			var newEv = ev || event; 
+			var setMoveX = newEv.clientX - this.getX ;
+			var setMoveY = newEv.clientY - this.getY ;
+			if(this.control == 1 && this.win.offsetHeight != document.documentElement.clientHeight){
+				this.getW = this.win.offsetWidth;
+				this.getH = this.win.offsetHeight;  //还原变成半屏或者全屏前的大小
+				this.control = 0;
+			}
+			
+			
+			if(newEv.clientX < 5){
+				this.win.style.width = document.documentElement.clientWidth/2 + 'px';
+				this.win.style.height = document.documentElement.clientHeight + 'px';
+				this.win.style.top = 0+'px';
+				this.win.style.left = 0+'px';//在屏幕的左边变半屏
+			}else if(newEv.clientX > document.documentElement.clientWidth-5){
+				this.win.style.width = document.documentElement.clientWidth/2 + 'px';
+				this.win.style.height = document.documentElement.clientHeight + 'px';
+				this.win.style.top = 0+'px';//在屏幕的左边变半屏
+				this.win.style.left = document.documentElement.clientWidth/2+'px';
+			}else if(newEv.clientY<5){//在屏幕的上边缘变全屏
+				this.win.style.width = document.documentElement.clientWidth + 'px';
+				this.win.style.height = document.documentElement.clientHeight + 'px';
+				this.win.style.top = 0+'px';
+				this.win.style.left = 0+'px';
+			}else{
+				this.W = this.win.offsetWidth;//其它位置移动
+				this.H = this.win.offsetHeight;
+				if(this.H == document.documentElement.clientHeight){
+					this.win.style.width = this.getW + 'px';
+					this.win.style.height = this.getH + 'px';
+				}
+				this.win.style.top = setMoveY + 'px';
+				this.win.style.left = setMoveX + 'px';
+			}
+		}
+		myWindow.prototype.fnDbclick = function(ev){
+			var newEv = ev || event; 
+			this.getX = newEv.clientX - this.L;
+			this.getY = newEv.clientY - this.T;
+			
+			if(this.getY > 10 && this.getY < 30 && this.change == 1){//点击变全屏
+				if(this.win.offsetHeight != document.documentElement.clientHeight){
+					this.getW = this.win.offsetWidth;
+					this.getH = this.win.offsetHeight;
+				}
+				this.getL = this.win.offsetLeft;
+				this.getT = this.win.offsetTop; 
+				console.log(this.getW)
+				this.win.style.width = document.documentElement.clientWidth + 'px';
+				this.win.style.height = document.documentElement.clientHeight + 'px';
+				this.win.style.top = 0+'px';
+				this.win.style.left = 0+'px';
+				
+				this.change = 0;
+			}else if(this.getY > 10 && this.getY < 30 && this.change == 0){//点击变全屏之前的屏幕
+				this.win.style.width = this.getW + 'px';
+				this.win.style.height = this.getH + 'px';
+				this.win.style.top = this.getT+'px';
+				this.win.style.left = this.getL+'px';
+				this.change = 1
+			}
+		}
+		myWindow.prototype.fnMoveC = function(ev){
+			var newEv = ev || event; 
+			var myW = this.win.offsetWidth;
+			var myH = this.win.offsetHeight;
+			var myT = this.win.offsetTop;
+			var myL = this.win.offsetLeft;
+			var myGetX = newEv.clientX - myL;
+			var myGetY = newEv.clientY - myT;
+			if(myGetX > 0 && myGetX < 10){
+				this.win.style.cursor = 'ew-resize';
+			}else if(myGetX > myW-10 && myGetX < myW){
+				this.win.style.cursor = 'ew-resize';
+				
+			}else if(myGetY > 0 && myGetY < 10){
+				this.win.style.cursor = 'ns-resize';
+				
+			}else if(myGetY > myH - 10 && myGetY < myH){
+				this.win.style.cursor = 'ns-resize';
+			}else{
+				this.win.style.cursor = 'auto';
+			}
 		}
 		myWindow.prototype.fnUp = function(){
 			document.onmousemove = null;

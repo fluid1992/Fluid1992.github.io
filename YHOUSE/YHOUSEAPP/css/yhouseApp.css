@@ -7,6 +7,9 @@
 .clear{
 	padding-top:10px ;
 }
+.mui-control-content.mycont{
+	max-height: 1500px;
+}
 .mui-bar-nav.clear{
 	-webkit-box-shadow: none;
 	box-shadow: none;

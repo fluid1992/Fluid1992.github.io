@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.pop{
+				width: 200px;
+				height: 300px;
+				background: orange;
+				overflow: hidden;
+				padding: 0 10px;
+				border-radius: 10px;
+				position: absolute;
+				display: none;
+			}
+			.pop .title{
+				text-align: center;
+				margin-top: 10px;
+				border-bottom: 1px solid gainsboro;
+			}
+			.pop .close{
+				position: absolute;
+				top: 0px;
+				right: 5px;
+				color: white;
+			}
+		</style>
+	</head>
+	<body>
+		<!--<div class="pop">
+			<h3 class="title">我是标题</h3>
+			<span class="close">X</span>
+			<div>我是内容</div>
+		</div>-->
+	</body>
+	<script type="text/javascript" src="js/jquery-3.2.1.min.js" ></script>
+	<script type="text/javascript">
+		function model(){
+			this.box = null;
+			this.setting={
+				left:-1,
+				top:-1,
+				right:-1,
+				bottom:-1,
+				width:200,
+				height:200,
+				marginLeft:0,
+				marginTop:0,
+				title:'',
+				content:'',
+				animate:''
+			};
+			this.left = 'left';
+			this.right = 'right';
+			this.top = 'top';
+			this.bottom = 'bottom';
+			this.width = 'width';
+			this.height = 'height';
+			this.marginTop = 'marginTop';
+			this.marginLeft = 'marginLeft';
+			
+		}
+		model.prototype.init = function(option){
+			this.create();
+			
+			for(attr in option){
+				this.setting[attr] = option[attr];
+			}
+			this.change();
+		}
+		model.prototype.create = function(){
+			this.box = document.createElement('div');
+			this.box.className = 'pop';
+			this.box.innerHTML = '<h3 class="title">我是标题</h3>'
+									+'<span class="close">X</span>'
+									+'<div class = "cont">我是内容</div>';
+			document.body.appendChild(this.box);		
+		}
+		model.prototype.change = function(){
+//			this.box.style.width = this.setting.width + 'px';
+//			this.box.style.height = this.setting.height + 'px';
+//			
+//			if(this.setting.right!=-1){
+//				this.panduan(this.right)
+//			}
+//			
+//			if(this.setting.left!=-1){
+//				if(isNaN(this.setting.left)){
+//					this.box.style.left = this.setting.left;
+//				}else{
+//					this.box.style.left = this.setting.left + 'px';
+//				}
+//				
+//				this.box.style.marginLeft = this.setting.marginLeft + 'px';
+//			}
+//			
+//			if(this.setting.top!=-1){
+//				this.box.style.top = this.setting.top;
+//				this.box.style.marginTop = this.setting.marginTop + 'px';
+//			}
+//			if(this.setting.bottom!=-1){
+//				this.box.style.bottom = this.setting.bottom + 'px';
+//			}
+			this.panduan(this.width);
+			this.panduan(this.height);
+			if(this.setting.right!=-1){
+				this.panduan(this.right);
+			}
+			if(this.setting.left!=-1){
+				this.panduan(this.left);
+				this.panduan(this.marginLeft);
+			}
+			if(this.setting.top!=-1){
+				this.panduan(this.top);
+				this.panduan(this.marginTop);
+			}
+			if(this.setting.bottom!=-1){
+				this.panduan(this.bottom);
+			}
+			var aH = this.box.getElementsByClassName('title')[0];
+			var oDiv = this.box.getElementsByClassName('cont')[0];
+			aH.innerHTML = this.setting.title;
+			oDiv.innerHTML = this.setting.content;
+			$(this.box).slideDown();
+		}
+		model.prototype.panduan = function(myAttr){
+			if(isNaN(this.setting[myAttr])){
+				this.box.style[myAttr] = this.setting[myAttr];
+			}else{
+				this.box.style[myAttr] = this.setting[myAttr] + 'px';
+			}
+		}
+		var m = new model();
+		m.init({
+			left:'50%',
+			top:'50%',
+			height:300,
+			marginLeft:-100,
+			marginTop:-150,
+			title:'我在中间',
+			content:'什么鬼哦！'
+		});
+		var m1 = new model();
+		m1.init({
+			bottom:0,
+			right:0,
+			title:'我在左下角',
+			content:'我的天！'
+		});
+	</script>
+</html>
