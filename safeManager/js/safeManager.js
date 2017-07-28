@@ -7,11 +7,21 @@ var scrollControl = 0;
 
 //var addMouseWheelHandler = function() {
   document.addEventListener("mousewheel", MouseWheelHandler, false); //不兼容火狐
+  document.addEventListener("DOMMouseScroll", MouseWheelHandler, false); //不兼容火狐
+  
+  
   //IE9, Chrome, Safari, Oper
 //}
-
-function MouseWheelHandler(delta){
-	delta.deltaY > 0 ? scrollControl ++ : scrollControl -- ;
+function MouseWheelHandler(ev){
+	var d=true;  //滚动条向下为true
+	var newEv=ev||event;
+	if(newEv.wheelDelta){
+			newEv.wheelDelta < 0 ? d=true : d =false;
+		}else{
+			newEv.detail > 0  ?  d=true : d=false;
+	}
+		
+	d == true  ? scrollControl ++ : scrollControl -- ;
 	if(scrollControl > len - 1){
 		scrollControl = 0;
 	}else if(scrollControl < 0){
@@ -21,7 +31,7 @@ function MouseWheelHandler(delta){
 		$(elem).css('background-position',39*i+'px 0px')
 	})
 	$('.right-nav li').eq(scrollControl).css('background-position',39*scrollControl+'px 39px');
-	if(delta.deltaY>0){
+	if(d){
 		if( scrollControl == 0){
 			animationp4out();
 			animationp(2500);

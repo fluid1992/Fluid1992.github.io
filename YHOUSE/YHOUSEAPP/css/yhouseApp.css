@@ -7,9 +7,9 @@
 .clear{
 	padding-top:10px ;
 }
-.mui-control-content.mycont{
-	max-height: 1500px;
-}
+/*.mui-control-content.mycont{
+	min-height: 500px;
+}*/
 .mui-bar-nav.clear{
 	-webkit-box-shadow: none;
 	box-shadow: none;
@@ -93,18 +93,28 @@ input{
 .mui-col-xs-3.fix-box{
 	top: 80px;
 }
-.con-content.mui-slier-top,/*选项卡下的内容margin-top*/
-.mui-slider.mui-slier-top{
-	margin-top: 35px;
+.con-content.mui-slier-top{
+	margin-top: 45px;
+}/*选项卡下的内容margin-top*/
+.mui-slier-top{
+	margin-top: 45px;
 }
+.mtop{
+	margin-top: 36px
+}
+/*.mui-slider .mui-slider-group .mui-slider-item.top{
+	margin-top: 40px;
+}*/
 .mui-ellipsis{
 	font-size: 10px;
 }
-.life-header.full.margin-top,
-.margin-top{
+
+.life-header.full.margin-top{
 	margin-top: 8px;
 }
-
+.margin-top{
+	margin-top: 6px;
+}
 .life-header-text p{
 	margin: 12%;
 	font-size: 22px;
@@ -145,7 +155,7 @@ input{
 	text-align: center;
 }
 /*.mui-slider .mui-slider-group .mui-slider-item img*/
-.mui-slider .mui-slider-item .shop-store-img{
+.mui-slider-item .shop-store-img{
 	width: 96%;
 	height: 150px;
 }
@@ -184,11 +194,15 @@ input{
 }
 .day-recommend{
 	overflow: hidden;
-	margin-top: 10px;
+	/*margin-top: 10px;*/
+	
+}
+.mui-slider-group .mui-slider-item img {
+    width: 100%;
 }
 .day-recommend-img.set-marginTop{
 	background: white;
-	margin-top:15px;
+	padding-top:15px;
 	padding-bottom: 8px;
 }
 .day-recommend-img img{
