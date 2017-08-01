@@ -1,0 +1,67 @@
+body{
+	background: #F1F1F1;
+}
+.nofull{
+	width: 1190px;
+	margin: auto;
+}
+.mytaobao li,
+.enter li,
+.left{
+	float: left;
+}
+.mytaobao li{
+	width: 60px;
+}
+.right{
+	float: right;
+}
+.mytaobao li:hover{
+	background: white;
+}
+.mytaobao li>ul{
+	margin-bottom: 5px;
+}
+.mytaobao li>ul li{
+	margin: 2px 0;
+}
+.mytaobao li>ul li:hover{
+	background: red;
+}
+.top-nav{
+	height: 35px;
+	line-height: 35px;
+	font-size: 13px;
+}
+.top-nav li{
+	margin: 0 6px;
+}
+.mytb-nav .pulldown{
+	display: none;
+	width: 80px;
+}
+.area span{
+	width: 80px;
+}
+.area .pulldown{
+	/*display: none;*/
+}
+.area .pulldown li{
+	/*display: none;*/
+	width: 150px;
+	margin: 0px;
+}
+
+.top-nav .pulldown li{
+	float: none;
+	width: 80px;
+	
+}
+.full{
+	width: 100%;
+	background: white;
+}
+.top{
+	padding-top: 30px;
+	height: 99px;
+}
