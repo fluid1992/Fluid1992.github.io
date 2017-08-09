@@ -127,3 +127,21 @@ li.red{
 	width: 15px;
 	background: gray;
 }
+.web-nav{
+	position: relative;
+}
+.web-nav-box{
+	height: 340px;
+	width: 1190px;
+	background: yellow;
+	position: absolute;
+	right: 0;
+	top: 35px;
+}
+.web-nav-ul{
+	float: left;
+	background: red;
+	box-sizing: border-box;
+	width: 25%;
+	height: 340px;
+}

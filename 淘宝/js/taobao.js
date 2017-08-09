@@ -1,38 +1,22 @@
-$('.mytb-nav').mouseover(function(){
-	$('.mytb-nav .pulldown').css('display','block');
-})
-$('.mytb-nav').mouseout(function(){
-	$('.mytb-nav .pulldown').css('display','none');
-})
 
-$('.area').mouseover(function(){
-	$('.area .pulldown').css('display','block');
-})
+mydown($('.mytb-nav'),$('.mytb-nav .pulldown'));//我的淘宝
+mydown($('.area'),$('.area .pulldown'));//地域选择
 
-$('.area').mouseout(function(){
-	$('.area .pulldown').css('display','none');
-})
 $('.my-area li').click(function(){
 	$('.area span').html($(this).html());
-})
+})//把选择好的地域显示在标签中
 
-$('.mycollect').mouseover(function(){
-	$('.mycollect .pulldown').css('display','block');
-})
-$('.mycollect').mouseout(function(){
-	$('.mycollect .pulldown').css('display','none');
-})
+mydown($('.mycollect'),$('.mycollect .pulldown'));//我的收藏
+mydown($('.buy-person'),$('.buy-person .pulldown'));//卖家中心
+mydown($('.contact-service'),$('.contact-service .pulldown'));//联系客服
 
-$('.buy-person').mouseover(function(){
-	$('.buy-person .pulldown').css('display','block');
-})
-$('.buy-person').mouseout(function(){
-	$('.buy-person .pulldown').css('display','none');
-})
+function mydown(obj,objPart){ //下拉菜单移入显示，移除赢藏
+	obj.mouseover(function(){
+		objPart.css('display','block');
+	})
+	
+	obj.mouseout(function(){
+		objPart.css('display','none');
+	})
+}
 
-$('.contact-service').mouseover(function(){
-	$('.contact-service .pulldown').css('display','block');
-})
-$('.contact-service').mouseout(function(){
-	$('.contact-service .pulldown').css('display','none');
-})
