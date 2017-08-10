@@ -23,8 +23,8 @@ li.red{
 	float: right;
 }
 
-.enter li:hover,
-.mytaobao li:hover{
+.enter>li:hover,
+.mytaobao>li:hover{
 	background: white;
 }
 .mytaobao li>ul{
@@ -116,7 +116,7 @@ li.red{
 }
 .draw-slip{
 	position: absolute;
-	background: red;
+	/*background: red;*/
 	height: 300px;
 	width: 15px;
 	left: 225px;
@@ -133,15 +133,73 @@ li.red{
 .web-nav-box{
 	height: 340px;
 	width: 1190px;
-	background: yellow;
+	background: white;
 	position: absolute;
 	right: 0;
 	top: 35px;
+	display: none;
+}
+
+.web-nav-box h4{
+	font-size: 18px;
+	margin-left: 10px;
 }
 .web-nav-ul{
 	float: left;
-	background: red;
+	/*background: red;*/
 	box-sizing: border-box;
+	width: 100%;
+	height: 300px;
+}
+.web-nav-ul li{
+	padding: 0;
+	margin: 0 4%;
+	float: left;
+	line-height: 30px;
+	text-align: left;
+}
+.column4 li{
+	width: 17%;
+}
+.column3 li{
+	width: 25.3%;
+}
+.column2 li{
+	width: 42%;
+}
+.web-nav-minbox{
+	float: left;
+	/*overflow: hidden;*/
 	width: 25%;
 	height: 340px;
+	position: relative;
+}
+
+.web-nav-minbox:before{
+	content: '';
+	position: absolute;
+	width: 1px;
+	height: 90%;
+	top: 5%;
+	right: 0;
+	background: #ccc;
+}
+.web-nav-minbox:last-child:before{
+	width: 0px;
+}
+.web-nav-minbox a{
+	padding: 5px;
+	border-radius: 2px;
+}
+.jjce a:hover{
+	background: #fc4200;
+}
+.feature a:hover{
+	background: #9fb838;
+}
+.aliapp a:hover{
+	background: #d75696;
+}
+.recommend a:hover{
+	background: #2e9fdb;
 }
