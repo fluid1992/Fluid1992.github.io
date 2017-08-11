@@ -1,24 +1,31 @@
 body{
 	background: #F1F1F1;
 }
+
 .nofull{
 	width: 1190px;
 	margin: auto;
 }
+
 .mytaobao li,
 .enter li,
 .left{
 	float: left;
 }
+
 .enter li{
 	padding: 0 5px;
 }
+
+.red,
 li.red{
 	color:orangered;
 }
+
 .mytaobao li{
 	width: 60px;
 }
+
 .right{
 	float: right;
 }
@@ -27,24 +34,32 @@ li.red{
 .mytaobao>li:hover{
 	background: white;
 }
+
 .mytaobao li>ul{
 	margin-bottom: 5px;
 }
+
 .mytaobao li>ul li{
 	margin: 2px 0;
 }
+
 .enter li>ul li:hover,
 .mytaobao li>ul li:hover{
 	background: red;
 }
+
 .top-nav{
 	height: 35px;
 	line-height: 35px;
 	font-size: 13px;
+	position: relative;
+	z-index: 10;
 }
+
 .top-nav li{
 	margin: 0 6px;
 }
+
 .pulldown{
 	display: none;
 	width: 80px;
@@ -53,35 +68,43 @@ li.red{
 	bottom: 0;
 	background: white;
 }
+
 .my-area{
 	height: 300px;
 	bottom: -300px;
 	overflow: auto;
+	
 }
+
 .buy-person,
 .mybaby,
 .my-area li{
 	float: none;
 }
+
 .buy-center li{
 	width: 80px;
 }
+
 .mybaby li{
 	width: auto;
 }
 .myservice li{
 	width: auto;
 }
+
 .buy-center{
 	height: 280px;
 	bottom: -285px;
 }
+
 .myservice,
 .mybaby,
 .mybuy{
-	height: 60px;
-	bottom: -65px;
+	height: 80px;
+	bottom: -85px;
 }
+
 .contact-service,
 .buy-person,
 .mycollect,
@@ -89,12 +112,15 @@ li.red{
 .mytb-nav{
 	position: relative;
 }
+
 .area span{
 	width: 80px;
 }
+
 .area .my-area{
 	width: 240px;
 }
+
 .area .mybaby li
 .area .mybuy li{
 	width: 150px;
@@ -106,14 +132,17 @@ li.red{
 	width: 80px;
 	
 }
+
 .full{
 	width: 100%;
 	background: white;
 }
+
 .top{
 	padding-top: 30px;
 	height: 99px;
 }
+
 .draw-slip{
 	position: absolute;
 	/*background: red;*/
@@ -122,14 +151,17 @@ li.red{
 	left: 225px;
 	bottom: 0px;
 }
+
 .draw-bar{
 	height: 100px;
 	width: 15px;
 	background: gray;
 }
+
 .web-nav{
 	position: relative;
 }
+
 .web-nav-box{
 	height: 340px;
 	width: 1190px;
@@ -144,6 +176,7 @@ li.red{
 	font-size: 18px;
 	margin-left: 10px;
 }
+
 .web-nav-ul{
 	float: left;
 	/*background: red;*/
@@ -151,6 +184,7 @@ li.red{
 	width: 100%;
 	height: 300px;
 }
+
 .web-nav-ul li{
 	padding: 0;
 	margin: 0 4%;
@@ -158,15 +192,19 @@ li.red{
 	line-height: 30px;
 	text-align: left;
 }
+
 .column4 li{
 	width: 17%;
 }
+
 .column3 li{
 	width: 25.3%;
 }
+
 .column2 li{
 	width: 42%;
 }
+
 .web-nav-minbox{
 	float: left;
 	/*overflow: hidden;*/
@@ -184,22 +222,225 @@ li.red{
 	right: 0;
 	background: #ccc;
 }
+
 .web-nav-minbox:last-child:before{
 	width: 0px;
 }
+
 .web-nav-minbox a{
 	padding: 5px;
 	border-radius: 2px;
+	position: relative;
 }
+
 .jjce a:hover{
 	background: #fc4200;
 }
+
 .feature a:hover{
 	background: #9fb838;
 }
 .aliapp a:hover{
 	background: #d75696;
 }
+
 .recommend a:hover{
 	background: #2e9fdb;
+}
+
+.web-nav-minbox a span{
+	position: absolute;
+	top: -5px;
+	right: -5px;
+	width: 10px;
+	height: 20px;
+}
+
+.web-nav-minbox a .hot{
+	background: url(../img/top_nav/T1hOy5XhNnXXXXXXXX-9-14.gif) no-repeat;
+}
+
+.web-nav-minbox a .new{
+	background: url(../img/top_nav/T1lni5XhXXXXXXXXXX-9-14.gif) no-repeat;
+}
+/*淘宝网搜索框*/
+.logo-box{
+	position: relative;
+}
+.logo{
+	float: left;
+	width: 190px;
+	height: 88px;
+	margin-top: 10px;
+	background: url(../img/TB1bNE7LFXXXXaOXFXXwFSA1XXX-292-116.png_145x145.jpg) no-repeat;
+}
+
+.search-box{
+	width: 625px;
+	height: 90px;
+	margin: auto
+}
+
+.change-search{
+	overflow: hidden;
+}
+
+.change-search li{
+	float: left;
+	padding: 5px 10px;
+	font-size: 12px;
+}
+
+.change-search li.active{
+	background: #FF5400;
+}
+
+.change-search li:hover{
+	background: orange;
+}
+
+.search{
+	padding: 6px 0;
+	float: left;
+    text-indent: 10px;
+    height: 22px;
+    line-height: 22px;
+    width: 472px;
+    /*box-sizing: border-box;*/
+    border: 3px solid #FF5400;
+    outline: 0;
+    background: #FFF;
+}
+
+.mySearch{
+	overflow: hidden;
+}
+
+.mySearch button{
+	float: left;
+	width: 122px;
+	height: 40px;
+	font-size: 16px;
+	color: white;
+	border: none;
+	padding: 6px 0;
+	background: #FF5400;
+}
+
+.hotWord{
+	height: 25px;
+	overflow: hidden;
+	float: left;
+}
+
+.hotWord li{
+	float: left;
+	line-height: 25px;
+	font-size: 13px;
+	margin-right: 5px;
+	cursor: pointer;
+}
+
+.hotWord li a:hover{
+	color: #FF5400;
+	
+}
+
+.right{
+	float: right;
+	height: 25px;
+}
+
+.more li{
+	line-height: 25px;
+	font-size: 13px;
+	margin-right: 5px;
+}
+.QR-code{
+	width: 96px;
+	height: 114px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	border: 1px solid #EEEEEE;
+	cursor: pointer;
+}
+.QR-code span{
+	display: block;
+	text-align: center;
+	font-size: 10px;
+	padding: 2px 0;
+}
+.QR-code img{
+	width: 80px;
+	height: 80px;
+	margin: 0 8px;
+}
+.QR-code i{
+	width: 20px;
+	height: 20px;
+	position: absolute;
+	top: -1px;
+	left: -22px;
+	color: #EEEEEE;
+	border: 1px solid #EEEEEE;
+}
+.QR-code i:hover{
+	color: black;
+}
+.j_Nav{
+	width: 990px;
+	height: 34px;
+	margin: auto;
+	/*margin-top: 10px;*/
+	padding-left: 200px;
+	background: white;
+}
+
+.j_Nav ul,.j_Nav ul li{
+	float: left;
+}
+.j_Nav ul .long{
+	line-height: 34px;
+	font-weight: 700;
+	opacity: 0.8;
+	color: #CCCCCC;
+}
+.j_Nav ul li a{
+	line-height: 34px;
+	padding: 5px 10px;
+	font-size: 14px;
+}
+
+.orange li a{
+	color: #F40;
+	font-weight: 700;
+}
+
+.j_Nav li a:hover{
+	color: #FFFFFF;
+	background: #F40;
+	border-radius: 20px;
+}
+
+.xiaoshi{
+	opacity: 0;
+}
+
+/*左边导航和中间轮播图*/
+.main{
+	width: 900px;
+	height: 638px;
+	float: left;
+	background: green;
+	position: relative;
+}
+
+.side-nav{
+	width: 190px;
+	height: 555px;
+	background: #FF6537;
+	position: absolute;
+	top: -34px;
+	left: 0;
 }

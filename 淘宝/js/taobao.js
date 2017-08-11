@@ -46,7 +46,7 @@ var recommendArr = [
 	'淘宝全球','淘宝东南亚','闺蜜淘货','大众评审','淘工作'
 ]
 var hotArr = [
-	{'女装','家居','全球购','极有家','天天特价','淘宝','闲鱼','钉钉','余额宝'}
+	'女装','家居','全球购','极有家','天天特价','淘宝','闲鱼','钉钉','余额宝'
 ]
 var newArr = [
 	'家电','iFashion','亲宝贝','阿里翻译','蚂蚁聚宝','菜鸟裹裹','阿里邮箱','淘工作'
@@ -58,19 +58,33 @@ addElm($('.recommend'),recommendArr);
 
 function addElm(obj,objArr){
 	var str = '';
+	var cha = '';
 	for(var i = 0;i < objArr.length; i++){
-//		for()
-//		if(objArr[i]=)
-//		for(var i = 0;i < objArr.length; i++){
-//		for(var j = 0;j < hotArr.length;j++){
-//			if(objArr[i]==hotArr[j]){
-//				str += '<li><a herf="#">'+objArr[i]+'</a><span class="hot"><span></li>';
-//			}
-//		}
-		str += '<li><a herf="#">'+objArr[i]+'</a></li>';
-	}
+		for(var j = 0;j < hotArr.length;j++){
+			if(objArr[i]==hotArr[j]){
+				str += '<li><a herf="#">'+objArr[i]+'<span class="hot"></span></a></li>';
+				cha += '1';
+				break;
+			}
+		}
+		for(var j = 0;j < newArr.length;j++){
+			if(objArr[i]==newArr[j]){
+				str += '<li><a herf="#">'+objArr[i]+'<span class="new"></span></a></li>';
+			
+				cha += '1';
+				break;
+			}
+		}
+		if(cha==''){
+			str += '<li><a herf="#">'+objArr[i]+'</a></li>';
+		}else{
+			cha = '';
+		}
+	}	  
 	obj.html(str);
 }
-
+$('.QR-code i').on('click',function(){
+	$('.QR-code').css('display','none')
+})
 
 
