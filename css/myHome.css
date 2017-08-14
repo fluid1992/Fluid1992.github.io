@@ -1,0 +1,42 @@
+body{
+	text-align: center;
+	min-width: 700px;
+	
+}
+a{
+	display: block;
+	text-decoration: none;
+}
+/*.top{
+	background: gray;
+}
+.top img{
+	width: 200px;
+	height: 200px;
+}
+.top{
+	text-align: center;
+}*/
+.full{
+	width: 100%;
+	background: gray;
+	overflow: hidden;
+
+	
+}
+.logo{
+	width: 200px;
+	height: 200px;
+}
+.full-50{
+	width: 50%;
+	min-width: 700px;
+	margin: auto;
+	overflow: hidden;
+}
+.full-50 h1{
+	display: inline-block;
+	color: white;
+}
+.full-50 img{
+}
