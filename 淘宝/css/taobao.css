@@ -459,7 +459,11 @@ li.red{
 	line-height: 30px;
 }
 
-.side-nav li:hover{
+/*.side-nav li:hover{
+	background: orangered;
+}*/
+
+.side-nav li.active{
 	background: orangered;
 }
 

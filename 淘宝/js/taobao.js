@@ -108,3 +108,32 @@ function addElmA(){
 	}
 	$('.link-a p').html(str);
 }
+
+//左侧导航事件
+$('.side-nav li').on('mouseenter',function(){
+	$('.side-nav li').each(function(i,elem){
+		$(elem).removeClass('active');
+		$('.pop-up').eq(i).css('display','none')
+		console.log(1)
+	})
+	$('.side-pop-up').css('display','block');
+	$('.pop-up').eq($(this).index()).css('display','block')
+	$(this).addClass('active');
+})
+
+xiaoshi($('.side-nav'),'mouseleave');
+xiaoshi($('.side-title-h3'),'mouseenter');
+xiaoshi($('.side-nav-img'),'mouseenter');
+function xiaoshi(obj,str){
+	obj.on(str,function(ev){
+		$('.side-nav li').each(function(i,elem){
+			$(elem).removeClass('active');
+			$('.pop-up').eq(i).css('display','none')
+		})
+		
+		$('.side-pop-up').css('display','none');
+		ev.stopPropagation();
+	})
+}
+
+
