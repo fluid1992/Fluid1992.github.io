@@ -1,0 +1,104 @@
+.mui-card .mui-control-content {
+	padding: 10px;
+}
+
+/*.mui-control-content {
+	height: 1500px;
+}*/
+.myTab{
+	background: #FCFCFC;
+}
+.search-pulish{
+	background: #FCFCFC;
+	width: 100%;
+}
+.search-box{
+	display: inline-block;
+	width: 60%;
+	margin-left: 15%;
+}
+.search-box input{ /*输入框的样式控制*/
+	height: 32px;
+	background: #F29956;
+	color: antiquewhite;
+	font-size: 14spx;
+}
+.search-pulish button{
+	height: 32px;
+	width: 20%;
+}
+.myTab .mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active{
+	color: #F4B182;
+    border-bottom: 2px solid #FC6200;
+}
+.myCont{
+	position: relative;
+}
+.myfix{  /*fix定位,使其一直显示在界面前*/
+	margin-top: 45px;
+	position: fixed;
+	top: 0px;
+	left: 0;
+	z-index: 10;
+}
+.mian-tab{
+	margin-top: 100px;
+}
+.listImg img{
+	border-radius: 50px;
+}
+.listImg .mui-media-body{
+	padding-top: 12px;
+}
+.mui-grid-view.mui-grid-9.no-color{
+	background-color: white;
+}
+.my-grid-9 img{
+	width: 100%;
+	
+}
+.mui-table-view.no-buttom:before,	
+.mui-table-view.no-buttom:after{
+	height: 0;
+}
+.mui-grid-view.mui-grid-9.no-buttom .mui-table-view-cell,
+.mui-grid-view.mui-grid-9.no-buttom{
+	border: none;
+}
+.wei-cont{
+	background: white;
+	margin-bottom: 10px;
+}
+.like-box img{
+	display: block;
+	float: left;
+	width: 30px;
+	height: 30px;
+}
+
+.like-box{
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	width: 90%;
+	overflow: hidden;
+	margin: auto;
+	margin-top: -1px;
+}
+.like-box li{
+	float: left;
+	margin-right: 24%;
+	padding: 5px 0;
+}
+.like-box li:last-child{
+	margin-right: 0;
+}
+.like-box span{
+	display: block;
+	float: left;
+	height: 30px;
+	line-height: 30px;
+}
+.text-introduction span.active{
+	color: #FC914B;
+}

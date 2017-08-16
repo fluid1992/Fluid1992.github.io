@@ -1,0 +1,62 @@
+.change-color{
+  background: -webkit-gradient(linear, 100% 0, 0 0, from(#FC6D03), to(#F67F16));
+  background: -webkit-linear-gradient(right, #FC6D03, #F67F16);
+  background: -moz-linear-gradient(right, #FC6D03, #F67F16);
+  background: -o-linear-gradient(right, #FC6D03, #F67F16);
+  background: linear-gradient(right, #FC6D03, #F67F16);
+}
+.listImg img{
+	border-radius: 50px;
+}
+.listImg-box{
+	position: relative;
+}
+.listImg-box button{
+	position: absolute;
+	top: 5px;
+	right: 0;
+	border-radius: 6px;
+	border: none;
+	color: white;
+}
+.content-list{
+	background: white;
+	margin: 5px 0 10px 0;
+}
+
+.mui-table-view.mychild:after,
+.mui-table-view-cell.listImg:after{
+	height: 0px;
+}
+
+.mui-content>.mui-table-view.mychild:first-child{
+	margin-top: 10px;
+}
+.text-introduction{
+	padding: 0 20px;
+	font-size: 13px;
+}
+.image-text{
+	overflow: hidden;
+	padding: 0 0 10px 0;
+	
+}
+.image-text .isImg{
+	float: left;
+}
+.image-text .isImg img{
+	margin-left: 15px;
+	width: 100px;	
+	height: 100px;
+}
+.image-text .isText{
+	background: #F2F0F1;
+	height: 100px;
+	margin: 0 15px;
+	padding: 10px 0 10px 115px;
+	font-size: 14px;
+}
+span.active{
+	color: #F7B287; 
+}
+
