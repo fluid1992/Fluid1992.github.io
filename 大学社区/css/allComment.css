@@ -5,12 +5,19 @@
   background: -o-linear-gradient(right, #FC6D03, #F67F16);
   background: linear-gradient(right, #FC6D03, #F67F16);
 }
+
+.mui-content.my-bottom{
+	margin-bottom: 50px;
+}
+
 .listImg img{
 	border-radius: 50px;
 }
+
 .listImg-box{
 	position: relative;
 }
+
 .listImg-box button{
 	position: absolute;
 	top: 5px;
@@ -19,9 +26,14 @@
 	border: none;
 	color: white;
 }
+
 .content-list{
 	background: white;
 	margin: 5px 0 10px 0;
+}
+
+.my-content-list:nth-child(2n){
+	margin-bottom: 30px;
 }
 
 .mui-table-view.mychild:after,
@@ -32,31 +44,209 @@
 .mui-content>.mui-table-view.mychild:first-child{
 	margin-top: 10px;
 }
+
+.text-introduction-all,
 .text-introduction{
 	padding: 0 20px;
 	font-size: 13px;
+	overflow: hidden;
+	color: #000;
+}
+
+.text-introduction{
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.text-introduction span{
+	color: #FC6D03;
 }
 .image-text{
 	overflow: hidden;
 	padding: 0 0 10px 0;
-	
 }
+
 .image-text .isImg{
 	float: left;
 }
+
 .image-text .isImg img{
 	margin-left: 15px;
 	width: 100px;	
 	height: 100px;
 }
+
 .image-text .isText{
 	background: #F2F0F1;
 	height: 100px;
 	margin: 0 15px;
 	padding: 10px 0 10px 115px;
+	letter-spacing: 1px;
 	font-size: 14px;
 }
+
 span.active{
 	color: #F7B287; 
 }
 
+.text-line-height{
+	line-height: 42px;
+}
+
+/*mianbody页面里的样式*/
+.review{
+	background: white;
+
+}
+
+.review-num{
+	list-style: none;
+	padding: 10px;
+	line-height: 20px;
+	margin: 0;
+	border-bottom: 1px solid #E3E3E3;
+	border-top: 1px solid #E3E3E3;
+	overflow: hidden;	
+}
+
+.review-num li{
+	display: inline-block;
+	margin: 0 30px 0 10px;
+	font-size: 14px;
+}
+
+.review-num li.active{
+	color: #FC7B23;
+}
+
+.review-num li:last-child{
+	margin-right: 15px;
+}
+
+.review-box{
+	display: none;
+}
+
+.review-box.active{
+	display: block;
+}
+
+.mui-table-view.transmit{
+	display: none;
+}
+
+.mui-table-view.transmit.active{
+	display: block;
+}
+
+.review-cont .review-name{
+	line-height: 42px;
+}
+
+.mui-table-view.review-cont .mui-media-object.mui-pull-left{
+	border-radius: 50%;
+}
+
+.mui-table-view .mui-media-body.review-details{
+	position: relative;
+}
+
+.mui-media-body .love-more{
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 100px;
+	overflow: hidden;
+}
+
+.love-more img{
+	float: left;
+	width: 30px;
+	height: 30px;
+	margin-top: 5px;
+}
+
+.love-more img:last-child{
+	float: right;
+}
+
+.love-more span{
+	float: left;
+	line-height: 42px;
+}
+
+.love-more .time{
+	font-size: 13px;
+	padding-left: 10px;
+}
+
+.review-cont .mui-table-view:after,
+.review-cont .mui-table-view:before{
+	height: 0;
+}
+
+.review-li-cont{
+	padding: 0 15px 0px 67px;
+	
+}
+
+.review-li-cont p{
+	margin: 0;
+	color: #000;
+	letter-spacing: 1px;
+}
+
+.review-again{
+	list-style: none;
+	padding: 8px 5px;
+	background: #F2F0F1;
+	font-size: 13px;
+}
+
+.review-again li{
+	padding: 5px 0;
+}
+
+.review-again span{
+	color: #FA8332;
+}
+
+.review-li{
+	display: none;
+}
+.like-box img{
+	display: block;
+	float: left;
+	width: 30px;
+	height: 30px;
+}
+
+.like-box{
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	width: 90%;
+	overflow: hidden;
+	margin: auto;
+	margin-top: -1px;
+}
+.like-box li{
+	float: left;
+	margin-right: 24%;
+	padding: 5px 0;
+}
+.like-box li:last-child{
+	margin-right: 0;
+}
+.like-box span{
+	display: block;
+	float: left;
+	height: 30px;
+	line-height: 30px;
+}
+.mui-bar-tab.bottom{
+	height: 40px;
+	box-shadow: none;
+	background: white;
+	border-top: #CCCCCC;
+}

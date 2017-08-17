@@ -15,10 +15,45 @@
 
 .myTop .mui-title{
 	color: white;
+	letter-spacing: 3px;
+}
+.myTop button{
+	margin-top: 6px;
+	border: 1px solid #F67F16;
+	color: white;
 }
 
 .text-introduction{
 	padding: 10px;
 	margin: 0;
+	color: #000;
 	font-size: 15px;
+}
+.listImg span.font12{
+	font-size: 12px;
+}
+.listImg img{
+	border-radius: 50px;
+}
+.listImg .mui-media-body{
+	padding-top: 12px;
+}
+.mui-grid-view.mui-grid-9.no-color{
+	background-color: white;
+}
+.my-grid-9 img{
+	width: 100%;
+	
+}
+.mui-table-view.no-buttom:before,	
+.mui-table-view.no-buttom:after{
+	height: 0;
+}
+.mui-grid-view.mui-grid-9.no-buttom .mui-table-view-cell,
+.mui-grid-view.mui-grid-9.no-buttom{
+	border: none;
+}
+.wei-cont{
+	background: white;
+	margin-bottom: 10px;
 }
