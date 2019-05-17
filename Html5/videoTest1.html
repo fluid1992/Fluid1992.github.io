@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+	<title>Video Example</title>
+	<script type="text/javascript">
+var src1 = 'rtmp://live.hkstv.hk.lxdns.com/live/hks';
+var src2 = 'http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400';
+var src = src1;
+var video = null;
+// H5 plus事件处理
+function plusReady(){
+	// 创建视频播放控件
+	video = new plus.video.VideoPlayer('video',{
+		src:src2
+	});
+	video.play();
+}
+document.addEventListener('plusready', plusReady, false);
+// 切换视频地址
+//function switchVideo(){
+//	src = (src==src1)?src2:src1;
+//	video.setStyles({src:src});
+//}
+	</script>
+	</head>
+	<body style="margin:0;padding:0;text-align:center;">
+		视频播放控件
+		<br/><br/>
+		<!--<button onclick="switchVideo()">切换视频地址</button>-->
+		<br/><br/>
+		<div id="video" style="width:100%;height:300px;background-color:#000000;margin:auto"></div>
+	</body>
+</html>

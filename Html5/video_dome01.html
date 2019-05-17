@@ -6,25 +6,25 @@
 	<title>Audio Example</title>
 	<script type="text/javascript">
 // 扩展API加载完毕后调用onPlusReady回调函数 
-document.addEventListener( "plusready", onPlusReady, false );
-// 扩展API加载完毕，现在可以正常调用扩展API 
-function onPlusReady() { 
-}
-var p = null; 
-function startPlay() {
-	if ( plus.audio == undefined ) {
-		alert( "Device not ready!" );
+	document.addEventListener( "plusready", onPlusReady, false );
+	// 扩展API加载完毕，现在可以正常调用扩展API 
+	function onPlusReady() { 
 	}
-	p = plus.audio.createPlayer( "audio/noya.mp3" );
-	p.play( function () {
-		alert( "Audio play success!" ); 
-	}, function ( e ) {
-		alert( "Audio play error: " + e.message ); 
-	} ); 
-}
-function stopPlay() {
-	p.stop();
-}
+	var p = null; 
+	function startPlay() {
+		if ( plus.audio == undefined ) {
+			alert( "Device not ready!" );
+		}
+		p = plus.audio.createPlayer( "audio/noya.mp3" );
+		p.play( function () {
+			alert( "Audio play success!" ); 
+		}, function ( e ) {
+			alert( "Audio play error: " + e.message ); 
+		} ); 
+	}
+	function stopPlay() {
+		p.stop();
+	}
 	</script>
 	</head>
 	<body>
