@@ -2,33 +2,37 @@
 <html>
 	<head>
 	<meta charset="utf-8">
-	<title>Audio Example</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+	<title>Video Example</title>
 	<script type="text/javascript">
-// 扩展API加载完毕后调用onPlusReady回调函数 
-document.addEventListener( "plusready", onPlusReady, false );
-// 扩展API加载完毕，现在可以正常调用扩展API 
-function onPlusReady() { 
-}
-var p = null; 
-function startPlay() {
-	if ( plus.audio == undefined ) {
-		alert( "Device not ready!" );
+var player = null;
+// 创建视频播放控件
+function createVideoPlayer() {
+	if(!player){
+		player = plus.video.createVideoPlayer('videoplayer', {
+			src:'../video/37d888piCa2m.mp4',
+			top:'100px',
+			left:'0px',
+			width: '100%',
+			height: '200px',
+			position: 'static'
+		});
+		plus.webview.currentWebview().append(player);
 	}
-	p = plus.audio.createPlayer( "video/37d888piCa2m.mp4" );
-	p.play( function () {
-		alert( "Audio play success!" ); 
-	}, function ( e ) {
-		alert( "Audio play error: " + e.message ); 
-	} ); 
-}
-function stopPlay() {
-	p.stop();
 }
 	</script>
+	<style type="text/css">
+*{
+	-webkit-user-select: none;
+}
+html,body{
+	margin: 0px;
+	padding: 0px;
+	height: 100%;
+}
+	</style>
 	</head>
 	<body>
-		<input type="button" value="Start Play" onclick="startPlay();"/> 
-		<br/>
-		<input type="button" value="Stop Play" onclick="stopPlay();"/>
+		<button onclick="createVideoPlayer()">创建视频播放控件</button>
 	</body>
 </html>
