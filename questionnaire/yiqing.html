@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>调查问卷</title>
+		<link href="https://cdn.bootcss.com/mui/3.7.1/css/mui.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="css/style1.css">
+
+		<style>
+			body {
+				background: url("images/bg.png");
+				background-size: 7.5rem 100%;
+				line-height: 0.42rem;
+				transition: scrollTop 1s;
+				-moz-transition: scrollTop 1s;
+				/* Firefox 4 */
+				-webkit-transition: scrollTop 1s;
+				/* Safari 和 Chrome */
+				-o-transition: scrollTop 1s;
+			}
+			
+			.header {
+				position: relative;
+				width: 7.5rem;
+				height: auto;
+			}
+			
+			.header-img {
+				width: 7.5rem;
+				height: auto;
+			}
+			
+			.header h1,
+			.header h2 {
+				position: absolute;
+				left: 0;
+				top: 0.9rem;
+				width: 100%;
+				text-align: center;
+				font-weight: 600;
+				font-size: 0.52rem;
+				color: #fff;
+				overflow: hidden;
+				padding: 0 0.2rem;
+			}
+			
+			.header h2 {
+				top: 1.9rem;
+			}
+			/*  */
+			
+			.content {
+				position: relative;
+				top: -0.8rem;
+				width: 100%;
+				padding: 0 0.3rem;
+			}
+			
+			.question {
+				position: relative;
+				background: #fff;
+				margin-bottom: 0.2rem;
+				padding: 0.3rem;
+				border-radius: 0.07rem;
+				font-size: 0.28rem;
+			}
+			
+			.question .question-title {
+				color: #010333;
+				/* font-weight: 600; */
+				margin-bottom: 0.15rem;
+				max-height: 0.84rem;
+				overflow: hidden;
+			}
+			
+			.question .question-title span {
+				color: #ff0000;
+			}
+			
+			.question .question-error {
+				color: #ff0000;
+			}
+			
+			.question .question-input {
+				width: 6.3rem;
+				border-bottom: #cacbde 0.01rem solid;
+				text-indent: 0.1rem;
+			}
+			
+			.question .question-input textarea {
+				position: relative;
+				top: 0.1rem;
+				width: 95%;
+				font-size: 0.26rem;
+				line-height: 0.36rem;
+				color: #565466;
+				margin-bottom: 0.1rem;
+			}
+			
+			.question .question-input.border {
+				width: 6.28rem;
+				height: 5.32rem;
+				text-indent: 0;
+				/* background: #ccc; */
+				border: solid 0.01rem #cacbde;
+				border-radius: 0.08rem;
+			}
+			
+			.question .question-input.border textarea {
+				/* background: #ccc; */
+				position: relative;
+				left: 0.1rem;
+				top: 0.1rem;
+				width: 6.08rem;
+				height: 5.02rem;
+				color: #95949d;
+			}
+			
+			.input_focus {
+				border-color: #2672ff !important;
+				box-shadow: 0 2px 4px 0 rgba(38, 114, 255, .2) !important;
+				animation: buttonSelected .25s cubic-bezier(.42, 0, .58, .1) !important;
+				-webkit-animation: buttonSelected .25s cubic-bezier(.42, 0, .58, .1) !important;
+			}
+			
+			.question .question-all {
+				/* float: right; */
+				width: 100%;
+				height: 0.42rem;
+				margin-top: 0.2rem;
+			}
+			
+			.question .question-all .question-all-span {
+				float: right;
+			}
+			/*  */
+			
+			.question .question-content .option-list li {
+				width: 6.9rem;
+				position: relative;
+				left: -0.3rem;
+				/* background: #dbe8f4; */
+			}
+			
+			.question .question-content .option-list .option-list-text {
+				position: absolute;
+				left: 1.7rem;
+				top: 0.18rem;
+				width: 2.64rem;
+				/* background: #d00; */
+				border-bottom: 0.01rem solid #cacbde;
+			}
+			
+			.question .question-content .option-list .option-list-text textarea {
+				position: relative;
+				top: 0.06rem;
+				font-size: 0.26rem;
+				line-height: 0.36rem;
+				color: #565466;
+			}
+			
+			.mui-checkbox.mui-left label,
+			.mui-radio.mui-left label {
+				position: relative;
+				top: 0.07rem;
+				/*max-width: 3.6rem;*/
+				/*white-space: nowrap;*/
+				padding-left: 1rem;
+				font-size: 0.26rem;
+				overflow: hidden;
+				color: #565466;
+			}
+			
+			.mui-checkbox input[type=checkbox]:before,
+			.mui-radio input[type=radio]:before {
+				position: relative;
+				top: 0.08rem;
+				font-size: 0.38rem;
+			}
+			
+			.mui-checkbox input[type=checkbox],
+			.mui-radio input[type=radio] {
+				width: 0.38rem;
+				height: 0.38rem;
+				top: 0.1rem;
+			}
+			
+			.mui-radio input[type=radio]:checked:before {
+				position: relative;
+				top: 0.08rem;
+			}
+			/* 提交按钮 */
+			
+			footer {
+				position: relative;
+				top: -0.8rem;
+				padding: 0 0.3rem;
+			}
+			
+			footer .mui-btn {
+				width: 100%;
+				height: 0.8rem;
+				line-height: 0.6rem;
+				font-size: 0.28rem;
+				padding: 0;
+				background: #ffa800;
+			}
+			/* 弹窗 */
+			
+			.shade {
+				position: fixed;
+				left: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				background: rgba(0, 0, 0, 0.5);
+				display: none;
+			}
+			
+			.shade .alert {
+				position: fixed;
+				left: 1.05rem;
+				top: 5.27rem;
+				width: 5.4rem;
+				height: 2.8rem;
+				background: #fff;
+				border-radius: 0.25rem;
+			}
+			
+			.shade .alert .alert-title {
+				width: 5.4rem;
+				height: 1.92rem;
+				border-bottom: 0.01rem solid #d6d6da;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+			}
+			
+			.shade .alert .alert-title h2 {
+				font-size: 0.36rem;
+				text-align: center;
+				/* height: 1.2rem; */
+				line-height: 0.8rem;
+				font-weight: 600;
+			}
+			
+			.shade .alert .alert-title h3 {
+				font-size: 0.32rem;
+				text-align: center;
+				/* height: 0.8rem; */
+				line-height: 0.32rem;
+				font-weight: 100;
+			}
+			
+			.shade .alert .alert-btn {
+				text-align: center;
+				line-height: 0.87rem;
+				font-size: 0.34rem;
+				font-weight: 600;
+				color: #1564da;
+			}
+			
+			.cover {
+				height: 100%;
+				width: 100%;
+				background: #000000;
+				position: absolute;
+				top: 0;
+				display: none;
+			}
+			
+			.cover .alert {
+				position: fixed;
+				left: 1.05rem;
+				top: 5.27rem;
+				width: 5.4rem;
+				height: 2.8rem;
+				background: #fff;
+				border-radius: 0.25rem;
+			}
+			
+			.cover .alert .alert-title {
+				width: 5.4rem;
+				height: 2.32rem;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+			}
+			
+			.cover .alert .alert-title h2 {
+				font-size: 0.36rem;
+				text-align: center;
+				/* height: 1.2rem; */
+				line-height: 0.8rem;
+				font-weight: 600;
+			}
+			
+			.cover .alert .alert-title h3 {
+				font-size: 0.32rem;
+				text-align: center;
+				/* height: 0.8rem; */
+				line-height: 0.32rem;
+				font-weight: 100;
+			}
+			
+			textarea::-webkit-input-placeholder {
+				color: #666;
+			}
+			.box{
+				max-width: 750px;
+				margin:0 auto;
+			}
+			/*@media screen and (min-width: 480px) {
+			    
+			}*/
+			
+		</style>
+	</head>
+
+	<body>
+		<div class="box">
+			<div class="data_box" style="display: none;">
+				<header class="header">
+					<article class="head-img">
+						<img class="header-img" src="images/top.png" alt="">
+					</article>
+					<h2 id="questionnaireName"></h2>
+				</header>
+				<div class="content" id="content"></div>
+				<footer>
+					<div class="btn">
+						<button type="button" data-loading-text="提交中。。。" data-loading-icon="mui-spinner mui-spinner-custom" class="mui-btn mui-btn-warning">确认提交</button>
+					</div>
+	
+				</footer>
+				<div class="shade">
+					<div class="alert">
+						<div class="alert-title">
+							<h2>感谢您本次的作答</h2>
+							<h3>祝您生活愉快</h3>
+						</div>
+						<div class="alert-btn">
+							确认
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="cover">
+				<div class="alert">
+					<div class="alert-title">
+						<h2>该问卷已经停止作答</h2>
+						<h3>感谢您的支持</h3>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</body>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script src="js/mui.min.js"></script>
+	<script type="text/javascript" src="https://apis.map.qq.com/tools/geolocation/min?key=HDQBZ-Y2EWX-ZHS43-7XYIQ-YTCX7-ERFSK&referer=myapp"></script>
+	</head>
+	<script>
+		//		var id = "21416453500013";
+		var rowFlag1 = false; //单行是否符合规范
+		var radioFlag1 = false; //单选是否符合规范
+		var checkboxFlag1 = false; //多选是否符合规范
+		var rowsFlag1 = false; //多行是否符合规范
+		var ipAddr = "http://www.isvtop.com:8088/";
+		//var ipAddr = "http://119.23.70.27:8088/";
+		var radio_arr = [],
+			checkbox_arr = [],
+			name_arr = [],
+			suggest_arr = [],
+			radio_flag = [],
+			checkbox_flag = [],
+			suggest_flag = [],
+			arrradio = [],
+			arrcheckbox = [];
+		var radio_data = [],
+			checkbox_data = [],
+			name_data = [],
+			suggest_data = [];
+
+		var postData = null;
+
+		mui(document.body).on('tap', '.radio', function(e) {
+
+		});
+
+		function rowIsFlag() { //单行判断
+			$(".question1-top div[id^='nameError_']").hide();
+			name_flag = [], name_data = [];
+			for(var i = 0; i < name_arr.length; i++) {
+				var item = $($("#name_que_" + name_arr[i].questionId)).find("textarea");
+				name_data.push({
+					"questionId": name_arr[i].questionId,
+					"answer": item.val()
+				})
+				if(item.val() == "" && name_arr[i].isRequired == 1) {
+					name_flag.push(item[0].className.split("username_")[1]);
+					$("#nameError_" + item[0].className.split("username_")[1]).show();
+				}
+			}
+			rowFlag1 = true ? name_flag.length == 0 : false;
+		}
+
+		function radioIsFlag() { //单选判断
+			$(".question2-top div[id^='radioError']").hide();
+			radio_flag = [], radio_data = [];
+			for(var i = 0; i < radio_arr.length; i++) {
+				var answer = "";
+				for(var j = 0; j < $($("#radio_que_" + radio_arr[i].questionId)[0]).find("input").length; j++) {
+					var item = $($("#radio_que_" + radio_arr[i].questionId)[0]).find("input")[j];
+					if(item.checked == true) {
+						answer = item.id;
+						radio_flag.push(item.className.split("radio")[1]);
+					}
+				}
+				radio_data.push({
+					"questionId": radio_arr[i].questionId,
+					"itemId": answer
+				});
+			}
+			arrradio = [];
+			for(var i = 0; i < radio_arr.length; i++) {
+				var stra = radio_arr[i].questionId;
+				var count = 0;
+				for(var j = 0; j < radio_flag.length; j++) {
+					var strb = radio_flag[j];
+					if(stra == strb) {
+						count++;
+					}
+				}
+				if(count === 0 && radio_arr[i].isRequired == 1) {
+					arrradio.push(stra);
+					$("#radioError_" + stra).show();
+				}
+			}
+			radioFlag1 = true ? arrradio.length == 0 : false;
+		}
+
+		function checkboxIsFlag() { //多选判断
+			$(".question3-top div[id^='checkError']").hide();
+			checkbox_flag = [], checkbox_data = [];
+			for(var i = 0; i < checkbox_arr.length; i++) {
+				var answer = "";
+				for(var j = 0; j < $($("#checkbox_que_" + checkbox_arr[i].questionId)[0]).find("input").length; j++) {
+					var item = $($("#checkbox_que_" + checkbox_arr[i].questionId)[0]).find("input")[j];
+					if(item.checked == true) {
+						answer += item.id + ",";
+						checkbox_flag.push(item.className.split("checkbox")[1]);
+					}
+				}
+				checkbox_data.push({
+					"questionId": checkbox_arr[i].questionId,
+					"itemId": answer.substr(0, answer.length - 1)
+				});
+			}
+			arrcheckbox = [];
+			for(var i = 0; i < checkbox_arr.length; i++) {
+				var stra = checkbox_arr[i].questionId;
+				var count = 0;
+				for(var j = 0; j < checkbox_flag.length; j++) {
+					var strb = checkbox_flag[j];
+					if(stra == strb) {
+						count++;
+					}
+				}
+				if(count === 0 && checkbox_arr[i].isRequired == 1) {
+					arrcheckbox.push(stra);
+					$("#checkError_" + stra).show();
+				}
+			}
+			checkboxFlag1 = true ? arrcheckbox.length == 0 : false;
+		}
+
+		function rowsIsFlag() { //多行判断
+			$(".question4-top div[id^='suggestError_']").hide();
+			suggest_flag = [], suggest_data = [];
+			for(var i = 0; i < suggest_arr.length; i++) {
+				var item = $($("#suggest_que_" + suggest_arr[i].questionId)).find("textarea");
+				suggest_data.push({
+					"questionId": suggest_arr[i].questionId,
+					"answer": item.val()
+				})
+				if(item.val() == "" && suggest_arr[i].isRequired == 1) {
+					suggest_flag.push(item[0].className.split("suggest_")[1]);
+					$("#suggestError_" + item[0].className.split("suggest_")[1]).show();
+				}
+			}
+			rowsFlag1 = true ? suggest_flag.length == 0 : false;
+		}
+
+		function allCheckIsFlag() {
+			rowIsFlag();
+			radioIsFlag();
+			checkboxIsFlag();
+			rowsIsFlag();
+		}
+		//单行输入框事件
+		$("#username").focus(function() { //聚焦事件
+			$(".bottom").addClass("input_focus");
+		})
+		$("#username").blur(function() { //失焦事件
+			$(".bottom").removeClass("input_focus");
+		})
+		$('#username').bind('input propertychange', 'textarea', function() { //input事件
+			rowIsFlag();
+		});
+		//单选框事件
+		$('input:radio[name="radio"]').click(function() {
+			radioIsFlag();
+			for(var i = 0; i < $('input:radio[name="radio"]').length; i++) {
+				var item = $('input:radio[name="radio"]')[i];
+				if(item.checked == true) {
+					$(item).parent().css({
+						"background": "#dbe8f4"
+					});
+				} else {
+					$(item).parent().css({
+						"background": "none"
+					});
+				}
+			}
+		});
+		//单选其他框事件
+		$("#radio6-text").bind('input propertychange', 'textarea', function() {
+			radioIsFlag();
+		});
+		$("#radio6-text").focus(function() {
+			$(".radio6-text").addClass("input_focus");
+		})
+		$("#radio6-text").blur(function() {
+			$(".radio6-text").removeClass("input_focus");
+		})
+		// 多选框事件
+		$('input:checkbox[name="checkbox1"]').click(function() {
+			checkboxIsFlag();
+			for(var i = 0; i < $('input:checkbox[name="checkbox1"]').length; i++) {
+				var item = $('input:checkbox[name="checkbox1"]')[i];
+				if(item.checked == true) {
+					$(item).parent().css({
+						"background": "#dbe8f4"
+					});
+				} else {
+					$(item).parent().css({
+						"background": "none"
+					});
+				}
+			}
+		});
+		//多选其他框事件
+		$("#check6-text").bind('input propertychange', 'textarea', function() {
+			checkboxIsFlag();
+		});
+		$("#check6-text").focus(function() {
+			$(".check6-text").addClass("input_focus");
+		})
+		$("#check6-text").blur(function() {
+			$(".check6-text").removeClass("input_focus");
+		})
+		// 多行输入框事件
+		$("#suggest").focus(function() {
+			$(".border").addClass("input_focus");
+		})
+		$("#suggest").blur(function() {
+			$(".border").removeClass("input_focus");
+		})
+		$('#suggest').bind('input propertychange', 'textarea', function() {
+			$(".question-all-span span").html($('#suggest').val().length)
+			rowsIsFlag();
+		});
+		// 弹窗确认
+		$(".alert-btn").click(function() {
+			$(".shade").css({
+				"display": "none"
+			});
+			location.reload();
+		})
+
+		//提交按钮
+		mui(document.body).on('tap', '.mui-btn', function(e) {
+			allCheckIsFlag();
+			if(rowFlag1 && radioFlag1 && checkboxFlag1 && rowsFlag1) { //所有内容全部填写
+				saveData();
+				rowFlag1 = false;
+				radioFlag1 = false;
+				checkboxFlag1 = false;
+				rowsFlag1 = false;
+			} else {
+				if(!rowFlag1) {
+					$('html,body').animate({
+						scrollTop: $("#name_que_" + name_arr[0].questionId).offset().top
+					}, 300);
+				} else if(!radioFlag1) {
+					$('html,body').animate({
+						scrollTop: $("#radio_que_" + arrradio[0]).offset().top
+					}, 300);
+				} else if(!checkboxFlag1) {
+					$('html,body').animate({
+						scrollTop: $("#checkbox_que_" + arrcheckbox[0]).offset().top
+					}, 300);
+				} else if(!rowsFlag1) {
+					$('html,body').animate({
+						scrollTop: $("#suggest_que_" + suggest_arr[0].questionId).offset().top
+					}, 300);
+				}
+			}
+		});
+
+		function saveData() {
+			postData = {
+				"area": areastr,
+				"questionnaireId": getUrlParam("id"),
+				"answerInfoData": radio_data.concat(checkbox_data).concat(name_data).concat(suggest_data)
+			}
+			$.ajax({
+				type: "POST",
+				url: ipAddr + "jyQuestionnaire/questionnaireApi/saveAnswerInfo",
+				beforeSend: function(req) {
+					req.setRequestHeader('Content-Type', 'application/json');
+				},
+				dataType: 'JSON',
+				data: JSON.stringify(postData),
+				success: function(res) {
+					$(".shade").css({
+						"display": "block"
+					});
+					mui($(".mui-btn")).button('loading');
+					setTimeout(function() {
+						mui($(".mui-btn")).button('reset');
+					}.bind($(".mui-btn")), 2000);
+				},
+				error: function(e) {
+
+				}
+			})
+		}
+
+		function getUrlParam(name) {
+			var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+			var r = window.location.search.substr(1).match(reg); //匹配目标参数
+			if(r != null) return unescape(r[2]);
+			return null; //返回参数值
+		}
+
+		function hintInput(dom, flag) { //提示信息的显示
+			if(flag == true) {
+				dom.fadeOut(500);
+			} else {
+				dom.fadeIn(500);
+			}
+		}
+
+		+
+		function() {
+			remLayout();
+
+			function remLayout() {
+				var w = document.documentElement.clientWidth;
+				w = w > 768 ? 768 : w;
+				w = w <= 320 ? 320 : w;
+				document.documentElement.style.fontSize = w / 7.5 + 'px';
+			}
+			window.addEventListener('resize', function() {
+				remLayout();
+			}, false);
+		}();
+		var areastr = "";        
+		var geolocation = new qq.maps.Geolocation();         
+		var options = {
+			timeout: 5000
+		};        
+		var positionNum = 0;
+
+		window.onload = function() {
+			//init();
+			//			bindData(resData);
+			getData();
+
+		}
+
+		function init() {
+			getCurLocation();
+		}
+
+		        
+		function getCurLocation() {            
+			geolocation.getLocation(showPosition, showErr, options);        
+		}        
+		function showPosition(position) {            
+			areastr = position.province + "-" + position.city + "-" + position.district;        
+		};
+
+		function showErr(position) {
+
+		}
+
+		function getStringLength(str) {
+			var slength = 0;
+			for(i = 0; i < str.length; i++) {
+				if((str.charCodeAt(i) >= 0) && (str.charCodeAt(i) <= 255))
+					slength = slength + 1;
+				else
+					slength = slength + 2;
+			}
+			return slength;
+		};
+
+		function getData() {
+			$.ajax({
+				type: "GET",
+				url: ipAddr + "jyQuestionnaire/questionnaireApi/questionnaireDetails",
+				data: {
+					"questionnaireId": getUrlParam("id")
+				},
+				success: function(res) {
+					var data = res;
+					if(data.resultCode == 0) {
+						if(data.questionnaireVO != null && data.questionnaireVO.status == 1) {
+							$(".data_box").show();
+							var dataObj = data.questionnaireVO;
+							var h1Title = dataObj.questionnaireName;
+							if(getStringLength(h1Title) < 52) {
+								$("#questionnaireName").html(h1Title);
+							} else {
+								$("#questionnaireName").html(h1Title.substring(0, 28) + "...");
+							}
+							document.getElementsByTagName("title")[0].innerText = h1Title;
+							var h2Tiele = dataObj.createUser;
+							var list = dataObj.questionVOList;
+							var str = '';
+							for(var i = 0; i < list.length; i++) {
+								var item = list[i];
+								var questionId = item.id;
+								var questionTitle = item.questionName; //问题标题
+								var type = item.type; //1：单选  2：多选  3：单行填空  4：多行填空
+								var isRequired = item.isRequired; //1：必选  2：可选
+								var options = item.itemVOList; //问题选项
+								if(type == 1) {
+									radio_arr.push({
+										"isRequired": isRequired,
+										"questionId": questionId
+									});
+									str += radioDomFn(questionTitle, type, isRequired, options);
+								} else if(type == 2) {
+									checkbox_arr.push({
+										"isRequired": isRequired,
+										"questionId": questionId
+									});
+									str += checkDomFn(questionTitle, type, isRequired, options);
+								} else if(type == 3) {
+									name_arr.push({
+										"isRequired": isRequired,
+										"questionId": questionId
+									});
+									str += rowDomFn(questionTitle, type, isRequired, questionId);
+								} else if(type == 4) {
+									suggest_arr.push({
+										"isRequired": isRequired,
+										"questionId": questionId
+									});
+									str += rowsDomFn(questionTitle, type, isRequired, questionId);
+								}
+							}
+							$("#content").html(str);
+							$("textarea").blur(function() {
+								$("body").removeClass("mui-focusin");
+							})
+						} else {
+							$(".cover").show();
+						}
+					}
+				},
+				error: function(e) {
+
+				}
+			});
+		}
+
+		function rowDomFn(questionTitle, type, isRequired, data) { //绑定单行数据
+			var isRequiredStr = isRequired == 1 ? "<span>*</span>" : "";
+			var str = `<div class="question question1-top" id="name_que_${data}">
+            <div class="question-title">${isRequiredStr} ${questionTitle}</div>
+            <div class="question-error" id="nameError_${data}" style="display: none;">该题为本次问卷必填选项</div>
+            <div class="question-content">
+                <div class="question-input bottom">
+                    <textarea name="" class="username_${data}" id="username" cols="20" rows="1" style="border: none;" placeholder="" maxlength="20"></textarea>
+                </div>
+            </div>
+        </div>`
+			return str;
+		}
+
+		function radioDomFn(questionTitle, type, isRequired, data) { //绑定单选数据,问题标题，问题类型，是否必选，选项数据
+			var typeStr = type == 1 ? "（单选）" : "";
+			var isRequiredStr = isRequired == 1 ? "<span>*</span>" : "";
+			var str = `<div class="question question2-top" id="radio_que_${data[0].questionId}">
+            <div class="question-title">${isRequiredStr} ${questionTitle}${typeStr}</div>
+            <div class="question-error" id="radioError_${data[0].questionId}" style="display: none;">该题为本次问卷必填选项</div>
+            <div class="question-content">
+                <ul class="option-list">
+                    ${bindOptionsFn(type, data)}
+                </ul>
+            </div>
+        </div>`;
+			return str;
+		}
+
+		function checkDomFn(questionTitle, type, isRequired, data) { //绑定多选数据
+			var typeStr = type == 2 ? "（多选）" : "";
+			var isRequiredStr = isRequired == 1 ? "<span>*</span>" : "";
+			var str = `<div class="question question3-top" id="checkbox_que_${data[0].questionId}">
+            <div class="question-title">${isRequiredStr} ${questionTitle}${typeStr}</div>
+            <div class="question-error" id="checkError_${data[0].questionId}" style="display: none;">该题为本次问卷必填选项</div>
+            <div class="question-content">
+                <ul class="option-list">
+                    ${bindOptionsFn(type, data)}
+                </ul>
+            </div>
+        </div>`;
+			return str;
+		}
+
+		function rowsDomFn(questionTitle, type, isRequired, data) { //绑定多行数据
+			var isRequiredStr = isRequired == 1 ? "<span>*</span>" : "";
+			var str = `<div class="question question4-top" id="suggest_que_${data}">
+            <div class="question-title">${isRequiredStr} ${questionTitle}</div>
+            <div class="question-error" id="suggestError_${data}" style="display: none;">该题为本次问卷必填选项</div>
+            <div class="question-content">
+                <div class="question-input border">
+                    <textarea name="" class="suggest_${data}" oninput="changeval(event)" id="suggest" cols="20" rows="1" style="border: none;" maxlength="300" placeholder="请根据实际情况填写相应的内容，没有请填“无”。"></textarea>
+                </div>
+                <div class="question-all">
+                    <div class="question-all-span"><span>0</span>/300</div>
+                </div>
+            </div>
+        </div>`
+			return str;
+		}
+
+		function changeval(e) {
+			$($(e.target).parent().parent()[0]).find(".question-all-span").html(e.target.value.length + "/300");
+		}
+
+		function bindOptionsFn(type, data) {
+			var isRadio = type == 1 ? "radio" : "checkbox";
+			var str = '';
+			for(var i = 0; i < data.length; i++) {
+				var item = data[i];
+				str += `<li>
+            <div class="mui-input-row mui-${isRadio} mui-left">
+                <label for="${item.id}">${item.itemContent}</label>
+                <input class="${isRadio + item.questionId}" id="${item.id}" name="${isRadio + item.questionId}" type="${isRadio}">
+            </div>
+        </li>`;
+			}
+			return str;
+
+		}
+		//
+		//		var resData = {
+		//			"resultCode": "0",
+		//			"resultMsg": "成功",
+		//			"questionnaireVO": {
+		//				"id": 21416453500013,
+		//				"questionnaireCode": "20200214002",
+		//				"questionnaireName": "测试123",
+		//				"industryId": "",
+		//				"status": 1,
+		//				"answerNumber": 1,
+		//				"isWelcome": 1,
+		//				"welcomeSpeech": "",
+		//				"dwellTime": 10,
+		//				"endSpeech": "",
+		//				"isAdvertising": 2,
+		//				"pushChannel": "",
+		//				"isPhone": 1,
+		//				"phoneSpeech": "",
+		//				"createTime": "2020-02-14 16:45:35",
+		//				"createUser": "山东电信行业平台",
+		//				"updateTime": "2020-02-14 18:46:00",
+		//				"cpId": 185,
+		//				"checkStatus": 3,
+		//				"checkResult": null,
+		//				"questionnaireExplain": null,
+		//				"questionVOList": [{
+		//						"id": 21416453500012,
+		//						"questionnaireId": 21416453500012,
+		//						"questionName": "新建问题1123",
+		//						"type": 2,
+		//						"isRequired": 1,
+		//						"isFirst": null,
+		//						"isLast": null,
+		//						"previousId": null,
+		//						"nextId": null,
+		//						"createTime": "2020-02-14 10:45:57",
+		//						"updateTime": "2020-02-14 18:46:00",
+		//						"questionOrder": 1,
+		//						"itemVOList": [{
+		//								"id": 214164535000111,
+		//								"questionId": 21416453500012,
+		//								"itemOrder": "A",
+		//								"itemContent": "选项12",
+		//								"createTime": "2020-02-14 16:45:35",
+		//								"updateTime": "2020-02-14 18:46:00"
+		//							},
+		//							{
+		//								"id": 214164535000121,
+		//								"questionId": 21416453500012,
+		//								"itemOrder": "B",
+		//								"itemContent": "选项12",
+		//								"createTime": "2020-02-14 16:45:35",
+		//								"updateTime": "2020-02-14 18:46:00"
+		//							},
+		//							{
+		//								"id": 2141645350001211,
+		//								"questionId": 21416453500012,
+		//								"itemOrder": "C",
+		//								"itemContent": "选项123",
+		//								"createTime": "2020-02-14 16:45:35",
+		//								"updateTime": "2020-02-14 18:46:00"
+		//							}
+		//						]
+		//					},
+		//					{
+		//						"id": 214164535000121,
+		//						"questionnaireId": 214164535000121,
+		//						"questionName": "新建问题1123",
+		//						"type": 2,
+		//						"isRequired": 1,
+		//						"isFirst": null,
+		//						"isLast": null,
+		//						"previousId": null,
+		//						"nextId": null,
+		//						"createTime": "2020-02-14 10:45:57",
+		//						"updateTime": "2020-02-14 18:46:00",
+		//						"questionOrder": 1,
+		//						"itemVOList": [{
+		//								"id": 2141645350001111,
+		//								"questionId": 214164535000121,
+		//								"itemOrder": "A",
+		//								"itemContent": "选项12",
+		//								"createTime": "2020-02-14 16:45:35",
+		//								"updateTime": "2020-02-14 18:46:00"
+		//							},
+		//							{
+		//								"id": 2141645350001211,
+		//								"questionId": 214164535000121,
+		//								"itemOrder": "B",
+		//								"itemContent": "选项12",
+		//								"createTime": "2020-02-14 16:45:35",
+		//								"updateTime": "2020-02-14 18:46:00"
+		//							},
+		//							{
+		//								"id": 21416453500012111,
+		//								"questionId": 214164535000121,
+		//								"itemOrder": "C",
+		//								"itemContent": "选项123",
+		//								"createTime": "2020-02-14 16:45:35",
+		//								"updateTime": "2020-02-14 18:46:00"
+		//							}
+		//						]
+		//					},
+		//					{
+		//						"id": 214164535000141,
+		//						"questionnaireId": 214164535000131,
+		//						"questionName": "新建问题1123",
+		//						"type": 1,
+		//						"isRequired": 2,
+		//						"isFirst": null,
+		//						"isLast": null,
+		//						"previousId": null,
+		//						"nextId": null,
+		//						"createTime": "2020-02-14 10:45:57",
+		//						"updateTime": "2020-02-14 18:46:00",
+		//						"questionOrder": 1,
+		//						"itemVOList": [{
+		//								"id": 214164535000151,
+		//								"questionId": 214164535000141,
+		//								"itemOrder": "A",
+		//								"itemContent": "选项12",
+		//								"createTime": "2020-02-14 16:45:35",
+		//								"updateTime": "2020-02-14 18:46:00"
+		//							},
+		//							{
+		//								"id": 214164535000161,
+		//								"questionId": 214164535000141,
+		//								"itemOrder": "B",
+		//								"itemContent": "选项12",
+		//								"createTime": "2020-02-14 16:45:35",
+		//								"updateTime": "2020-02-14 18:46:00"
+		//							}
+		//						]
+		//					},
+		//					{
+		//						"id": 21416453500017,
+		//						"questionnaireId": 21416453500013,
+		//						"questionName": "单选12",
+		//						"type": 3,
+		//						"isRequired": 1,
+		//						"isFirst": null,
+		//						"isLast": null,
+		//						"previousId": null,
+		//						"nextId": null,
+		//						"createTime": "2020-02-14 10:45:57",
+		//						"updateTime": "2020-02-14 18:46:00",
+		//						"questionOrder": 2,
+		//						"itemVOList": null
+		//					},
+		//					{
+		//						"id": 21416471000034,
+		//						"questionnaireId": 21416453500013,
+		//						"questionName": "新建问题1",
+		//						"type": 4,
+		//						"isRequired": 1,
+		//						"isFirst": null,
+		//						"isLast": null,
+		//						"previousId": null,
+		//						"nextId": null,
+		//						"createTime": "2020-02-14 10:45:57",
+		//						"updateTime": "2020-02-14 18:46:00",
+		//						"questionOrder": 3,
+		//						"itemVOList": null
+		//					}
+		//				],
+		//				"companyVOList": null
+		//			}
+		//		}
+	</script>
+
+</html>
